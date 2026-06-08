@@ -6,6 +6,7 @@
     "dddx:prod": "./packages/cli/bin/dddx",
     "build": "turbo run build",
     "publish": "turbo run publish",
+    "publish:web": "bun run --cwd apps/web publish",
     "build:caps": "bun run --cwd packages/cli build:caps",
     "build:plugins": "bun run --cwd packages/plugins-official build",
     "publish:plugins": "bun run --cwd packages/plugins-official publish",
