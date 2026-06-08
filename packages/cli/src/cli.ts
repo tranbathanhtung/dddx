@@ -2,6 +2,7 @@
 import chalk from "chalk";
 import { Command } from "commander";
 
+import { help } from "./commands/help";
 import { plugin } from "./commands/plugin";
 import { version } from "./commands/version";
 import { Hot } from "./util/hot";
@@ -149,6 +150,7 @@ program
   });
 
 const main = async () => {
+  help(program);
   plugin(program);
   version(program);
   await program.parseAsync();

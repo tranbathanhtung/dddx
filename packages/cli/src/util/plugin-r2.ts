@@ -26,9 +26,10 @@ import os from "node:os";
 import path from "node:path";
 
 import { Filesystem } from "./filesystem";
+import { production } from "./sdk-origin.ts";
 
-const PLUGINS_PUBLIC_BASE_DEFAULT =
-  "https://pub-17fcbe66a34049b78ab4b1ba31de4a22.r2.dev";
+/** Same public CDN as the SDK (`cdn.dddx.dev`). */
+const PLUGINS_PUBLIC_BASE_DEFAULT = production;
 
 export const R2_PREFIX = process.env.R2_PREFIX ?? "plugins";
 export const OFFICIAL_MANIFEST_KEY = `${R2_PREFIX}/official/marketplace.json`;

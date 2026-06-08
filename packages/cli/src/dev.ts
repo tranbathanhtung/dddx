@@ -19,6 +19,7 @@ import {
   killStudioWorkerSync,
   startStudioServer,
   registerPreviewTargets,
+  resolveStudioPort,
   type PreviewTarget,
 } from "@/studio";
 import { Log } from "./util/log";
@@ -230,15 +231,19 @@ export async function runDev(options: DevOptions): Promise<DevHandle> {
     process.exit(1);
   }
 
-  const [runtimes, studio] = await Promise.all([
-    startAppRuntimes(discovery.apps),
-    startStudioServer(),
-  ]);
-  await registerPreviewTargets(
-    studio.port,
-    projectDir,
-    toPreviewTargets(runtimes),
-  );
+  const studioPort = resolveStudioPort();
+  const runtimes = await startAppRuntimes(discovery.apps);
+  const syncPreviewTargets = () =>
+    registerPreviewTargets(
+      studioPort,
+      projectDir,
+      toPreviewTargets(runtimes),
+    );
+  const studio = await startStudioServer({
+    port: studioPort,
+    onBeforeAttach: syncPreviewTargets,
+  });
+  await syncPreviewTargets();
   let tearingDown = false;
   let teardownPromise: Promise<void> | null = null;
   let devLifecycle!: ProcessLifecycle.Handle;

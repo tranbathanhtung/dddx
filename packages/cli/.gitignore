@@ -1,0 +1,4 @@
+curl-deps/
+.publish-staging/
+node_modules/
+package.json.monorepo

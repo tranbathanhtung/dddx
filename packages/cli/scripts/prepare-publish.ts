@@ -1,5 +1,5 @@
 /**
- * Rewrite package.json for npm publish (bin-only tarball).
+ * Rewrite package.json for npm publish (slim bin + curl-deps manifests).
  * Restored by scripts/restore-publish.ts after publish.
  */
 
@@ -10,20 +10,25 @@ const root = join(import.meta.dir, "..");
 const pkgPath = join(root, "package.json");
 const backupPath = join(root, "package.json.monorepo");
 
-/** Installed next to the global binary — not bundled into bin/dddx. */
-const RUNTIME_DEPENDENCIES = {
+/** Shipped in the published tarball — not bundled into bin/dddx.mjs. */
+export const RUNTIME_DEPENDENCIES = {
   "@agentclientprotocol/claude-agent-acp": "^0.41.0",
   "@zed-industries/codex-acp": "^0.15.0",
   "@parcel/watcher": "2.5.1",
 } as const;
 
-const OPTIONAL_DEPENDENCIES = {
+export const OPTIONAL_DEPENDENCIES = {
   "@parcel/watcher-darwin-arm64": "2.5.1",
   "@parcel/watcher-darwin-x64": "2.5.1",
   "@parcel/watcher-linux-arm64-glibc": "2.5.1",
   "@parcel/watcher-linux-x64-glibc": "2.5.1",
   "@parcel/watcher-win32-x64": "2.5.1",
-  playwright: "^1.58.2",
+  "@zed-industries/codex-acp-darwin-arm64": "0.15.0",
+  "@zed-industries/codex-acp-darwin-x64": "0.15.0",
+  "@zed-industries/codex-acp-linux-arm64": "0.15.0",
+  "@zed-industries/codex-acp-linux-x64": "0.15.0",
+  "@zed-industries/codex-acp-win32-arm64": "0.15.0",
+  "@zed-industries/codex-acp-win32-x64": "0.15.0",
 } as const;
 
 type PackageJson = {
@@ -45,10 +50,11 @@ export function preparePublishPackageJson(): void {
     name: source.name,
     version: source.version,
     type: "module",
+    engines: { node: ">=20.9.0" },
     repository: source.repository,
     keywords: source.keywords,
-    files: ["bin"],
-    bin: source.bin,
+    files: ["bin", "curl-deps"],
+    bin: { dddx: "bin/dddx.mjs" },
     dependencies: RUNTIME_DEPENDENCIES,
     optionalDependencies: OPTIONAL_DEPENDENCIES,
   };

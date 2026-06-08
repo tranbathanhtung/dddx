@@ -13,7 +13,6 @@ const INSTALL_COMMANDS: Record<string, string> = {
   curl: "curl -fsSL https://dddx.dev/install | bash",
   npm: "npm install -g @dddx/cli",
   bun: "bun install -g @dddx/cli",
-  yarn: "yarn install -g @dddx/cli",
   pnpm: "pnpm install -g @dddx/cli",
 };
 
@@ -162,7 +161,7 @@ function InstallWidget({
   onCopy: () => void;
   copied: boolean;
 }) {
-  const tabs = ["curl", "npm", "bun", "yarn", "pnpm"];
+  const tabs = ["curl", "npm", "bun", "pnpm"];
 
   return (
     <div className="border border-[var(--border)] rounded-xl bg-[var(--bg-muted)] overflow-hidden max-w-full">
@@ -427,11 +426,7 @@ export function Hero() {
                       &middot;
                     </span>
                   )}
-                  <img
-                    src={agent.icon}
-                    alt=""
-                    className="w-4 h-4 rounded"
-                  />
+                  <img src={agent.icon} alt="" className="w-4 h-4 rounded" />
                   {agent.name}
                 </span>
               ))}

@@ -1,6 +1,6 @@
 {
   "name": "@dddx/cli",
-  "version": "0.1.5",
+  "version": "0.1.22",
   "module": "index.ts",
   "type": "module",
   "private": false,
@@ -26,7 +26,7 @@
     "bin"
   ],
   "bin": {
-    "dddx": "./bin/dddx"
+    "dddx": "./bin/dddx.mjs"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",

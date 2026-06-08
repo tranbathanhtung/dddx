@@ -32,9 +32,9 @@
     },
     "packages/cli": {
       "name": "@dddx/cli",
-      "version": "0.1.5",
+      "version": "0.1.20",
       "bin": {
-        "dddx": "./bin/dddx",
+        "dddx": "./bin/dddx.mjs",
       },
       "dependencies": {
         "@agentclientprotocol/claude-agent-acp": "^0.41.0",
@@ -91,7 +91,7 @@
     },
     "packages/sdk": {
       "name": "@dddx/sdk",
-      "version": "0.1.5",
+      "version": "0.1.20",
       "dependencies": {
         "@ai-sdk/react": "^3.0.170",
         "@dddx/cli": "workspace:*",

@@ -3,17 +3,22 @@
  * monorepo manifest even when typecheck, build, or npm publish fails.
  */
 
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+import { readdir } from "node:fs/promises";
 import { join } from "node:path";
 
+import {
+  cleanupCurlDeps,
+  generateCurlDeps,
+} from "./generate-curl-deps.ts";
 import { preparePublishPackageJson } from "./prepare-publish.ts";
 import { restorePublishPackageJson } from "./restore-publish.ts";
 
 const root = join(import.meta.dir, "..");
 const backupPath = join(root, "package.json.monorepo");
 
-function npmPublishArgs(): string[] {
-  const args = ["publish", "--access", "public", "--ignore-scripts"];
+function npmPublishArgs(tarballPath: string): string[] {
+  const args = ["publish", tarballPath, "--access", "public", "--ignore-scripts"];
 
   const fromEnv = process.env.NPM_OTP?.trim();
   if (fromEnv) {
@@ -46,6 +51,62 @@ async function run(command: string[]): Promise<number> {
   return proc.exited;
 }
 
+async function packTarball(version: string): Promise<string> {
+  const packCode = await run(["npm", "pack", "--pack-destination", root]);
+  if (packCode !== 0) {
+    throw new Error("npm pack failed");
+  }
+
+  const expected = `dddx-cli-${version}.tgz`;
+  const direct = join(root, expected);
+  if (existsSync(direct)) return direct;
+
+  const files = await readdir(root);
+  const match = files.find(
+    (file) => file.startsWith("dddx-cli-") && file.endsWith(".tgz"),
+  );
+  if (!match) {
+    throw new Error("npm pack did not produce a tarball");
+  }
+  return join(root, match);
+}
+
+async function verifyPublishedTarball(version: string): Promise<void> {
+  const registryUrl = `https://registry.npmjs.org/@dddx/cli/${version}`;
+  let tarballUrl = `https://registry.npmjs.org/@dddx/cli/-/cli-${version}.tgz`;
+
+  const maxAttempts = 12;
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    try {
+      const metaRes = await fetch(registryUrl);
+      if (metaRes.ok) {
+        const meta = (await metaRes.json()) as { dist?: { tarball?: string } };
+        if (meta.dist?.tarball) tarballUrl = meta.dist.tarball;
+      }
+    } catch {
+      // Fall back to the default tarball URL.
+    }
+
+    const res = await fetch(tarballUrl, { method: "GET" });
+    if (res.ok) {
+      console.log(`✓ Verified npm tarball: ${tarballUrl}`);
+      return;
+    }
+
+    if (attempt < maxAttempts) {
+      const waitMs = Math.min(5000 * attempt, 30000);
+      console.log(
+        `  Tarball not ready (HTTP ${res.status}), retrying in ${waitMs / 1000}s…`,
+      );
+      await Bun.sleep(waitMs);
+    } else {
+      throw new Error(
+        `Published tarball not found after publish (HTTP ${res.status}): ${tarballUrl}`,
+      );
+    }
+  }
+}
+
 async function main() {
   if (existsSync(backupPath)) {
     console.warn("Restoring package.json from a previous incomplete publish…");
@@ -60,18 +121,39 @@ async function main() {
 
   preparePublishPackageJson();
 
+  const version = (
+    JSON.parse(readFileSync(join(root, "package.json"), "utf8")) as {
+      version: string;
+    }
+  ).version;
+
+  let packedTarball: string | null = null;
   let exitCode = 1;
   try {
-    exitCode = await run(["npm", ...npmPublishArgs()]);
+    await generateCurlDeps();
+
+    packedTarball = await packTarball(version);
+    console.log(`✓ Packed ${packedTarball}`);
+
+    exitCode = await run(["npm", ...npmPublishArgs(packedTarball)]);
+    if (exitCode === 0) {
+      await verifyPublishedTarball(version);
+    }
   } finally {
+    if (packedTarball && existsSync(packedTarball)) {
+      const { rm } = await import("node:fs/promises");
+      await rm(packedTarball, { force: true });
+    }
+    await cleanupCurlDeps();
     restorePublishPackageJson();
   }
 
   process.exit(exitCode);
 }
 
-main().catch((error) => {
+main().catch(async (error) => {
   console.error(error);
+  await cleanupCurlDeps();
   restorePublishPackageJson();
   process.exit(1);
 });

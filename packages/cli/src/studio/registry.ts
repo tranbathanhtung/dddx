@@ -60,6 +60,11 @@ export type StudioHandle = {
   close: () => Promise<void>;
 };
 
+export type StudioAttachHooks = {
+  /** Invoked before each attach attempt, including reconnects after worker restarts. */
+  onBeforeAttach?: () => void | Promise<void>;
+};
+
 export type ActiveStudioProject = {
   directory: string;
   name: string;
@@ -266,7 +271,7 @@ export async function registerPreviewTargets(
   targets: PreviewTarget[],
 ): Promise<void> {
   try {
-    await fetch(connectUrl(port, "/studio/preview"), {
+    const response = await fetch(connectUrl(port, "/studio/preview"), {
       method: "POST",
       headers: {
         "x-dddx-project": getProjectSlug(projectDir),
@@ -275,6 +280,14 @@ export async function registerPreviewTargets(
       body: JSON.stringify({ targets }),
       signal: AbortSignal.timeout(5000),
     });
+    if (!response.ok) {
+      const body = await response.text().catch(() => "");
+      log.warn("preview targets registration rejected", {
+        projectDir,
+        status: response.status,
+        body,
+      });
+    }
   } catch (err) {
     log.warn("preview targets registration failed", {
       projectDir,
@@ -570,6 +583,7 @@ async function detachStudioClient(
 export async function attachStudioServer(
   projectDir: string,
   port = DEFAULT_STUDIO_PORT,
+  hooks: StudioAttachHooks = {},
 ): Promise<StudioHandle> {
   const resolved = path.resolve(projectDir);
   const cliPid = process.pid;
@@ -589,7 +603,12 @@ export async function attachStudioServer(
     firstProjectAttach,
   });
 
-  const releaseSession = holdStudioSession(port, resolved, cliPid);
+  const releaseSession = holdStudioSession(
+    port,
+    resolved,
+    cliPid,
+    hooks.onBeforeAttach,
+  );
 
   let closing: Promise<void> | null = null;
   const close = () => {
@@ -607,6 +626,7 @@ function holdStudioSession(
   port: number,
   projectDir: string,
   cliPid: number,
+  onBeforeAttach?: () => void | Promise<void>,
 ): () => void {
   const controller = new AbortController();
   const slug = getProjectSlug(projectDir);
@@ -614,6 +634,7 @@ function holdStudioSession(
   void (async () => {
     while (!controller.signal.aborted) {
       try {
+        await onBeforeAttach?.();
         await fetch(connectUrl(port, "/studio/attach"), {
           method: "POST",
           headers: {

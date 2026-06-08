@@ -1,0 +1,2 @@
+# Override the repo root .gitignore so `files` in package.json controls
+# the publish tarball (including vendored node_modules at publish time).

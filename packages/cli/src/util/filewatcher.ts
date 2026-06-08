@@ -1,6 +1,8 @@
+import { createRequire } from "node:module";
 import path from "path";
 import z from "zod";
 import { Bus } from "./bus";
+import { createVendoredRequire } from "./dddx-modules";
 import { Log } from "./log";
 // @ts-expect-error — parcel wrapper has no published types
 import { createWrapper } from "@parcel/watcher/wrapper";
@@ -18,6 +20,7 @@ function getWatcherModule(): typeof ParcelWatcher {
     | undefined;
   if (cached) return cached;
 
+  const require = createVendoredRequire() ?? createRequire(import.meta.url);
   const binding = require(
     `@parcel/watcher-${process.platform}-${process.arch}${process.platform === "linux" ? "-glibc" : ""}`,
   );

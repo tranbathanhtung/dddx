@@ -3,16 +3,44 @@ import { createRequire } from "node:module";
 import * as path from "node:path";
 import { AdapterNotFoundError } from "spawn-agent";
 
-const makeRequire = (): NodeRequire =>
+import {
+  createVendoredRequire,
+  vendoredNodeModulesDirs,
+} from "../util/dddx-modules";
+
+const fallbackRequire = (): NodeRequire =>
   createRequire(
     typeof __filename !== "undefined" ? __filename : import.meta.url,
   );
+
+const makeRequire = (): NodeRequire =>
+  createVendoredRequire() ?? fallbackRequire();
 
 export const resolvePackageDir = (packageName: string): string => {
   const require = makeRequire();
   try {
     return path.dirname(require.resolve(`${packageName}/package.json`));
   } catch (cause) {
+    for (const modulesDir of vendoredNodeModulesDirs()) {
+      const candidate = path.join(modulesDir, packageName);
+      const candidatePackageJson = path.join(candidate, "package.json");
+      try {
+        const content = JSON.parse(
+          fs.readFileSync(candidatePackageJson, "utf-8"),
+        );
+        if (content.name === packageName) return candidate;
+      } catch {
+        continue;
+      }
+    }
+
+    const fallback = fallbackRequire();
+    try {
+      return path.dirname(fallback.resolve(`${packageName}/package.json`));
+    } catch {
+      // Fall through to search paths from the primary require.
+    }
+
     const searchPaths = require.resolve.paths(packageName) ?? [];
     for (const searchPath of searchPaths) {
       const candidate = path.join(searchPath, packageName);
@@ -61,6 +89,21 @@ export const resolvePackageEntry = (
   try {
     return require.resolve(`${packageName}/${subpath}`);
   } catch (cause) {
+    for (const modulesDir of vendoredNodeModulesDirs()) {
+      const candidate = path.join(modulesDir, packageName, subpath);
+      try {
+        if (fs.statSync(candidate).isFile()) return candidate;
+      } catch {
+        continue;
+      }
+    }
+
+    try {
+      return fallbackRequire().resolve(`${packageName}/${subpath}`);
+    } catch {
+      // Fall through.
+    }
+
     throw new AdapterNotFoundError(packageName, cause);
   }
 };

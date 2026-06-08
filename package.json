@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dddx": "bun --hot run ./packages/cli/src/cli.ts",
-    "dddx:prod": "./packages/cli/bin/dddx",
+    "dddx:prod": "./packages/cli/bin/dddx.mjs",
     "build": "turbo run build",
     "publish": "turbo run publish",
     "publish:web": "bun run --cwd apps/web publish",

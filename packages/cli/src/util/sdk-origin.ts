@@ -7,8 +7,7 @@ export const local = displayUrl(3000);
 export const production = "https://cdn.dddx.dev";
 
 function useLocalSdk(): boolean {
-  if (version() === "local") return true;
-  return process.env.NODE_ENV === "development";
+  return version() === "local";
 }
 
 /** SDK asset base URL (local apps/web or production CDN). */

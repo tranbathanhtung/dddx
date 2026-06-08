@@ -1,8 +1,8 @@
-import { chmod } from "node:fs/promises";
+import { chmod, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 const root = join(import.meta.dir, "..");
 const entry = join(root, "src/cli.ts");
-const outfile = join(root, "bin/dddx");
+const bundle = join(root, "bin/dddx.mjs");
 const pkg = (await Bun.file(join(root, "package.json")).json()) as {
   version: string;
 };
@@ -25,9 +25,9 @@ const externals = [
 const args = [
   "build",
   entry,
-  // `bin/dddx` shebang is `node`; bun target emits code Node can run directly.
+  // ESM bundle — `.mjs` extension required under package.json "type":"module".
   "--target=node",
-  `--outfile=${outfile}`,
+  `--outfile=${bundle}`,
   "--minify",
   ...externals.flatMap((name) => ["--external", name]),
   ...Object.entries(defines).flatMap(([key, value]) => [
@@ -49,5 +49,13 @@ const proc = Bun.spawn(["bun", ...args], {
 const code = await proc.exited;
 if (code !== 0) process.exit(code);
 
-await chmod(outfile, 0o755);
-console.log(`✓ ${outfile}`);
+const bundled = await readFile(bundle, "utf8");
+if (!bundled.startsWith("#!")) {
+  await writeFile(bundle, `#!/usr/bin/env node\n${bundled}`);
+}
+await chmod(bundle, 0o755);
+
+// Remove legacy extensionless binary from older builds.
+await rm(join(root, "bin/dddx"), { force: true });
+
+console.log(`✓ ${bundle}`);

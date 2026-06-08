@@ -50,15 +50,25 @@ export interface Options {
   port?: number;
   /** Studio worker only — invoked when all CLI sessions have disconnected. */
   onShutdown?: () => void;
+  /** Dev CLI — sync preview targets before each attach (including reconnects). */
+  onBeforeAttach?: () => void | Promise<void>;
 }
 
+async function disposeProjectAgents(
+  dir: string,
+  agentManager: AgentManager,
+): Promise<void> {
+  await agentManager.disposeForDirectory(dir);
+  await Bus.disposeDirectory(dir);
+}
+
+/** Full project teardown — clears preview targets and agent state. */
 async function releaseProjectScope(
   dir: string,
   agentManager: AgentManager,
 ): Promise<void> {
   clearPreviewTargets(dir);
-  await agentManager.disposeForDirectory(dir);
-  await Bus.disposeDirectory(dir);
+  await disposeProjectAgents(dir, agentManager);
 }
 
 export function createStudioApp(
@@ -199,7 +209,9 @@ export async function startStudioServerInProcess(options: Options = {}) {
     sessions = createStudioSessionManager({
       workerPid: process.pid,
       port,
-      onProjectReleased: (dir) => releaseProjectScope(dir, agentManager),
+      // Attach disconnects are often transient (worker restart, network blip).
+      // Keep preview targets until an explicit /studio/release.
+      onProjectReleased: (dir) => disposeProjectAgents(dir, agentManager),
       onShutdown: options.onShutdown,
     });
   }
@@ -233,8 +245,10 @@ export async function startStudioServerInProcess(options: Options = {}) {
 export async function startStudioServer(
   options: Options = {},
 ): Promise<StudioHandle> {
-  const port = resolveStudioPort();
-  return attachStudioServer(process.cwd(), port);
+  const port = options.port ?? resolveStudioPort();
+  return attachStudioServer(process.cwd(), port, {
+    onBeforeAttach: options.onBeforeAttach,
+  });
 }
 
 async function listenWithRetry(app: Hono, port: number): Promise<ServerType> {

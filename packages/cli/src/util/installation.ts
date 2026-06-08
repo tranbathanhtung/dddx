@@ -1,12 +1,13 @@
-import { exec } from "node:child_process";
+import { exec, spawn } from "node:child_process";
 import { realpathSync } from "node:fs";
 import path from "node:path";
 import { promisify } from "node:util";
 import z from "zod";
 
-import { Sdk } from "@/util/sdk-origin";
-
 const execAsync = promisify(exec);
+
+/** Public site origin for the bash installer (`/install`), not the SDK CDN. */
+export const SITE_ORIGIN = "https://dddx.dev";
 
 async function runCommand(
   command: string,
@@ -129,7 +130,7 @@ export namespace Installation {
   export function installOrigin(): string {
     const fromEnv = process.env.DDDX_ORIGIN?.trim();
     if (fromEnv) return fromEnv.replace(/\/$/, "");
-    return Sdk.production;
+    return SITE_ORIGIN;
   }
 
   export function installScriptUrl(origin = installOrigin()): string {
@@ -166,12 +167,28 @@ export namespace Installation {
   async function upgradeCurl(target: string) {
     const version = target.replace(/^v/, "");
     const script = installScriptUrl();
-    const result = await runCommand(
-      `curl -fsSL ${script} | bash -s -- --version ${version} --no-modify-path`,
-    );
-    if (result.exitCode !== 0) {
-      throw new Error(result.stderr || "curl install failed");
+    const shell = [
+      "set -o pipefail",
+      `curl -fsSL --connect-timeout 15 --max-time 300 ${shellQuote(script)}`,
+      `bash -s -- --version ${shellQuote(version)} --no-modify-path`,
+    ].join(" | ");
+
+    const exitCode = await new Promise<number>((resolve, reject) => {
+      const child = spawn("bash", ["-c", shell], {
+        stdio: "inherit",
+        env: process.env,
+      });
+      child.on("error", reject);
+      child.on("close", (code) => resolve(code ?? 1));
+    });
+
+    if (exitCode !== 0) {
+      throw new Error(`curl install failed (exit ${exitCode})`);
     }
+  }
+
+  function shellQuote(value: string): string {
+    return `'${value.replace(/'/g, `'\\''`)}'`;
   }
 
   export const VERSION =
