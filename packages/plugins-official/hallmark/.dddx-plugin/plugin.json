@@ -1,0 +1,190 @@
+{
+  "name": "Hallmark",
+  "description": "Run /hallmark to get started with Anti-AI-slop design skill for greenfield pages, audits, redesigns, and design extraction from URLs or screenshots.",
+  "author": {
+    "name": "Nutlope",
+    "url": "https://github.com/Nutlope"
+  },
+  "homepage": "https://github.com/Nutlope/hallmark",
+  "license": "MIT",
+  "items": [
+    {
+      "source": "./templates/bananastudio",
+      "name": "bananastudio",
+      "title": "BananaStudio",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/carnival-01",
+      "name": "carnival-01",
+      "title": "Cold Snap",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/cobalt-01",
+      "name": "cobalt-01",
+      "title": "Distil",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/custom-01",
+      "name": "custom-01",
+      "title": "Setting the Night Edition",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/custom-02",
+      "name": "custom-02",
+      "title": "The Cascadia Nightjar",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/custom-03",
+      "name": "custom-03",
+      "title": "Ferns & Fathom",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/custom-04",
+      "name": "custom-04",
+      "title": "The Mend Assembly",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/custom-05",
+      "name": "custom-05",
+      "title": "Hollow Coast",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/garden-01",
+      "name": "garden-01",
+      "title": "Hollowback Apiary",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./skills/hallmark",
+      "name": "hallmark",
+      "title": "Hallmark",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./templates/hum-07",
+      "name": "hum-07",
+      "title": "Bubble",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/hyperlane",
+      "name": "hyperlane",
+      "title": "Hyperlane",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/lumen-01",
+      "name": "lumen-01",
+      "title": "Cinder",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/najm",
+      "name": "najm",
+      "title": "NAJM",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/press-01",
+      "name": "press-01",
+      "title": "Bríd Halloran",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/riso-01",
+      "name": "riso-01",
+      "title": "Off-Register",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/tally",
+      "name": "tally",
+      "title": "Tally",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    },
+    {
+      "source": "./templates/wayfare",
+      "name": "wayfare",
+      "title": "Wayfare",
+      "category": "pages",
+      "previews": [
+        "./preview.png",
+        "./index.html"
+      ]
+    }
+  ]
+}

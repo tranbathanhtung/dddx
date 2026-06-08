@@ -1,0 +1,359 @@
+{
+  "name": "beautiful-html-templates",
+  "description": "Run /make-a-deck to get started with a library of HTML slide templates designed so any coding agent can pick the right one and produce a beautiful deck on the user's behalf, automatically.",
+  "author": {
+    "name": "zarazhangrui",
+    "url": "https://github.com/zarazhangrui/beautiful-html-templates"
+  },
+  "homepage": "https://github.com/zarazhangrui/beautiful-html-templates",
+  "license": "MIT",
+  "items": [
+    {
+      "source": "./templates/8-bit-orbit",
+      "name": "8-bit-orbit",
+      "title": "8-Bit Orbit",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/biennale-yellow",
+      "name": "biennale-yellow",
+      "title": "Biennale Yellow",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/block-frame",
+      "name": "block-frame",
+      "title": "BlockFrame",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/blue-professional",
+      "name": "blue-professional",
+      "title": "Blue Professional",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/bold-poster",
+      "name": "bold-poster",
+      "title": "Bold Poster",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/broadside",
+      "name": "broadside",
+      "title": "Broadside",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/capsule",
+      "name": "capsule",
+      "title": "Capsule",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/cartesian",
+      "name": "cartesian",
+      "title": "Cartesian",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/cobalt-grid",
+      "name": "cobalt-grid",
+      "title": "Cobalt Grid",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/coral",
+      "name": "coral",
+      "title": "Coral",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/creative-mode",
+      "name": "creative-mode",
+      "title": "Creative Mode",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/daisy-days",
+      "name": "daisy-days",
+      "title": "Daisy Days",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/editorial-forest",
+      "name": "editorial-forest",
+      "title": "Editorial Forest",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/editorial-tri-tone",
+      "name": "editorial-tri-tone",
+      "title": "Editorial Tri-Tone",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/emerald-editorial",
+      "name": "emerald-editorial",
+      "title": "Emerald Editorial",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/grove",
+      "name": "grove",
+      "title": "Grove",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/long-table",
+      "name": "long-table",
+      "title": "Long Table",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./skills/make-a-deck",
+      "name": "make-a-deck",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./templates/mat",
+      "name": "mat",
+      "title": "Mat",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/monochrome",
+      "name": "monochrome",
+      "title": "Monochrome",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/neo-grid-bold",
+      "name": "neo-grid-bold",
+      "title": "Neo-Grid Bold",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/peoples-platform",
+      "name": "peoples-platform",
+      "title": "People's Platform (Block & Bold)",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/pin-and-paper",
+      "name": "pin-and-paper",
+      "title": "Pin & Paper",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/pink-script",
+      "name": "pink-script",
+      "title": "Pink Script — After Hours",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/playful",
+      "name": "playful",
+      "title": "Playful",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/raw-grid",
+      "name": "raw-grid",
+      "title": "Raw Grid",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/retro-windows",
+      "name": "retro-windows",
+      "title": "Retro Windows",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/retro-zine",
+      "name": "retro-zine",
+      "title": "Retro Zine",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/sakura-chroma",
+      "name": "sakura-chroma",
+      "title": "Sakura Chroma",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/scatterbrain",
+      "name": "scatterbrain",
+      "title": "Scatterbrain",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/signal",
+      "name": "signal",
+      "title": "Signal",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/soft-editorial",
+      "name": "soft-editorial",
+      "title": "Soft Editorial",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/stencil-tablet",
+      "name": "stencil-tablet",
+      "title": "Stencil & Tablet",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/studio",
+      "name": "studio",
+      "title": "Studio",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    },
+    {
+      "source": "./templates/vellum",
+      "name": "vellum",
+      "title": "Vellum",
+      "category": "slides",
+      "previews": [
+        "./preview.png",
+        "./template.html"
+      ]
+    }
+  ]
+}

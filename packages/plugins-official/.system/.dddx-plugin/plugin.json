@@ -1,0 +1,11 @@
+{
+  "name": "System",
+  "description": "Official dddx themes, templates, and skills",
+  "author": {
+    "name": "dddx",
+    "url": "https://github.com/dddx-ai/dddx"
+  },
+  "homepage": "https://github.com/dddx-ai/dddx",
+  "license": "MIT",
+  "items": []
+}

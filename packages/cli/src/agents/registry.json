@@ -1,0 +1,3310 @@
+{
+  "version": "1.0.0",
+  "agents": [
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "version": "2026.05.09",
+      "description": "Cursor's coding agent",
+      "website": "https://cursor.com/docs/cli/acp",
+      "authors": [
+        "Cursor"
+      ],
+      "license": "proprietary",
+      "icon": "https://cdn.agentclientprotocol.com/registry/v1/latest/cursor.svg",
+      "binaries": [
+        "cursor",
+        "agent"
+      ],
+      "auth": "agent whoami",
+      "modes": [
+        {
+          "id": "agent",
+          "name": "Agent",
+          "description": "Full agent capabilities with tool access"
+        },
+        {
+          "id": "plan",
+          "name": "Plan",
+          "description": "Read-only mode for planning and designing before implementation"
+        },
+        {
+          "id": "ask",
+          "name": "Ask",
+          "description": "Q&A mode - no edits or command execution"
+        }
+      ],
+      "models": [
+        {
+          "modelId": "default[]",
+          "name": "Auto",
+          "description": null
+        },
+        {
+          "modelId": "composer-2.5[fast=true]",
+          "name": "composer-2.5",
+          "description": null
+        },
+        {
+          "modelId": "claude-opus-4-8[thinking=true,context=300k,effort=high,fast=false]",
+          "name": "claude-opus-4-8",
+          "description": null
+        },
+        {
+          "modelId": "gpt-5.5[context=272k,reasoning=medium,fast=false]",
+          "name": "gpt-5.5",
+          "description": null
+        },
+        {
+          "modelId": "claude-sonnet-4-6[thinking=true,context=200k,effort=medium]",
+          "name": "claude-sonnet-4-6",
+          "description": null
+        },
+        {
+          "modelId": "gpt-5.3-codex[reasoning=medium,fast=false]",
+          "name": "gpt-5.3-codex",
+          "description": null
+        },
+        {
+          "modelId": "claude-opus-4-7[thinking=true,context=300k,effort=xhigh,fast=false]",
+          "name": "claude-opus-4-7",
+          "description": null
+        },
+        {
+          "modelId": "grok-build-0.1[context=200k]",
+          "name": "grok-build-0.1",
+          "description": null
+        },
+        {
+          "modelId": "gpt-5.4[context=272k,reasoning=medium,fast=false]",
+          "name": "gpt-5.4",
+          "description": null
+        },
+        {
+          "modelId": "claude-opus-4-6[thinking=true,context=200k,effort=high,fast=false]",
+          "name": "claude-opus-4-6",
+          "description": null
+        },
+        {
+          "modelId": "claude-opus-4-5[thinking=true]",
+          "name": "claude-opus-4-5",
+          "description": null
+        },
+        {
+          "modelId": "gpt-5.2[reasoning=medium,fast=false]",
+          "name": "gpt-5.2",
+          "description": null
+        },
+        {
+          "modelId": "gemini-3.1-pro[]",
+          "name": "gemini-3.1-pro",
+          "description": null
+        },
+        {
+          "modelId": "gpt-5.4-mini[reasoning=medium]",
+          "name": "gpt-5.4-mini",
+          "description": null
+        },
+        {
+          "modelId": "gpt-5.4-nano[reasoning=medium]",
+          "name": "gpt-5.4-nano",
+          "description": null
+        },
+        {
+          "modelId": "claude-haiku-4-5[thinking=true]",
+          "name": "claude-haiku-4-5",
+          "description": null
+        },
+        {
+          "modelId": "grok-4.3[context=200k]",
+          "name": "grok-4.3",
+          "description": null
+        },
+        {
+          "modelId": "claude-sonnet-4-5[thinking=true,context=200k]",
+          "name": "claude-sonnet-4-5",
+          "description": null
+        },
+        {
+          "modelId": "gpt-5.2-codex[reasoning=medium,fast=false]",
+          "name": "gpt-5.2-codex",
+          "description": null
+        },
+        {
+          "modelId": "gpt-5.1-codex-max[reasoning=medium,fast=false]",
+          "name": "gpt-5.1-codex-max",
+          "description": null
+        },
+        {
+          "modelId": "gpt-5.1[reasoning=medium]",
+          "name": "gpt-5.1",
+          "description": null
+        },
+        {
+          "modelId": "gemini-3-flash[]",
+          "name": "gemini-3-flash",
+          "description": null
+        },
+        {
+          "modelId": "gemini-3.5-flash[]",
+          "name": "gemini-3.5-flash",
+          "description": null
+        },
+        {
+          "modelId": "gpt-5.1-codex-mini[reasoning=medium]",
+          "name": "gpt-5.1-codex-mini",
+          "description": null
+        },
+        {
+          "modelId": "claude-sonnet-4[thinking=false,context=200k]",
+          "name": "claude-sonnet-4",
+          "description": null
+        },
+        {
+          "modelId": "gpt-5-mini[]",
+          "name": "gpt-5-mini",
+          "description": null
+        },
+        {
+          "modelId": "gemini-2.5-flash[]",
+          "name": "gemini-2.5-flash",
+          "description": null
+        },
+        {
+          "modelId": "kimi-k2.5[]",
+          "name": "kimi-k2.5",
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "opencode",
+      "name": "OpenCode",
+      "version": "1.14.48",
+      "description": "The open source coding agent",
+      "repository": "https://github.com/anomalyco/opencode",
+      "website": "https://opencode.ai",
+      "authors": [
+        "Anomaly"
+      ],
+      "license": "MIT",
+      "icon": "https://cdn.agentclientprotocol.com/registry/v1/latest/opencode.svg",
+      "binaries": [
+        "opencode"
+      ],
+      "auth": "opencode auth list",
+      "modes": [
+        {
+          "id": "build",
+          "name": "build",
+          "description": "The default agent. Executes tools based on configured permissions."
+        },
+        {
+          "id": "plan",
+          "name": "plan",
+          "description": "Plan mode. Disallows all edit tools."
+        }
+      ],
+      "models": [
+        {
+          "modelId": "alibaba/qwq-plus",
+          "name": "Alibaba/QwQ Plus",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3.7-plus",
+          "name": "Alibaba/Qwen3.7 Plus",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3.7-max",
+          "name": "Alibaba/Qwen3.7 Max",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3.6-plus",
+          "name": "Alibaba/Qwen3.6 Plus",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3.6-max-preview",
+          "name": "Alibaba/Qwen3.6 Max Preview",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3.6-flash",
+          "name": "Alibaba/Qwen3.6 Flash",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3.6-35b-a3b",
+          "name": "Alibaba/Qwen3.6 35B-A3B",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3.6-27b",
+          "name": "Alibaba/Qwen3.6 27B",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3.5-plus",
+          "name": "Alibaba/Qwen3.5 Plus",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3.5-397b-a17b",
+          "name": "Alibaba/Qwen3.5 397B-A17B",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3.5-35b-a3b",
+          "name": "Alibaba/Qwen3.5 35B-A3B",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3.5-27b",
+          "name": "Alibaba/Qwen3.5 27B",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3.5-122b-a10b",
+          "name": "Alibaba/Qwen3.5 122B-A10B",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-vl-plus",
+          "name": "Alibaba/Qwen3-VL Plus",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-vl-30b-a3b",
+          "name": "Alibaba/Qwen3-VL 30B-A3B",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-vl-235b-a22b",
+          "name": "Alibaba/Qwen3-VL 235B-A22B",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-omni-flash-realtime",
+          "name": "Alibaba/Qwen3-Omni Flash Realtime",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-omni-flash",
+          "name": "Alibaba/Qwen3-Omni Flash",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-next-80b-a3b-thinking",
+          "name": "Alibaba/Qwen3-Next 80B-A3B (Thinking)",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-next-80b-a3b-instruct",
+          "name": "Alibaba/Qwen3-Next 80B-A3B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-max",
+          "name": "Alibaba/Qwen3 Max",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-livetranslate-flash-realtime",
+          "name": "Alibaba/Qwen3-LiveTranslate Flash Realtime",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-coder-plus",
+          "name": "Alibaba/Qwen3 Coder Plus",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-coder-flash",
+          "name": "Alibaba/Qwen3 Coder Flash",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-coder-480b-a35b-instruct",
+          "name": "Alibaba/Qwen3-Coder 480B-A35B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-coder-30b-a3b-instruct",
+          "name": "Alibaba/Qwen3-Coder 30B-A3B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-asr-flash",
+          "name": "Alibaba/Qwen3-ASR Flash",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-8b",
+          "name": "Alibaba/Qwen3 8B",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-32b",
+          "name": "Alibaba/Qwen3 32B",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-235b-a22b",
+          "name": "Alibaba/Qwen3 235B-A22B",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen3-14b",
+          "name": "Alibaba/Qwen3 14B",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen2-5-vl-7b-instruct",
+          "name": "Alibaba/Qwen2.5-VL 7B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen2-5-vl-72b-instruct",
+          "name": "Alibaba/Qwen2.5-VL 72B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen2-5-omni-7b",
+          "name": "Alibaba/Qwen2.5-Omni 7B",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen2-5-7b-instruct",
+          "name": "Alibaba/Qwen2.5 7B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen2-5-72b-instruct",
+          "name": "Alibaba/Qwen2.5 72B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen2-5-32b-instruct",
+          "name": "Alibaba/Qwen2.5 32B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen2-5-14b-instruct",
+          "name": "Alibaba/Qwen2.5 14B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen-vl-plus",
+          "name": "Alibaba/Qwen-VL Plus",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen-vl-ocr",
+          "name": "Alibaba/Qwen-VL OCR",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen-vl-max",
+          "name": "Alibaba/Qwen-VL Max",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen-turbo",
+          "name": "Alibaba/Qwen Turbo",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen-plus-character-ja",
+          "name": "Alibaba/Qwen Plus Character (Japanese)",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen-plus",
+          "name": "Alibaba/Qwen Plus",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen-omni-turbo-realtime",
+          "name": "Alibaba/Qwen-Omni Turbo Realtime",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen-omni-turbo",
+          "name": "Alibaba/Qwen-Omni Turbo",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen-mt-turbo",
+          "name": "Alibaba/Qwen-MT Turbo",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen-mt-plus",
+          "name": "Alibaba/Qwen-MT Plus",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen-max",
+          "name": "Alibaba/Qwen Max",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qwen-flash",
+          "name": "Alibaba/Qwen Flash",
+          "description": null
+        },
+        {
+          "modelId": "alibaba/qvq-max",
+          "name": "Alibaba/QVQ Max",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-sonnet-4-6",
+          "name": "Anthropic/Claude Sonnet 4.6",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-sonnet-4-5-20250929",
+          "name": "Anthropic/Claude Sonnet 4.5",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-sonnet-4-5",
+          "name": "Anthropic/Claude Sonnet 4.5 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-sonnet-4-20250514",
+          "name": "Anthropic/Claude Sonnet 4",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-sonnet-4-0",
+          "name": "Anthropic/Claude Sonnet 4 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-3-5-haiku-latest",
+          "name": "Anthropic/Claude Haiku 3.5 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-opus-4-8-fast",
+          "name": "Anthropic/Claude Opus 4.8 Fast",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-opus-4-8",
+          "name": "Anthropic/Claude Opus 4.8",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-opus-4-7-fast",
+          "name": "Anthropic/Claude Opus 4.7 Fast",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-opus-4-7",
+          "name": "Anthropic/Claude Opus 4.7",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-opus-4-6-fast",
+          "name": "Anthropic/Claude Opus 4.6 Fast",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-opus-4-6",
+          "name": "Anthropic/Claude Opus 4.6",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-opus-4-5-20251101",
+          "name": "Anthropic/Claude Opus 4.5",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-opus-4-5",
+          "name": "Anthropic/Claude Opus 4.5 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-opus-4-20250514",
+          "name": "Anthropic/Claude Opus 4",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-opus-4-1-20250805",
+          "name": "Anthropic/Claude Opus 4.1",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-opus-4-1",
+          "name": "Anthropic/Claude Opus 4.1 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-opus-4-0",
+          "name": "Anthropic/Claude Opus 4 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-haiku-4-5-20251001",
+          "name": "Anthropic/Claude Haiku 4.5",
+          "description": null
+        },
+        {
+          "modelId": "anthropic/claude-haiku-4-5",
+          "name": "Anthropic/Claude Haiku 4.5 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "deepseek/deepseek-v4-pro",
+          "name": "DeepSeek/DeepSeek V4 Pro",
+          "description": null
+        },
+        {
+          "modelId": "deepseek/deepseek-v4-flash",
+          "name": "DeepSeek/DeepSeek V4 Flash",
+          "description": null
+        },
+        {
+          "modelId": "deepseek/deepseek-reasoner",
+          "name": "DeepSeek/DeepSeek Reasoner",
+          "description": null
+        },
+        {
+          "modelId": "deepseek/deepseek-chat",
+          "name": "DeepSeek/DeepSeek Chat",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/claude-sonnet-4.6",
+          "name": "GitHub Copilot/Claude Sonnet 4.6",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/claude-sonnet-4.5",
+          "name": "GitHub Copilot/Claude Sonnet 4.5 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/claude-sonnet-4",
+          "name": "GitHub Copilot/Claude Sonnet 4 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gpt-5.5-fast",
+          "name": "GitHub Copilot/GPT-5.5 Fast",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gpt-5.5",
+          "name": "GitHub Copilot/GPT-5.5",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gpt-5.4-nano",
+          "name": "GitHub Copilot/GPT-5.4 nano",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gpt-5.4-mini-fast",
+          "name": "GitHub Copilot/GPT-5.4 mini Fast",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gpt-5.4-mini",
+          "name": "GitHub Copilot/GPT-5.4 mini",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gpt-5.4-fast",
+          "name": "GitHub Copilot/GPT-5.4 Fast",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gpt-5.4",
+          "name": "GitHub Copilot/GPT-5.4",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gpt-5.3-codex",
+          "name": "GitHub Copilot/GPT-5.3 Codex",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gpt-5.2-codex",
+          "name": "GitHub Copilot/GPT-5.2 Codex",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gpt-5.2",
+          "name": "GitHub Copilot/GPT-5.2",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gpt-5-mini",
+          "name": "GitHub Copilot/GPT-5 Mini",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/raptor-mini",
+          "name": "GitHub Copilot/Raptor mini",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gpt-4.1",
+          "name": "GitHub Copilot/GPT-4.1",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gemini-3.5-flash",
+          "name": "GitHub Copilot/Gemini 3.5 Flash",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gemini-3.1-pro-preview",
+          "name": "GitHub Copilot/Gemini 3.1 Pro Preview",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gemini-3-flash-preview",
+          "name": "GitHub Copilot/Gemini 3 Flash Preview",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/gemini-2.5-pro",
+          "name": "GitHub Copilot/Gemini 2.5 Pro",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/claude-opus-4.8-fast",
+          "name": "GitHub Copilot/Claude Opus 4.8 Fast",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/claude-opus-4.8",
+          "name": "GitHub Copilot/Claude Opus 4.8",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/claude-opus-4.7-fast",
+          "name": "GitHub Copilot/Claude Opus 4.7 Fast",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/claude-opus-4.7",
+          "name": "GitHub Copilot/Claude Opus 4.7",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/claude-opus-4.6-fast",
+          "name": "GitHub Copilot/Claude Opus 4.6 Fast",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/claude-opus-4.6",
+          "name": "GitHub Copilot/Claude Opus 4.6",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/claude-opus-4.5",
+          "name": "GitHub Copilot/Claude Opus 4.5 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "github-copilot/claude-haiku-4.5",
+          "name": "GitHub Copilot/Claude Haiku 4.5 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-flash-lite-latest",
+          "name": "Google/Gemini Flash-Lite Latest",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-flash-latest",
+          "name": "Google/Gemini Flash Latest",
+          "description": null
+        },
+        {
+          "modelId": "google/gemma-4-31b-it",
+          "name": "Google/Gemma 4 31B IT",
+          "description": null
+        },
+        {
+          "modelId": "google/gemma-4-26b-a4b-it",
+          "name": "Google/Gemma 4 26B A4B IT",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-embedding-001",
+          "name": "Google/Gemini Embedding 001",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-3.5-flash",
+          "name": "Google/Gemini 3.5 Flash",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-3.1-pro-preview-customtools",
+          "name": "Google/Gemini 3.1 Pro Preview Custom Tools",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-3.1-pro-preview",
+          "name": "Google/Gemini 3.1 Pro Preview",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-3.1-flash-lite",
+          "name": "Google/Gemini 3.1 Flash Lite",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-3.1-flash-image-preview",
+          "name": "Google/Nano Banana 2",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-3-flash-preview",
+          "name": "Google/Gemini 3 Flash Preview",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-2.5-pro-preview-tts",
+          "name": "Google/Gemini 2.5 Pro Preview TTS",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-2.5-pro",
+          "name": "Google/Gemini 2.5 Pro",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-2.5-flash-preview-tts",
+          "name": "Google/Gemini 2.5 Flash Preview TTS",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-2.5-flash-lite",
+          "name": "Google/Gemini 2.5 Flash-Lite",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-2.5-flash-image",
+          "name": "Google/Nano Banana",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-2.5-flash",
+          "name": "Google/Gemini 2.5 Flash",
+          "description": null
+        },
+        {
+          "modelId": "moonshotai/kimi-k2.6",
+          "name": "Moonshot AI/Kimi K2.6",
+          "description": null
+        },
+        {
+          "modelId": "moonshotai/kimi-k2.5",
+          "name": "Moonshot AI/Kimi K2.5",
+          "description": null
+        },
+        {
+          "modelId": "moonshotai/kimi-k2-turbo-preview",
+          "name": "Moonshot AI/Kimi K2 Turbo",
+          "description": null
+        },
+        {
+          "modelId": "moonshotai/kimi-k2-thinking-turbo",
+          "name": "Moonshot AI/Kimi K2 Thinking Turbo",
+          "description": null
+        },
+        {
+          "modelId": "moonshotai/kimi-k2-thinking",
+          "name": "Moonshot AI/Kimi K2 Thinking",
+          "description": null
+        },
+        {
+          "modelId": "moonshotai/kimi-k2-0905-preview",
+          "name": "Moonshot AI/Kimi K2 0905",
+          "description": null
+        },
+        {
+          "modelId": "moonshotai/kimi-k2-0711-preview",
+          "name": "Moonshot AI/Kimi K2 0711",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.3-chat-latest",
+          "name": "OpenAI/GPT-5.3 Chat (latest)",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.2-chat-latest",
+          "name": "OpenAI/GPT-5.2 Chat",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.1-chat-latest",
+          "name": "OpenAI/GPT-5.1 Chat",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.5-pro",
+          "name": "OpenAI/GPT-5.5 Pro",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.5-fast",
+          "name": "OpenAI/GPT-5.5 Fast",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.5",
+          "name": "OpenAI/GPT-5.5",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.4-pro",
+          "name": "OpenAI/GPT-5.4 Pro",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.4-nano",
+          "name": "OpenAI/GPT-5.4 nano",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.4-mini-fast",
+          "name": "OpenAI/GPT-5.4 mini Fast",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.4-mini",
+          "name": "OpenAI/GPT-5.4 mini",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.4-fast",
+          "name": "OpenAI/GPT-5.4 Fast",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.4",
+          "name": "OpenAI/GPT-5.4",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.3-codex-spark",
+          "name": "OpenAI/GPT-5.3 Codex Spark",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.3-codex",
+          "name": "OpenAI/GPT-5.3 Codex",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.2-pro",
+          "name": "OpenAI/GPT-5.2 Pro",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.2-codex",
+          "name": "OpenAI/GPT-5.2 Codex",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.2",
+          "name": "OpenAI/GPT-5.2",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.1-codex-mini",
+          "name": "OpenAI/GPT-5.1 Codex mini",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.1-codex-max",
+          "name": "OpenAI/GPT-5.1 Codex Max",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.1-codex",
+          "name": "OpenAI/GPT-5.1 Codex",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5.1",
+          "name": "OpenAI/GPT-5.1",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5-pro",
+          "name": "OpenAI/GPT-5 Pro",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5-nano",
+          "name": "OpenAI/GPT-5 Nano",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5-mini",
+          "name": "OpenAI/GPT-5 Mini",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5-codex",
+          "name": "OpenAI/GPT-5-Codex",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-5",
+          "name": "OpenAI/GPT-5",
+          "description": null
+        },
+        {
+          "modelId": "openai/chatgpt-image-latest",
+          "name": "OpenAI/chatgpt-image-latest",
+          "description": null
+        },
+        {
+          "modelId": "openai/text-embedding-ada-002",
+          "name": "OpenAI/text-embedding-ada-002",
+          "description": null
+        },
+        {
+          "modelId": "openai/text-embedding-3-small",
+          "name": "OpenAI/text-embedding-3-small",
+          "description": null
+        },
+        {
+          "modelId": "openai/text-embedding-3-large",
+          "name": "OpenAI/text-embedding-3-large",
+          "description": null
+        },
+        {
+          "modelId": "openai/o4-mini-deep-research",
+          "name": "OpenAI/o4-mini-deep-research",
+          "description": null
+        },
+        {
+          "modelId": "openai/o4-mini",
+          "name": "OpenAI/o4-mini",
+          "description": null
+        },
+        {
+          "modelId": "openai/o3-pro",
+          "name": "OpenAI/o3-pro",
+          "description": null
+        },
+        {
+          "modelId": "openai/o3-mini",
+          "name": "OpenAI/o3-mini",
+          "description": null
+        },
+        {
+          "modelId": "openai/o3-deep-research",
+          "name": "OpenAI/o3-deep-research",
+          "description": null
+        },
+        {
+          "modelId": "openai/o3",
+          "name": "OpenAI/o3",
+          "description": null
+        },
+        {
+          "modelId": "openai/o1-pro",
+          "name": "OpenAI/o1-pro",
+          "description": null
+        },
+        {
+          "modelId": "openai/o1",
+          "name": "OpenAI/o1",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-image-1.5",
+          "name": "OpenAI/gpt-image-1.5",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-image-1-mini",
+          "name": "OpenAI/gpt-image-1-mini",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-image-1",
+          "name": "OpenAI/gpt-image-1",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-4o-mini",
+          "name": "OpenAI/GPT-4o mini",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-4o-2024-11-20",
+          "name": "OpenAI/GPT-4o (2024-11-20)",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-4o-2024-08-06",
+          "name": "OpenAI/GPT-4o (2024-08-06)",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-4o-2024-05-13",
+          "name": "OpenAI/GPT-4o (2024-05-13)",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-4o",
+          "name": "OpenAI/GPT-4o",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-4.1-nano",
+          "name": "OpenAI/GPT-4.1 nano",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-4.1-mini",
+          "name": "OpenAI/GPT-4.1 mini",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-4.1",
+          "name": "OpenAI/GPT-4.1",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-4-turbo",
+          "name": "OpenAI/GPT-4 Turbo",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-4",
+          "name": "OpenAI/GPT-4",
+          "description": null
+        },
+        {
+          "modelId": "openai/gpt-3.5-turbo",
+          "name": "OpenAI/GPT-3.5-turbo",
+          "description": null
+        },
+        {
+          "modelId": "opencode-go/qwen3.7-plus",
+          "name": "OpenCode Go/Qwen3.7 Plus",
+          "description": null
+        },
+        {
+          "modelId": "opencode-go/qwen3.7-max",
+          "name": "OpenCode Go/Qwen3.7 Max",
+          "description": null
+        },
+        {
+          "modelId": "opencode-go/qwen3.6-plus",
+          "name": "OpenCode Go/Qwen3.6 Plus",
+          "description": null
+        },
+        {
+          "modelId": "opencode-go/minimax-m3",
+          "name": "OpenCode Go/MiniMax M3",
+          "description": null
+        },
+        {
+          "modelId": "opencode-go/minimax-m2.7",
+          "name": "OpenCode Go/MiniMax M2.7",
+          "description": null
+        },
+        {
+          "modelId": "opencode-go/minimax-m2.5",
+          "name": "OpenCode Go/MiniMax M2.5",
+          "description": null
+        },
+        {
+          "modelId": "opencode-go/mimo-v2.5-pro",
+          "name": "OpenCode Go/MiMo V2.5 Pro",
+          "description": null
+        },
+        {
+          "modelId": "opencode-go/mimo-v2.5",
+          "name": "OpenCode Go/MiMo V2.5",
+          "description": null
+        },
+        {
+          "modelId": "opencode-go/kimi-k2.6",
+          "name": "OpenCode Go/Kimi K2.6",
+          "description": null
+        },
+        {
+          "modelId": "opencode-go/kimi-k2.5",
+          "name": "OpenCode Go/Kimi K2.5",
+          "description": null
+        },
+        {
+          "modelId": "opencode-go/glm-5.1",
+          "name": "OpenCode Go/GLM-5.1",
+          "description": null
+        },
+        {
+          "modelId": "opencode-go/glm-5",
+          "name": "OpenCode Go/GLM-5",
+          "description": null
+        },
+        {
+          "modelId": "opencode-go/deepseek-v4-pro",
+          "name": "OpenCode Go/DeepSeek V4 Pro",
+          "description": null
+        },
+        {
+          "modelId": "opencode-go/deepseek-v4-flash",
+          "name": "OpenCode Go/DeepSeek V4 Flash",
+          "description": null
+        },
+        {
+          "modelId": "opencode/big-pickle",
+          "name": "OpenCode Zen/Big Pickle",
+          "description": null
+        },
+        {
+          "modelId": "opencode/claude-sonnet-4-6",
+          "name": "OpenCode Zen/Claude Sonnet 4.6",
+          "description": null
+        },
+        {
+          "modelId": "opencode/claude-sonnet-4-5",
+          "name": "OpenCode Zen/Claude Sonnet 4.5",
+          "description": null
+        },
+        {
+          "modelId": "opencode/claude-sonnet-4",
+          "name": "OpenCode Zen/Claude Sonnet 4",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5.5-pro",
+          "name": "OpenCode Zen/GPT-5.5 Pro",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5.5",
+          "name": "OpenCode Zen/GPT-5.5",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5.4-pro",
+          "name": "OpenCode Zen/GPT-5.4 Pro",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5.4-nano",
+          "name": "OpenCode Zen/GPT-5.4 Nano",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5.4-mini",
+          "name": "OpenCode Zen/GPT-5.4 Mini",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5.4",
+          "name": "OpenCode Zen/GPT-5.4",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5.3-codex-spark",
+          "name": "OpenCode Zen/GPT-5.3 Codex Spark",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5.3-codex",
+          "name": "OpenCode Zen/GPT-5.3 Codex",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5.2-codex",
+          "name": "OpenCode Zen/GPT-5.2 Codex",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5.2",
+          "name": "OpenCode Zen/GPT-5.2",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5.1-codex-mini",
+          "name": "OpenCode Zen/GPT-5.1 Codex Mini",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5.1-codex-max",
+          "name": "OpenCode Zen/GPT-5.1 Codex Max",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5.1-codex",
+          "name": "OpenCode Zen/GPT-5.1 Codex",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5.1",
+          "name": "OpenCode Zen/GPT-5.1",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5-nano",
+          "name": "OpenCode Zen/GPT-5 Nano",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5-codex",
+          "name": "OpenCode Zen/GPT-5 Codex",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gpt-5",
+          "name": "OpenCode Zen/GPT-5",
+          "description": null
+        },
+        {
+          "modelId": "opencode/qwen3.6-plus",
+          "name": "OpenCode Zen/Qwen3.6 Plus",
+          "description": null
+        },
+        {
+          "modelId": "opencode/qwen3.5-plus",
+          "name": "OpenCode Zen/Qwen3.5 Plus",
+          "description": null
+        },
+        {
+          "modelId": "opencode/nemotron-3-ultra-free",
+          "name": "OpenCode Zen/Nemotron 3 Ultra Free",
+          "description": null
+        },
+        {
+          "modelId": "opencode/minimax-m3-free",
+          "name": "OpenCode Zen/MiniMax M3 Free",
+          "description": null
+        },
+        {
+          "modelId": "opencode/minimax-m2.7",
+          "name": "OpenCode Zen/MiniMax M2.7",
+          "description": null
+        },
+        {
+          "modelId": "opencode/minimax-m2.5",
+          "name": "OpenCode Zen/MiniMax M2.5",
+          "description": null
+        },
+        {
+          "modelId": "opencode/mimo-v2.5-free",
+          "name": "OpenCode Zen/MiMo V2.5 Free",
+          "description": null
+        },
+        {
+          "modelId": "opencode/kimi-k2.6",
+          "name": "OpenCode Zen/Kimi K2.6",
+          "description": null
+        },
+        {
+          "modelId": "opencode/kimi-k2.5",
+          "name": "OpenCode Zen/Kimi K2.5",
+          "description": null
+        },
+        {
+          "modelId": "opencode/grok-build-0.1",
+          "name": "OpenCode Zen/Grok Build 0.1",
+          "description": null
+        },
+        {
+          "modelId": "opencode/glm-5.1",
+          "name": "OpenCode Zen/GLM-5.1",
+          "description": null
+        },
+        {
+          "modelId": "opencode/glm-5",
+          "name": "OpenCode Zen/GLM-5",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gemini-3.5-flash",
+          "name": "OpenCode Zen/Gemini 3.5 Flash",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gemini-3.1-pro",
+          "name": "OpenCode Zen/Gemini 3.1 Pro Preview",
+          "description": null
+        },
+        {
+          "modelId": "opencode/gemini-3-flash",
+          "name": "OpenCode Zen/Gemini 3 Flash",
+          "description": null
+        },
+        {
+          "modelId": "opencode/deepseek-v4-flash-free",
+          "name": "OpenCode Zen/DeepSeek V4 Flash Free",
+          "description": null
+        },
+        {
+          "modelId": "opencode/deepseek-v4-flash",
+          "name": "OpenCode Zen/DeepSeek V4 Flash",
+          "description": null
+        },
+        {
+          "modelId": "opencode/claude-opus-4-8",
+          "name": "OpenCode Zen/Claude Opus 4.8",
+          "description": null
+        },
+        {
+          "modelId": "opencode/claude-opus-4-7",
+          "name": "OpenCode Zen/Claude Opus 4.7",
+          "description": null
+        },
+        {
+          "modelId": "opencode/claude-opus-4-6",
+          "name": "OpenCode Zen/Claude Opus 4.6",
+          "description": null
+        },
+        {
+          "modelId": "opencode/claude-opus-4-5",
+          "name": "OpenCode Zen/Claude Opus 4.5",
+          "description": null
+        },
+        {
+          "modelId": "opencode/claude-opus-4-1",
+          "name": "OpenCode Zen/Claude Opus 4.1",
+          "description": null
+        },
+        {
+          "modelId": "opencode/claude-haiku-4-5",
+          "name": "OpenCode Zen/Claude Haiku 4.5",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-3-pro-image-preview",
+          "name": "OpenRouter/Nano Banana Pro (Gemini 3 Pro Image Preview)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-sonnet-4.6",
+          "name": "OpenRouter/Claude Sonnet 4.6",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-sonnet-4.5",
+          "name": "OpenRouter/Claude Sonnet 4.5 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-sonnet-4",
+          "name": "OpenRouter/Claude Sonnet 4",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.5-pro",
+          "name": "OpenRouter/GPT-5.5 Pro",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.5",
+          "name": "OpenRouter/GPT-5.5",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.4-pro",
+          "name": "OpenRouter/GPT-5.4 Pro",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.4-nano",
+          "name": "OpenRouter/GPT-5.4 nano",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.4-mini",
+          "name": "OpenRouter/GPT-5.4 mini",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.4-image-2",
+          "name": "OpenRouter/GPT-5.4 Image 2",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.4",
+          "name": "OpenRouter/GPT-5.4",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.3-codex",
+          "name": "OpenRouter/GPT-5.3 Codex",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.3-chat",
+          "name": "OpenRouter/GPT-5.3 Chat",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.2-pro",
+          "name": "OpenRouter/GPT-5.2 Pro",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.2-codex",
+          "name": "OpenRouter/GPT-5.2 Codex",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.2-chat",
+          "name": "OpenRouter/GPT-5.2 Chat",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.2",
+          "name": "OpenRouter/GPT-5.2",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.1-codex-mini",
+          "name": "OpenRouter/GPT-5.1 Codex mini",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.1-codex-max",
+          "name": "OpenRouter/GPT-5.1 Codex Max",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.1-codex",
+          "name": "OpenRouter/GPT-5.1 Codex",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.1-chat",
+          "name": "OpenRouter/GPT-5.1 Chat",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5.1",
+          "name": "OpenRouter/GPT-5.1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5-pro",
+          "name": "OpenRouter/GPT-5 Pro",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5-nano",
+          "name": "OpenRouter/GPT-5 Nano",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5-mini",
+          "name": "OpenRouter/GPT-5 Mini",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5-image-mini",
+          "name": "OpenRouter/GPT-5 Image Mini",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5-image",
+          "name": "OpenRouter/GPT-5 Image",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5-codex",
+          "name": "OpenRouter/GPT-5-Codex",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-5",
+          "name": "OpenRouter/GPT-5",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/~openai/gpt-mini-latest",
+          "name": "OpenRouter/OpenAI GPT Mini Latest",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/~openai/gpt-latest",
+          "name": "OpenRouter/OpenAI GPT Latest",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/~moonshotai/kimi-latest",
+          "name": "OpenRouter/MoonshotAI Kimi Latest",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/~google/gemini-pro-latest",
+          "name": "OpenRouter/Google Gemini Pro Latest",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/~google/gemini-flash-latest",
+          "name": "OpenRouter/Google Gemini Flash Latest",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/~anthropic/claude-sonnet-latest",
+          "name": "OpenRouter/Anthropic Claude Sonnet Latest",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/~anthropic/claude-opus-latest",
+          "name": "OpenRouter/Claude Opus Latest",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/~anthropic/claude-haiku-latest",
+          "name": "OpenRouter/Anthropic Claude Haiku Latest",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-chat-latest",
+          "name": "OpenRouter/GPT Chat Latest",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/z-ai/glm-5v-turbo",
+          "name": "OpenRouter/GLM-5V-Turbo",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/z-ai/glm-5.1",
+          "name": "OpenRouter/GLM-5.1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/z-ai/glm-5-turbo",
+          "name": "OpenRouter/GLM-5-Turbo",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/z-ai/glm-5",
+          "name": "OpenRouter/GLM-5",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/z-ai/glm-4.7-flash",
+          "name": "OpenRouter/GLM-4.7-Flash",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/z-ai/glm-4.7",
+          "name": "OpenRouter/GLM-4.7",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/z-ai/glm-4.6v",
+          "name": "OpenRouter/GLM-4.6V",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/z-ai/glm-4.6",
+          "name": "OpenRouter/GLM-4.6",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/z-ai/glm-4.5v",
+          "name": "OpenRouter/GLM-4.5V",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/z-ai/glm-4.5-air:free",
+          "name": "OpenRouter/GLM 4.5 Air (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/z-ai/glm-4.5-air",
+          "name": "OpenRouter/GLM-4.5-Air",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/z-ai/glm-4.5",
+          "name": "OpenRouter/GLM-4.5",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/z-ai/glm-4-32b",
+          "name": "OpenRouter/GLM 4 32B ",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/xiaomi/mimo-v2.5-pro",
+          "name": "OpenRouter/MiMo-V2.5-Pro",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/xiaomi/mimo-v2.5",
+          "name": "OpenRouter/MiMo-V2.5",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/xiaomi/mimo-v2-flash",
+          "name": "OpenRouter/MiMo-V2-Flash",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/x-ai/grok-build-0.1",
+          "name": "OpenRouter/Grok Build 0.1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/x-ai/grok-4.3",
+          "name": "OpenRouter/Grok 4.3",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/x-ai/grok-4.20-multi-agent",
+          "name": "OpenRouter/Grok 4.20 Multi-Agent",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/x-ai/grok-4.20",
+          "name": "OpenRouter/Grok 4.20",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/writer/palmyra-x5",
+          "name": "OpenRouter/Palmyra X5",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/upstage/solar-pro-3",
+          "name": "OpenRouter/Solar Pro 3",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/undi95/remm-slerp-l2-13b",
+          "name": "OpenRouter/ReMM SLERP 13B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/thedrummer/unslopnemo-12b",
+          "name": "OpenRouter/UnslopNemo 12B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/thedrummer/skyfall-36b-v2",
+          "name": "OpenRouter/Skyfall 36B V2",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/thedrummer/rocinante-12b",
+          "name": "OpenRouter/Rocinante 12B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/thedrummer/cydonia-24b-v4.1",
+          "name": "OpenRouter/Cydonia 24B V4.1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/tencent/hy3-preview",
+          "name": "OpenRouter/Hy3 preview",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/tencent/hunyuan-a13b-instruct",
+          "name": "OpenRouter/Hunyuan A13B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/switchpoint/router",
+          "name": "OpenRouter/Switchpoint Router",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/stepfun/step-3.7-flash",
+          "name": "OpenRouter/Step 3.7 Flash",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/stepfun/step-3.5-flash",
+          "name": "OpenRouter/Step 3.5 Flash",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/sao10k/l3.3-euryale-70b",
+          "name": "OpenRouter/Llama 3.3 Euryale 70B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/sao10k/l3.1-euryale-70b",
+          "name": "OpenRouter/Llama 3.1 Euryale 70B v2.2",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/sao10k/l3.1-70b-hanami-x1",
+          "name": "OpenRouter/Llama 3.1 70B Hanami x1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/sao10k/l3-lunaris-8b",
+          "name": "OpenRouter/Llama 3 8B Lunaris",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/sao10k/l3-euryale-70b",
+          "name": "OpenRouter/Llama 3 Euryale 70B v2.1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/relace/relace-search",
+          "name": "OpenRouter/Relace Search",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/relace/relace-apply-3",
+          "name": "OpenRouter/Relace Apply 3",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/rekaai/reka-flash-3",
+          "name": "OpenRouter/Reka Flash 3",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/rekaai/reka-edge",
+          "name": "OpenRouter/Reka Edge",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.7-plus",
+          "name": "OpenRouter/Qwen3.7 Plus",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.7-max",
+          "name": "OpenRouter/Qwen3.7 Max",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.6-plus",
+          "name": "OpenRouter/Qwen3.6 Plus",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.6-max-preview",
+          "name": "OpenRouter/Qwen3.6 Max Preview",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.6-flash",
+          "name": "OpenRouter/Qwen3.6 Flash",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.6-35b-a3b",
+          "name": "OpenRouter/Qwen3.6 35B A3B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.6-27b",
+          "name": "OpenRouter/Qwen3.6 27B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.5-plus-20260420",
+          "name": "OpenRouter/Qwen3.5 Plus 2026-04-20",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.5-plus-02-15",
+          "name": "OpenRouter/Qwen3.5 Plus 2026-02-15",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.5-flash-02-23",
+          "name": "OpenRouter/Qwen3.5-Flash",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.5-9b",
+          "name": "OpenRouter/Qwen3.5-9B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.5-397b-a17b",
+          "name": "OpenRouter/Qwen3.5 397B A17B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.5-35b-a3b",
+          "name": "OpenRouter/Qwen3.5-35B-A3B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.5-27b",
+          "name": "OpenRouter/Qwen3.5-27B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3.5-122b-a10b",
+          "name": "OpenRouter/Qwen3.5-122B-A10B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-vl-8b-thinking",
+          "name": "OpenRouter/Qwen3 VL 8B Thinking",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-vl-8b-instruct",
+          "name": "OpenRouter/Qwen3 VL 8B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-vl-32b-instruct",
+          "name": "OpenRouter/Qwen3 VL 32B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-vl-30b-a3b-thinking",
+          "name": "OpenRouter/Qwen3 VL 30B A3B Thinking",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-vl-30b-a3b-instruct",
+          "name": "OpenRouter/Qwen3 VL 30B A3B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-vl-235b-a22b-thinking",
+          "name": "OpenRouter/Qwen3 VL 235B A22B Thinking",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-vl-235b-a22b-instruct",
+          "name": "OpenRouter/Qwen3 VL 235B A22B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-next-80b-a3b-thinking",
+          "name": "OpenRouter/Qwen3 Next 80B A3B Thinking",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-next-80b-a3b-instruct:free",
+          "name": "OpenRouter/Qwen3 Next 80B A3B Instruct (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-next-80b-a3b-instruct",
+          "name": "OpenRouter/Qwen3 Next 80B A3B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-max-thinking",
+          "name": "OpenRouter/Qwen3 Max Thinking",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-max",
+          "name": "OpenRouter/Qwen3 Max",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-coder:free",
+          "name": "OpenRouter/Qwen3 Coder 480B A35B (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-coder-plus",
+          "name": "OpenRouter/Qwen3 Coder Plus",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-coder-next",
+          "name": "OpenRouter/Qwen3 Coder Next",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-coder-flash",
+          "name": "OpenRouter/Qwen3 Coder Flash",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-coder-30b-a3b-instruct",
+          "name": "OpenRouter/Qwen3 Coder 30B A3B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-coder",
+          "name": "OpenRouter/Qwen3 Coder 480B A35B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-8b",
+          "name": "OpenRouter/Qwen3 8B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-32b",
+          "name": "OpenRouter/Qwen3 32B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-30b-a3b-thinking-2507",
+          "name": "OpenRouter/Qwen3 30B A3B Thinking 2507",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-30b-a3b-instruct-2507",
+          "name": "OpenRouter/Qwen3 30B A3B Instruct 2507",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-30b-a3b",
+          "name": "OpenRouter/Qwen3 30B A3B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-235b-a22b-thinking-2507",
+          "name": "OpenRouter/Qwen3 235B A22B Thinking 2507",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-235b-a22b-2507",
+          "name": "OpenRouter/Qwen3 235B A22B Instruct 2507",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-235b-a22b",
+          "name": "OpenRouter/Qwen3 235B A22B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen3-14b",
+          "name": "OpenRouter/Qwen3 14B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen2.5-vl-72b-instruct",
+          "name": "OpenRouter/Qwen2.5 VL 72B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen-plus-2025-07-28:thinking",
+          "name": "OpenRouter/Qwen Plus 0728 (thinking)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen-plus-2025-07-28",
+          "name": "OpenRouter/Qwen Plus 0728",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen-plus",
+          "name": "OpenRouter/Qwen-Plus",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen-2.5-coder-32b-instruct",
+          "name": "OpenRouter/Qwen2.5 Coder 32B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen-2.5-7b-instruct",
+          "name": "OpenRouter/Qwen2.5 7B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/qwen/qwen-2.5-72b-instruct",
+          "name": "OpenRouter/Qwen2.5 72B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/prime-intellect/intellect-3",
+          "name": "OpenRouter/INTELLECT-3",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/poolside/laguna-xs.2:free",
+          "name": "OpenRouter/Laguna XS.2 (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/poolside/laguna-m.1:free",
+          "name": "OpenRouter/Laguna M.1 (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/perplexity/sonar-reasoning-pro",
+          "name": "OpenRouter/Sonar Reasoning Pro",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/perplexity/sonar-pro-search",
+          "name": "OpenRouter/Sonar Pro Search",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/perplexity/sonar-pro",
+          "name": "OpenRouter/Sonar Pro",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/perplexity/sonar-deep-research",
+          "name": "OpenRouter/Sonar Deep Research",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/perplexity/sonar",
+          "name": "OpenRouter/Sonar",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/perceptron/perceptron-mk1",
+          "name": "OpenRouter/Perceptron Mk1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openrouter/pareto-code",
+          "name": "OpenRouter/Pareto Code Router",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openrouter/fusion",
+          "name": "OpenRouter/Fusion",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openrouter/free",
+          "name": "OpenRouter/Free Models Router",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openrouter/bodybuilder",
+          "name": "OpenRouter/Body Builder (beta)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openrouter/auto",
+          "name": "OpenRouter/Auto Router",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/o4-mini-high",
+          "name": "OpenRouter/o4 Mini High",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/o4-mini-deep-research",
+          "name": "OpenRouter/o4-mini-deep-research",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/o4-mini",
+          "name": "OpenRouter/o4-mini",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/o3-pro",
+          "name": "OpenRouter/o3-pro",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/o3-mini-high",
+          "name": "OpenRouter/o3 Mini High",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/o3-mini",
+          "name": "OpenRouter/o3-mini",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/o3-deep-research",
+          "name": "OpenRouter/o3-deep-research",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/o3",
+          "name": "OpenRouter/o3",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/o1-pro",
+          "name": "OpenRouter/o1-pro",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/o1",
+          "name": "OpenRouter/o1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-oss-safeguard-20b",
+          "name": "OpenRouter/gpt-oss-safeguard-20b",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-oss-20b:free",
+          "name": "OpenRouter/gpt-oss-20b (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-oss-20b",
+          "name": "OpenRouter/gpt-oss-20b",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-oss-120b:free",
+          "name": "OpenRouter/gpt-oss-120b (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-oss-120b",
+          "name": "OpenRouter/gpt-oss-120b",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-audio-mini",
+          "name": "OpenRouter/GPT Audio Mini",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-audio",
+          "name": "OpenRouter/GPT Audio",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4o-search-preview",
+          "name": "OpenRouter/GPT-4o Search Preview",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4o-mini-search-preview",
+          "name": "OpenRouter/GPT-4o-mini Search Preview",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4o-mini-2024-07-18",
+          "name": "OpenRouter/GPT-4o-mini (2024-07-18)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4o-mini",
+          "name": "OpenRouter/GPT-4o mini",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4o-2024-11-20",
+          "name": "OpenRouter/GPT-4o (2024-11-20)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4o-2024-08-06",
+          "name": "OpenRouter/GPT-4o (2024-08-06)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4o-2024-05-13",
+          "name": "OpenRouter/GPT-4o (2024-05-13)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4o",
+          "name": "OpenRouter/GPT-4o",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4.1-nano",
+          "name": "OpenRouter/GPT-4.1 nano",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4.1-mini",
+          "name": "OpenRouter/GPT-4.1 mini",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4.1",
+          "name": "OpenRouter/GPT-4.1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4-turbo-preview",
+          "name": "OpenRouter/GPT-4 Turbo Preview",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4-turbo",
+          "name": "OpenRouter/GPT-4 Turbo",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4-1106-preview",
+          "name": "OpenRouter/GPT-4 Turbo (older v1106)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-4",
+          "name": "OpenRouter/GPT-4",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-3.5-turbo-instruct",
+          "name": "OpenRouter/GPT-3.5 Turbo Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-3.5-turbo-16k",
+          "name": "OpenRouter/GPT-3.5 Turbo 16k",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-3.5-turbo-0613",
+          "name": "OpenRouter/GPT-3.5 Turbo (older v0613)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/openai/gpt-3.5-turbo",
+          "name": "OpenRouter/GPT-3.5-turbo",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nvidia/nemotron-nano-9b-v2:free",
+          "name": "OpenRouter/Nemotron Nano 9B V2 (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nvidia/nemotron-nano-9b-v2",
+          "name": "OpenRouter/Nemotron Nano 9B V2",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nvidia/nemotron-nano-12b-v2-vl:free",
+          "name": "OpenRouter/Nemotron Nano 12B 2 VL (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+          "name": "OpenRouter/Nemotron 3 Super (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+          "name": "OpenRouter/Nemotron 3 Super",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+          "name": "OpenRouter/Nemotron 3 Nano Omni (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nvidia/nemotron-3-nano-30b-a3b:free",
+          "name": "OpenRouter/Nemotron 3 Nano 30B A3B (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nvidia/nemotron-3-nano-30b-a3b",
+          "name": "OpenRouter/Nemotron 3 Nano 30B A3B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nvidia/llama-3.3-nemotron-super-49b-v1.5",
+          "name": "OpenRouter/Llama 3.3 Nemotron Super 49B V1.5",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nousresearch/hermes-4-70b",
+          "name": "OpenRouter/Hermes 4 70B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nousresearch/hermes-4-405b",
+          "name": "OpenRouter/Hermes 4 405B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nousresearch/hermes-3-llama-3.1-70b",
+          "name": "OpenRouter/Hermes 3 70B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nousresearch/hermes-3-llama-3.1-405b:free",
+          "name": "OpenRouter/Hermes 3 405B Instruct (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nousresearch/hermes-3-llama-3.1-405b",
+          "name": "OpenRouter/Hermes 3 405B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nousresearch/hermes-2-pro-llama-3-8b",
+          "name": "OpenRouter/Hermes 2 Pro - Llama-3 8B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nex-agi/deepseek-v3.1-nex-n1",
+          "name": "OpenRouter/DeepSeek V3.1 Nex N1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/morph/morph-v3-large",
+          "name": "OpenRouter/Morph V3 Large",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/morph/morph-v3-fast",
+          "name": "OpenRouter/Morph V3 Fast",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/moonshotai/kimi-k2.6:free",
+          "name": "OpenRouter/Kimi K2.6 (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/moonshotai/kimi-k2.6",
+          "name": "OpenRouter/Kimi K2.6",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/moonshotai/kimi-k2.5",
+          "name": "OpenRouter/Kimi K2.5",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/moonshotai/kimi-k2-thinking",
+          "name": "OpenRouter/Kimi K2 Thinking",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/moonshotai/kimi-k2-0905",
+          "name": "OpenRouter/Kimi K2 0905",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/moonshotai/kimi-k2",
+          "name": "OpenRouter/Kimi K2 0711",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/voxtral-small-24b-2507",
+          "name": "OpenRouter/Voxtral Small 24B 2507",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/mixtral-8x22b-instruct",
+          "name": "OpenRouter/Mixtral 8x22B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/mistral-small-3.2-24b-instruct",
+          "name": "OpenRouter/Mistral Small 3.2 24B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/mistral-small-3.1-24b-instruct",
+          "name": "OpenRouter/Mistral Small 3.1 24B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/mistral-small-2603",
+          "name": "OpenRouter/Mistral Small 4",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/mistral-small-24b-instruct-2501",
+          "name": "OpenRouter/Mistral Small 3",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/mistral-saba",
+          "name": "OpenRouter/Saba",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/mistral-nemo",
+          "name": "OpenRouter/Mistral Nemo",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/mistral-medium-3.1",
+          "name": "OpenRouter/Mistral Medium 3.1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/mistral-medium-3-5",
+          "name": "OpenRouter/Mistral Medium 3.5",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/mistral-medium-3",
+          "name": "OpenRouter/Mistral Medium 3",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/mistral-large-2512",
+          "name": "OpenRouter/Mistral Large 3",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/mistral-large-2407",
+          "name": "OpenRouter/Mistral Large 2407",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/mistral-large",
+          "name": "OpenRouter/Mistral Large",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/ministral-8b-2512",
+          "name": "OpenRouter/Ministral 3 8B 2512",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/ministral-3b-2512",
+          "name": "OpenRouter/Ministral 3 3B 2512",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/ministral-14b-2512",
+          "name": "OpenRouter/Ministral 3 14B 2512",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mistralai/codestral-2508",
+          "name": "OpenRouter/Codestral 2508",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/minimax/minimax-m3",
+          "name": "OpenRouter/MiniMax-M3",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/minimax/minimax-m2.7",
+          "name": "OpenRouter/MiniMax-M2.7",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/minimax/minimax-m2.5",
+          "name": "OpenRouter/MiniMax-M2.5",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/minimax/minimax-m2.1",
+          "name": "OpenRouter/MiniMax-M2.1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/minimax/minimax-m2-her",
+          "name": "OpenRouter/MiniMax M2-her",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/minimax/minimax-m2",
+          "name": "OpenRouter/MiniMax-M2",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/minimax/minimax-m1",
+          "name": "OpenRouter/MiniMax M1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/minimax/minimax-01",
+          "name": "OpenRouter/MiniMax-01",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/microsoft/wizardlm-2-8x22b",
+          "name": "OpenRouter/WizardLM-2 8x22B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/microsoft/phi-4-mini-instruct",
+          "name": "OpenRouter/Phi 4 Mini Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/microsoft/phi-4",
+          "name": "OpenRouter/Phi 4",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/meta-llama/llama-guard-4-12b",
+          "name": "OpenRouter/Llama Guard 4 12B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/meta-llama/llama-guard-3-8b",
+          "name": "OpenRouter/Llama Guard 3 8B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/meta-llama/llama-4-scout",
+          "name": "OpenRouter/Llama 4 Scout",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/meta-llama/llama-4-maverick",
+          "name": "OpenRouter/Llama 4 Maverick",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/meta-llama/llama-3.3-70b-instruct:free",
+          "name": "OpenRouter/Llama 3.3 70B Instruct (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/meta-llama/llama-3.3-70b-instruct",
+          "name": "OpenRouter/Llama-3.3-70B-Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/meta-llama/llama-3.2-3b-instruct:free",
+          "name": "OpenRouter/Llama 3.2 3B Instruct (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/meta-llama/llama-3.2-3b-instruct",
+          "name": "OpenRouter/Llama 3.2 3B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/meta-llama/llama-3.2-1b-instruct",
+          "name": "OpenRouter/Llama 3.2 1B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/meta-llama/llama-3.2-11b-vision-instruct",
+          "name": "OpenRouter/Llama 3.2 11B Vision Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/meta-llama/llama-3.1-8b-instruct",
+          "name": "OpenRouter/Llama 3.1 8B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/meta-llama/llama-3.1-70b-instruct",
+          "name": "OpenRouter/Llama 3.1 70B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/meta-llama/llama-3-8b-instruct",
+          "name": "OpenRouter/Llama 3 8B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/meta-llama/llama-3-70b-instruct",
+          "name": "OpenRouter/Llama 3 70B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/mancer/weaver",
+          "name": "OpenRouter/Weaver (alpha)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/liquid/lfm-2.5-1.2b-thinking:free",
+          "name": "OpenRouter/LFM2.5-1.2B-Thinking (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/liquid/lfm-2.5-1.2b-instruct:free",
+          "name": "OpenRouter/LFM2.5-1.2B-Instruct (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/liquid/lfm-2-24b-a2b",
+          "name": "OpenRouter/LFM2-24B-A2B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/kwaipilot/kat-coder-pro-v2",
+          "name": "OpenRouter/KAT-Coder-Pro V2",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/inflection/inflection-3-productivity",
+          "name": "OpenRouter/Inflection 3 Productivity",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/inflection/inflection-3-pi",
+          "name": "OpenRouter/Inflection 3 Pi",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/inclusionai/ring-2.6-1t",
+          "name": "OpenRouter/Ring-2.6-1T",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/inclusionai/ling-2.6-flash",
+          "name": "OpenRouter/Ling-2.6-flash",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/inclusionai/ling-2.6-1t",
+          "name": "OpenRouter/Ling-2.6-1T",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/inception/mercury-2",
+          "name": "OpenRouter/Mercury 2",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/ibm-granite/granite-4.1-8b",
+          "name": "OpenRouter/Granite 4.1 8B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/ibm-granite/granite-4.0-h-micro",
+          "name": "OpenRouter/Granite 4.0 Micro",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/gryphe/mythomax-l2-13b",
+          "name": "OpenRouter/MythoMax 13B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/lyria-3-pro-preview",
+          "name": "OpenRouter/Lyria 3 Pro Preview",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/lyria-3-clip-preview",
+          "name": "OpenRouter/Lyria 3 Clip Preview",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemma-4-31b-it:free",
+          "name": "OpenRouter/Gemma 4 31B (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemma-4-31b-it",
+          "name": "OpenRouter/Gemma 4 31B IT",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemma-4-26b-a4b-it:free",
+          "name": "OpenRouter/Gemma 4 26B A4B  (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemma-4-26b-a4b-it",
+          "name": "OpenRouter/Gemma 4 26B A4B IT",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemma-3n-e4b-it",
+          "name": "OpenRouter/Gemma 3n 4B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemma-3-4b-it",
+          "name": "OpenRouter/Gemma 3 4B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemma-3-27b-it",
+          "name": "OpenRouter/Gemma 3 27B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemma-3-12b-it",
+          "name": "OpenRouter/Gemma 3 12B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemma-2-27b-it",
+          "name": "OpenRouter/Gemma 2 27B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-3.5-flash",
+          "name": "OpenRouter/Gemini 3.5 Flash",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-3.1-pro-preview-customtools",
+          "name": "OpenRouter/Gemini 3.1 Pro Preview Custom Tools",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-3.1-pro-preview",
+          "name": "OpenRouter/Gemini 3.1 Pro Preview",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-3.1-flash-lite-preview",
+          "name": "OpenRouter/Gemini 3.1 Flash Lite Preview",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-3.1-flash-lite",
+          "name": "OpenRouter/Gemini 3.1 Flash Lite",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-3.1-flash-image-preview",
+          "name": "OpenRouter/Nano Banana 2",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-3-flash-preview",
+          "name": "OpenRouter/Gemini 3 Flash Preview",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-2.5-pro-preview-05-06",
+          "name": "OpenRouter/Gemini 2.5 Pro Preview 05-06",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-2.5-pro-preview",
+          "name": "OpenRouter/Gemini 2.5 Pro Preview 06-05",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-2.5-pro",
+          "name": "OpenRouter/Gemini 2.5 Pro",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-2.5-flash-lite-preview-09-2025",
+          "name": "OpenRouter/Gemini 2.5 Flash Lite Preview 09-2025",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-2.5-flash-lite",
+          "name": "OpenRouter/Gemini 2.5 Flash-Lite",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-2.5-flash-image",
+          "name": "OpenRouter/Nano Banana",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/google/gemini-2.5-flash",
+          "name": "OpenRouter/Gemini 2.5 Flash",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/essentialai/rnj-1-instruct",
+          "name": "OpenRouter/Rnj 1 Instruct",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/deepseek/deepseek-v4-pro",
+          "name": "OpenRouter/DeepSeek V4 Pro",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/deepseek/deepseek-v4-flash",
+          "name": "OpenRouter/DeepSeek V4 Flash",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/deepseek/deepseek-v3.2-exp",
+          "name": "OpenRouter/DeepSeek V3.2 Exp",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/deepseek/deepseek-v3.2",
+          "name": "OpenRouter/DeepSeek V3.2",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/deepseek/deepseek-v3.1-terminus",
+          "name": "OpenRouter/DeepSeek V3.1 Terminus",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/deepseek/deepseek-r1-distill-qwen-32b",
+          "name": "OpenRouter/R1 Distill Qwen 32B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/deepseek/deepseek-r1-distill-llama-70b",
+          "name": "OpenRouter/R1 Distill Llama 70B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/deepseek/deepseek-r1-0528",
+          "name": "OpenRouter/R1 0528",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/deepseek/deepseek-r1",
+          "name": "OpenRouter/R1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/deepseek/deepseek-chat-v3.1",
+          "name": "OpenRouter/DeepSeek V3.1",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/deepseek/deepseek-chat-v3-0324",
+          "name": "OpenRouter/DeepSeek V3 0324",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/deepseek/deepseek-chat",
+          "name": "OpenRouter/DeepSeek Chat",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/deepcogito/cogito-v2.1-671b",
+          "name": "OpenRouter/Cogito v2.1 671B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/cohere/command-r7b-12-2024",
+          "name": "OpenRouter/Command R7B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/cohere/command-r-plus-08-2024",
+          "name": "OpenRouter/Command R+",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/cohere/command-r-08-2024",
+          "name": "OpenRouter/Command R",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/cohere/command-a",
+          "name": "OpenRouter/Command A",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+          "name": "OpenRouter/Uncensored (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/bytedance/ui-tars-1.5-7b",
+          "name": "OpenRouter/UI-TARS 7B ",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/bytedance-seed/seed-2.0-mini",
+          "name": "OpenRouter/Seed-2.0-Mini",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/bytedance-seed/seed-2.0-lite",
+          "name": "OpenRouter/Seed-2.0-Lite",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/bytedance-seed/seed-1.6-flash",
+          "name": "OpenRouter/Seed 1.6 Flash",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/bytedance-seed/seed-1.6",
+          "name": "OpenRouter/Seed 1.6",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/baidu/ernie-4.5-vl-424b-a47b",
+          "name": "OpenRouter/ERNIE 4.5 VL 424B A47B ",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/baidu/ernie-4.5-vl-28b-a3b",
+          "name": "OpenRouter/ERNIE 4.5 VL 28B A3B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/arcee-ai/virtuoso-large",
+          "name": "OpenRouter/Virtuoso Large",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/arcee-ai/trinity-mini",
+          "name": "OpenRouter/Trinity Mini",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/arcee-ai/trinity-large-thinking",
+          "name": "OpenRouter/Trinity Large Thinking",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/arcee-ai/spotlight",
+          "name": "OpenRouter/Spotlight",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/arcee-ai/maestro-reasoning",
+          "name": "OpenRouter/Maestro Reasoning",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/arcee-ai/coder-large",
+          "name": "OpenRouter/Coder Large",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-opus-4.8-fast",
+          "name": "OpenRouter/Claude Opus 4.8 (Fast)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-opus-4.8",
+          "name": "OpenRouter/Claude Opus 4.8",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-opus-4.7-fast",
+          "name": "OpenRouter/Claude Opus 4.7 (Fast)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-opus-4.7",
+          "name": "OpenRouter/Claude Opus 4.7",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-opus-4.6-fast",
+          "name": "OpenRouter/Claude Opus 4.6 (Fast)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-opus-4.6",
+          "name": "OpenRouter/Claude Opus 4.6",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-opus-4.5",
+          "name": "OpenRouter/Claude Opus 4.5 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-opus-4.1",
+          "name": "OpenRouter/Claude Opus 4.1 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-opus-4",
+          "name": "OpenRouter/Claude Opus 4",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-haiku-4.5",
+          "name": "OpenRouter/Claude Haiku 4.5 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-3.5-haiku",
+          "name": "OpenRouter/Claude 3.5 Haiku",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-3-haiku",
+          "name": "OpenRouter/Claude 3 Haiku",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthracite-org/magnum-v4-72b",
+          "name": "OpenRouter/Magnum v4 72B",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/amazon/nova-pro-v1",
+          "name": "OpenRouter/Nova Pro 1.0",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/amazon/nova-premier-v1",
+          "name": "OpenRouter/Nova Premier 1.0",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/amazon/nova-micro-v1",
+          "name": "OpenRouter/Nova Micro 1.0",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/amazon/nova-lite-v1",
+          "name": "OpenRouter/Nova Lite 1.0",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/amazon/nova-2-lite-v1",
+          "name": "OpenRouter/Nova 2 Lite",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/allenai/olmo-3-32b-think",
+          "name": "OpenRouter/Olmo 3 32B Think",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/aion-labs/aion-rp-llama-3.1-8b",
+          "name": "OpenRouter/Aion-RP 1.0 (8B)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/aion-labs/aion-2.0",
+          "name": "OpenRouter/Aion-2.0",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/aion-labs/aion-1.0-mini",
+          "name": "OpenRouter/Aion-1.0-Mini",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/aion-labs/aion-1.0",
+          "name": "OpenRouter/Aion-1.0",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/ai21/jamba-large-1.7",
+          "name": "OpenRouter/Jamba Large 1.7",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/zai-org/GLM-5.1",
+          "name": "Together AI/GLM-5.1",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/openai/gpt-oss-120b",
+          "name": "Together AI/GPT OSS 120B",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/moonshotai/Kimi-K2.6",
+          "name": "Together AI/Kimi K2.6",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/moonshotai/Kimi-K2.5",
+          "name": "Together AI/Kimi K2.5",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/meta-llama/Llama-3.3-70B-Instruct-Turbo",
+          "name": "Together AI/Llama 3.3 70B",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/google/gemma-4-31B-it",
+          "name": "Together AI/Gemma 4 31B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/essentialai/Rnj-1-Instruct",
+          "name": "Together AI/Rnj-1 Instruct",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/deepseek-ai/DeepSeek-V4-Pro",
+          "name": "Together AI/DeepSeek V4 Pro",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/deepseek-ai/DeepSeek-V3-1",
+          "name": "Together AI/DeepSeek V3.1",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/deepseek-ai/DeepSeek-V3",
+          "name": "Together AI/DeepSeek V3",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/deepseek-ai/DeepSeek-R1",
+          "name": "Together AI/DeepSeek R1",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/Qwen/Qwen3.7-Max",
+          "name": "Together AI/Qwen3.7 Max",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/Qwen/Qwen3.6-Plus",
+          "name": "Together AI/Qwen3.6 Plus",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/Qwen/Qwen3.5-397B-A17B",
+          "name": "Together AI/Qwen3.5 397B A17B",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/Qwen/Qwen3-Coder-Next-FP8",
+          "name": "Together AI/Qwen3 Coder Next FP8",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8",
+          "name": "Together AI/Qwen3 Coder 480B A35B Instruct",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+          "name": "Together AI/Qwen3 235B A22B Instruct 2507 FP8",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/MiniMaxAI/MiniMax-M2.7",
+          "name": "Together AI/MiniMax-M2.7",
+          "description": null
+        },
+        {
+          "modelId": "togetherai/MiniMaxAI/MiniMax-M2.5",
+          "name": "Together AI/MiniMax-M2.5",
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "claude-acp",
+      "name": "Claude Agent",
+      "version": "0.41.0",
+      "description": "ACP wrapper for Anthropic's Claude",
+      "repository": "https://github.com/agentclientprotocol/claude-agent-acp",
+      "authors": [
+        "Anthropic",
+        "Zed Industries",
+        "JetBrains"
+      ],
+      "license": "proprietary",
+      "icon": "https://cdn.agentclientprotocol.com/registry/v1/latest/claude-acp.svg",
+      "binaries": [
+        "claude"
+      ],
+      "auth": "claude auth status",
+      "modes": [
+        {
+          "id": "auto",
+          "name": "Auto",
+          "description": "Use a model classifier to approve/deny permission prompts"
+        },
+        {
+          "id": "default",
+          "name": "Default",
+          "description": "Standard behavior, prompts for dangerous operations"
+        },
+        {
+          "id": "acceptEdits",
+          "name": "Accept Edits",
+          "description": "Auto-accept file edit operations"
+        },
+        {
+          "id": "plan",
+          "name": "Plan Mode",
+          "description": "Planning mode, no actual tool execution"
+        },
+        {
+          "id": "dontAsk",
+          "name": "Don't Ask",
+          "description": "Don't prompt for permissions, deny if not pre-approved"
+        },
+        {
+          "id": "bypassPermissions",
+          "name": "Bypass Permissions",
+          "description": "Bypass all permission checks"
+        }
+      ],
+      "models": [
+        {
+          "modelId": "default",
+          "name": "Default (recommended)",
+          "description": "Use the default model (currently Opus 4.8 (1M context)) · $5/$25 per Mtok"
+        },
+        {
+          "modelId": "sonnet",
+          "name": "Sonnet",
+          "description": "Sonnet 4.6 · Best for everyday tasks · $3/$15 per Mtok"
+        },
+        {
+          "modelId": "sonnet[1m]",
+          "name": "Sonnet (1M context)",
+          "description": "Sonnet 4.6 for long sessions · $3/$15 per Mtok"
+        },
+        {
+          "modelId": "haiku",
+          "name": "Haiku",
+          "description": "Haiku 4.5 · Fastest for quick answers · $1/$5 per Mtok"
+        }
+      ]
+    },
+    {
+      "id": "codex-acp",
+      "name": "Codex CLI",
+      "version": "0.15.0",
+      "description": "ACP adapter for OpenAI's coding assistant",
+      "repository": "https://github.com/zed-industries/codex-acp",
+      "authors": [
+        "OpenAI",
+        "Zed Industries"
+      ],
+      "license": "Apache-2.0",
+      "icon": "https://cdn.agentclientprotocol.com/registry/v1/latest/codex-acp.svg",
+      "binaries": [
+        "codex"
+      ],
+      "modes": [
+        {
+          "id": "read-only",
+          "name": "Read Only",
+          "description": "Codex can read files in the current workspace. Approval is required to edit files or access the internet."
+        },
+        {
+          "id": "auto",
+          "name": "Default",
+          "description": "Codex can read and edit files in the current workspace, and run commands. Approval is required to access the internet or edit other files. (Identical to Agent mode)"
+        },
+        {
+          "id": "full-access",
+          "name": "Full Access",
+          "description": "Codex can edit files outside this workspace and access the internet without asking for approval. Exercise caution when using."
+        }
+      ],
+      "models": [
+        {
+          "modelId": "gpt-5.5",
+          "name": "GPT-5.5",
+          "description": "Frontier model for complex coding, research, and real-world work."
+        },
+        {
+          "modelId": "gpt-5.4-mini",
+          "name": "GPT-5.4-Mini",
+          "description": "Small, fast, and cost-efficient model for simpler coding tasks."
+        }
+      ]
+    }
+  ],
+  "extensions": []
+}

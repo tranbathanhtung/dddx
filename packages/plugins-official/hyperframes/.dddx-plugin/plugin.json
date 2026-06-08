@@ -1,0 +1,162 @@
+{
+  "name": "HyperFrames",
+  "description": "Enter /hyperframes to get started generating HTML-based video compositions, animations, captions, and transitions for AI coding agents.",
+  "author": {
+    "name": "HeyGen",
+    "url": "https://github.com/heygen-com"
+  },
+  "homepage": "https://github.com/heygen-com/hyperframes",
+  "license": "Apache-2.0",
+  "items": [
+    {
+      "source": "./skills/animejs",
+      "name": "animejs",
+      "title": "Anime.js",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./skills/contribute-catalog",
+      "name": "contribute-catalog",
+      "title": "Contribute Catalog",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./skills/css-animations",
+      "name": "css-animations",
+      "title": "CSS Animations",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./skills/gsap",
+      "name": "gsap",
+      "title": "GSAP",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./skills/hyperframes",
+      "name": "hyperframes",
+      "title": "HyperFrames",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./skills/hyperframes-cli",
+      "name": "hyperframes-cli",
+      "title": "HyperFrames CLI",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./skills/hyperframes-media",
+      "name": "hyperframes-media",
+      "title": "HyperFrames Media",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./skills/hyperframes-registry",
+      "name": "hyperframes-registry",
+      "title": "HyperFrames Registry",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./skills/lottie",
+      "name": "lottie",
+      "title": "Lottie",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./skills/remotion-to-hyperframes",
+      "name": "remotion-to-hyperframes",
+      "title": "Remotion to HyperFrames",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./templates/saas-product-promo",
+      "name": "saas-product-promo",
+      "title": "SaaS Product Promo",
+      "previews": [
+        "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/app-showcase.png",
+        "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/app-showcase.mp4"
+      ]
+    },
+    {
+      "source": "./skills/tailwind",
+      "name": "tailwind",
+      "title": "Tailwind",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./skills/three",
+      "name": "three",
+      "title": "Three.js",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./templates/tiktok-karaoke-talking-head",
+      "name": "tiktok-karaoke-talking-head",
+      "title": "TikTok Karaoke Talking Head",
+      "previews": [
+        "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/tiktok-follow.png",
+        "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/tiktok-follow.mp4"
+      ]
+    },
+    {
+      "source": "./skills/typegpu",
+      "name": "typegpu",
+      "title": "TypeGPU",
+      "previews": [
+        "./SKILL.md"
+      ]
+    },
+    {
+      "source": "./skills/waapi",
+      "name": "waapi",
+      "title": "Web Animations API",
+      "previews": [
+        "./SKILL.md"
+      ],
+      "category": "video"
+    },
+    {
+      "source": "./skills/website-to-hyperframes",
+      "name": "website-to-hyperframes",
+      "title": "Website to HyperFrames",
+      "previews": [
+        "./SKILL.md"
+      ],
+      "category": "video"
+    },
+    {
+      "source": "./templates/website-to-video",
+      "name": "website-to-video",
+      "title": "Website to video",
+      "category": "video",
+      "previews": [
+        "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/ui-3d-reveal.png",
+        "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/ui-3d-reveal.mp4"
+      ]
+    }
+  ]
+}

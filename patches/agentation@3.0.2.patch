@@ -1,0 +1,236 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 74302421cdde73d3b1d58952473adb0d744a2b8c..803fdceb72a94bb891e9f2384313179de29ec7b2 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -114,10 +114,18 @@ type PageFeedbackToolbarCSSProps = {
+     webhookUrl?: string;
+     /** Custom class name applied to the toolbar container. Use to adjust positioning or z-index. */
+     className?: string;
++    /** Hide the floating toolbar widget while keeping annotation mode functional. */
++    hideToolbar?: boolean;
++    /** Controlled annotation mode state. When provided, the parent controls active/inactive. */
++    active?: boolean;
++    /** Called when annotation mode is toggled. */
++    onActiveChange?: (active: boolean) => void;
++    /** After adding an annotation, auto-submit markdown via onCopy and clear annotations. */
++    submitOnAdd?: boolean;
+ };
+ /** Alias for PageFeedbackToolbarCSSProps */
+ type AgentationProps = PageFeedbackToolbarCSSProps;
+-declare function PageFeedbackToolbarCSS({ demoAnnotations, demoDelay, enableDemoMode, onAnnotationAdd, onAnnotationDelete, onAnnotationUpdate, onAnnotationsClear, onCopy, onSubmit, copyToClipboard, endpoint, sessionId: initialSessionId, onSessionCreated, webhookUrl, className: userClassName, }?: PageFeedbackToolbarCSSProps): react.ReactPortal | null;
++declare function PageFeedbackToolbarCSS({ demoAnnotations, demoDelay, enableDemoMode, onAnnotationAdd, onAnnotationDelete, onAnnotationUpdate, onAnnotationsClear, onCopy, onSubmit, copyToClipboard, endpoint, sessionId: initialSessionId, onSessionCreated, webhookUrl, className: userClassName, hideToolbar, active, onActiveChange, submitOnAdd, }?: PageFeedbackToolbarCSSProps): react.ReactPortal | null;
+ 
+ interface AnnotationPopupCSSProps {
+     /** Element name to display in header */
+diff --git a/dist/index.js b/dist/index.js
+index 07036659fc11b8a3c9d300536631056ec3f58297..a5a8610311feb5d09727aea38ef2bca9e93ca57f 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -8324,9 +8324,22 @@ function PageFeedbackToolbarCSS({
+   sessionId: initialSessionId,
+   onSessionCreated,
+   webhookUrl,
+-  className: userClassName
++  className: userClassName,
++  hideToolbar: hideToolbarProp = false,
++  active: controlledActive,
++  onActiveChange,
++  submitOnAdd = false
+ } = {}) {
+-  const [isActive, setIsActive] = (0, import_react8.useState)(false);
++  const [internalActive, setInternalActive] = (0, import_react8.useState)(false);
++  const isControlledActive = controlledActive !== void 0;
++  const isActive = isControlledActive ? controlledActive : internalActive;
++  const setIsActive = (0, import_react8.useCallback)((value) => {
++    const next = typeof value === "function" ? value(isControlledActive ? controlledActive : internalActive) : value;
++    if (!isControlledActive) {
++      setInternalActive(next);
++    }
++    onActiveChange?.(next);
++  }, [isControlledActive, controlledActive, internalActive, onActiveChange]);
+   const [annotations, setAnnotations] = (0, import_react8.useState)([]);
+   const [showMarkers, setShowMarkers] = (0, import_react8.useState)(true);
+   const [isToolbarHidden, setIsToolbarHidden] = (0, import_react8.useState)(() => loadToolbarHidden());
+@@ -10061,16 +10074,33 @@ function PageFeedbackToolbarCSS({
+           status: "pending"
+         } : {}
+       };
+-      setAnnotations((prev) => [...prev, newAnnotation]);
+-      recentlyAddedIdRef.current = newAnnotation.id;
+-      originalSetTimeout(() => {
+-        recentlyAddedIdRef.current = null;
+-      }, 300);
+-      originalSetTimeout(() => {
+-        setAnimatedMarkers((prev) => new Set(prev).add(newAnnotation.id));
+-      }, 250);
+-      onAnnotationAdd?.(newAnnotation);
+-      fireWebhook("annotation.add", { annotation: newAnnotation });
++      if (submitOnAdd) {
++        const displayUrl = typeof window !== "undefined" ? window.location.pathname + window.location.search + window.location.hash : pathname;
++        const output = generateOutput([newAnnotation], displayUrl, settings.outputDetail);
++        if (output) {
++          if (copyToClipboard) {
++            try {
++              navigator.clipboard.writeText(output);
++            } catch {
++            }
++          }
++          onCopy?.(output);
++          onSubmit?.(output, [newAnnotation]);
++        }
++        onAnnotationAdd?.(newAnnotation);
++        fireWebhook("annotation.add", { annotation: newAnnotation });
++      } else {
++        setAnnotations((prev) => [...prev, newAnnotation]);
++        recentlyAddedIdRef.current = newAnnotation.id;
++        originalSetTimeout(() => {
++          recentlyAddedIdRef.current = null;
++        }, 300);
++        originalSetTimeout(() => {
++          setAnimatedMarkers((prev) => new Set(prev).add(newAnnotation.id));
++        }, 250);
++        onAnnotationAdd?.(newAnnotation);
++        fireWebhook("annotation.add", { annotation: newAnnotation });
++      }
+       setPendingExiting(true);
+       originalSetTimeout(() => {
+         setPendingAnnotation(null);
+@@ -10102,7 +10132,13 @@ function PageFeedbackToolbarCSS({
+       onAnnotationAdd,
+       fireWebhook,
+       endpoint,
+-      currentSessionId
++      currentSessionId,
++      submitOnAdd,
++      pathname,
++      settings.outputDetail,
++      copyToClipboard,
++      onCopy,
++      onSubmit
+     ]
+   );
+   const cancelAnnotation = (0, import_react8.useCallback)(() => {
+@@ -10702,7 +10738,7 @@ function PageFeedbackToolbarCSS({
+     pendingMultiSelectElements
+   ]);
+   if (!mounted) return null;
+-  if (isToolbarHidden) return null;
++  if (isToolbarHidden && !hideToolbarProp) return null;
+   const hasAnnotations = annotations.length > 0;
+   const visibleAnnotations = annotations.filter(
+     (a) => !exitingMarkers.has(a.id) && a.kind !== "placement" && a.kind !== "rearrange"
+@@ -10737,7 +10773,7 @@ function PageFeedbackToolbarCSS({
+   };
+   return (0, import_react_dom2.createPortal)(
+     /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { ref: portalWrapperRef, style: { display: "contents" }, "data-agentation-theme": isDarkMode ? "dark" : "light", "data-agentation-accent": settings.annotationColorId, "data-agentation-root": "", children: [
+-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
++      !hideToolbarProp && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+         "div",
+         {
+           className: `${styles_module_default4.toolbar}${userClassName ? ` ${userClassName}` : ""}`,
+diff --git a/dist/index.mjs b/dist/index.mjs
+index b6662bd6b8bcc9555e22a4d1a0de99198e0c11b5..6c02847b75975a9ebcd1fb5a3ca6a00c15423568 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -8240,9 +8240,22 @@ function PageFeedbackToolbarCSS({
+   sessionId: initialSessionId,
+   onSessionCreated,
+   webhookUrl,
+-  className: userClassName
++  className: userClassName,
++  hideToolbar: hideToolbarProp = false,
++  active: controlledActive,
++  onActiveChange,
++  submitOnAdd = false
+ } = {}) {
+-  const [isActive, setIsActive] = useState6(false);
++  const [internalActive, setInternalActive] = useState6(false);
++  const isControlledActive = controlledActive !== void 0;
++  const isActive = isControlledActive ? controlledActive : internalActive;
++  const setIsActive = useCallback5((value) => {
++    const next = typeof value === "function" ? value(isControlledActive ? controlledActive : internalActive) : value;
++    if (!isControlledActive) {
++      setInternalActive(next);
++    }
++    onActiveChange?.(next);
++  }, [isControlledActive, controlledActive, internalActive, onActiveChange]);
+   const [annotations, setAnnotations] = useState6([]);
+   const [showMarkers, setShowMarkers] = useState6(true);
+   const [isToolbarHidden, setIsToolbarHidden] = useState6(() => loadToolbarHidden());
+@@ -9977,16 +9990,33 @@ function PageFeedbackToolbarCSS({
+           status: "pending"
+         } : {}
+       };
+-      setAnnotations((prev) => [...prev, newAnnotation]);
+-      recentlyAddedIdRef.current = newAnnotation.id;
+-      originalSetTimeout(() => {
+-        recentlyAddedIdRef.current = null;
+-      }, 300);
+-      originalSetTimeout(() => {
+-        setAnimatedMarkers((prev) => new Set(prev).add(newAnnotation.id));
+-      }, 250);
+-      onAnnotationAdd?.(newAnnotation);
+-      fireWebhook("annotation.add", { annotation: newAnnotation });
++      if (submitOnAdd) {
++        const displayUrl = typeof window !== "undefined" ? window.location.pathname + window.location.search + window.location.hash : pathname;
++        const output = generateOutput([newAnnotation], displayUrl, settings.outputDetail);
++        if (output) {
++          if (copyToClipboard) {
++            try {
++              navigator.clipboard.writeText(output);
++            } catch {
++            }
++          }
++          onCopy?.(output);
++          onSubmit?.(output, [newAnnotation]);
++        }
++        onAnnotationAdd?.(newAnnotation);
++        fireWebhook("annotation.add", { annotation: newAnnotation });
++      } else {
++        setAnnotations((prev) => [...prev, newAnnotation]);
++        recentlyAddedIdRef.current = newAnnotation.id;
++        originalSetTimeout(() => {
++          recentlyAddedIdRef.current = null;
++        }, 300);
++        originalSetTimeout(() => {
++          setAnimatedMarkers((prev) => new Set(prev).add(newAnnotation.id));
++        }, 250);
++        onAnnotationAdd?.(newAnnotation);
++        fireWebhook("annotation.add", { annotation: newAnnotation });
++      }
+       setPendingExiting(true);
+       originalSetTimeout(() => {
+         setPendingAnnotation(null);
+@@ -10018,7 +10048,13 @@ function PageFeedbackToolbarCSS({
+       onAnnotationAdd,
+       fireWebhook,
+       endpoint,
+-      currentSessionId
++      currentSessionId,
++      submitOnAdd,
++      pathname,
++      settings.outputDetail,
++      copyToClipboard,
++      onCopy,
++      onSubmit
+     ]
+   );
+   const cancelAnnotation = useCallback5(() => {
+@@ -10618,7 +10654,7 @@ function PageFeedbackToolbarCSS({
+     pendingMultiSelectElements
+   ]);
+   if (!mounted) return null;
+-  if (isToolbarHidden) return null;
++  if (isToolbarHidden && !hideToolbarProp) return null;
+   const hasAnnotations = annotations.length > 0;
+   const visibleAnnotations = annotations.filter(
+     (a) => !exitingMarkers.has(a.id) && a.kind !== "placement" && a.kind !== "rearrange"
+@@ -10653,7 +10689,7 @@ function PageFeedbackToolbarCSS({
+   };
+   return createPortal2(
+     /* @__PURE__ */ jsxs13("div", { ref: portalWrapperRef, style: { display: "contents" }, "data-agentation-theme": isDarkMode ? "dark" : "light", "data-agentation-accent": settings.annotationColorId, "data-agentation-root": "", children: [
+-      /* @__PURE__ */ jsx14(
++      !hideToolbarProp && /* @__PURE__ */ jsx14(
+         "div",
+         {
+           className: `${styles_module_default4.toolbar}${userClassName ? ` ${userClassName}` : ""}`,

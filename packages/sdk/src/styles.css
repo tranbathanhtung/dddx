@@ -1,0 +1,416 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "dockview-react/dist/styles/dockview.css";
+@import "streamdown/styles.css";
+@import "@xyflow/react/dist/style.css";
+@import "./components/agent-elements/agent-ui.css";
+
+@source "../node_modules/streamdown/dist/*.js";
+@source "../node_modules/@streamdown/code/dist/*.js"; /* Only if using code plugin */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --spacing-app-header: 44px;
+  --spacing-input-area: 84px;
+
+  --shadow-long: var(--shadow-long-value);
+  --shadow-button:
+    #0000000f 0px 0px 0px 1px, #0000000f 0px 1px 2px -1px, #0000000a 0px 2px 4px;
+  --shadow-button-primary:
+    #00000014 0px 0px 0px 1px, #0000000a 0px 2px 2px, #0000000a 0px 8px 8px -8px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --text-sm: 13px;
+  --text-base: 15px;
+
+  --spacing-scroll-area: calc(
+    -1 * (var(--spacing-input-area) + var(--spacing-app-header))
+  );
+  --spacing-scroll-anchor-offset: 48px;
+  --spacing-scroll-anchor: calc(
+    var(--spacing-scroll-area) - var(--spacing-scroll-anchor-offset) + 100dvh
+  );
+}
+
+/*
+ * Shadcn semantic tokens track the agent palette (`--an-*` from agent-ui.css).
+ * Light/dark come from the same `--an-*` names (overridden under `.dark`).
+ *
+ * `.agent-shadcn-root` repeats the bindings so JSON/runtime themes applied on
+ * that element re-resolve `var(--an-*)` for nested shadcn components (see ThemeConfigProvider).
+ */
+:root,
+.agent-shadcn-root {
+  --radius: var(--an-border-radius);
+
+  --background: var(--an-background);
+  --foreground: var(--an-foreground);
+  --card: var(--an-background);
+  --card-foreground: var(--an-foreground);
+  --popover: var(--an-background);
+  --popover-foreground: var(--an-foreground);
+  --primary: var(--an-primary-color);
+  --primary-foreground: var(--an-send-button-color);
+  --secondary: var(--an-background-secondary);
+  --secondary-foreground: var(--an-foreground);
+  --muted: var(--an-background-secondary);
+  --muted-foreground: var(--an-foreground-muted);
+  --accent: var(--an-background-tertiary);
+  --accent-foreground: var(--an-foreground);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--an-border-color);
+  --input: var(--an-input-border-color);
+  --ring: var(--an-primary-color);
+
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  --sidebar: var(--an-background);
+  --sidebar-foreground: var(--an-foreground);
+  --sidebar-primary: var(--an-primary-color);
+  --sidebar-primary-foreground: var(--an-send-button-color);
+  --sidebar-accent: var(--an-background-tertiary);
+  --sidebar-accent-foreground: var(--an-foreground);
+  --sidebar-border: var(--an-border-color);
+  --sidebar-ring: var(--an-primary-color);
+
+  /* Ring + lift — same language as --shadow-button, scaled for menus/cards */
+  --shadow-long-value:
+    #0000000f 0px 0px 0px 1px, #0000000a 0px 2px 4px -1px,
+    #00000014 0px 8px 16px -4px, #0000000a 0px 16px 40px -12px;
+}
+
+/* No `--an-*` equivalents; keep shadcn defaults and swap palette under `.dark`. */
+.dark {
+  --shadow-long-value:
+    #ffffff14 0px 0px 0px 1px, #0000001f 0px 2px 4px -1px,
+    #0000003d 0px 8px 16px -4px, #00000029 0px 16px 40px -12px;
+
+  --destructive: oklch(0.704 0.191 22.216);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+}
+
+.agent-shadcn-root,
+.dockview-theme-ui,
+.dv-dockview.dockview-theme-ui {
+  color-scheme: light;
+  --dv-paneview-active-outline-color: var(--ring);
+  --dv-group-view-background-color: var(--background);
+  --dv-tabs-and-actions-container-background-color: var(--background);
+  --dv-activegroup-visiblepanel-tab-background-color: var(--secondary);
+  --dv-activegroup-hiddenpanel-tab-background-color: var(--background);
+  /* Keep the selected tab readable when another group has focus; fade hidden tabs. */
+  --dv-inactivegroup-visiblepanel-tab-background-color: var(--muted);
+  --dv-inactivegroup-hiddenpanel-tab-background-color: var(--background);
+  --dv-activegroup-visiblepanel-tab-color: var(--foreground);
+  --dv-activegroup-hiddenpanel-tab-color: var(--muted-foreground);
+  --dv-inactivegroup-visiblepanel-tab-color: var(--foreground);
+  --dv-inactivegroup-hiddenpanel-tab-color: color-mix(
+    in oklch,
+    var(--muted-foreground) 65%,
+    transparent
+  );
+  --dv-tab-divider-color: var(--border);
+  --dv-separator-border: var(--border);
+  --dv-paneview-header-border-color: var(--border);
+  --dv-drag-over-background-color: color-mix(
+    in oklch,
+    var(--primary) 18%,
+    transparent
+  );
+  --dv-drag-over-border-color: var(--primary);
+  --dv-tabs-container-scrollbar-color: var(--muted-foreground);
+  --dv-icon-hover-background-color: var(--accent);
+  --dv-floating-box-shadow: 0 16px 48px
+    color-mix(in oklch, var(--foreground) 18%, transparent);
+  --dv-floating-border: 1px solid var(--border);
+  --dv-overlay-z-index: 999;
+  --dv-tab-font-size: inherit;
+  --dv-tabs-and-actions-container-font-size: 0.875rem;
+  --dv-tabs-and-actions-container-height: 2.75rem;
+  --dv-border-radius: var(--radius-md);
+  --dv-tab-margin: 0;
+  --dv-sash-color: transparent;
+  --dv-active-sash-color: var(--ring);
+  --dv-active-sash-transition-duration: 0.1s;
+  --dv-active-sash-transition-delay: 0.5s;
+  --dv-spacing-padding: 0px;
+  --dv-tab-border-radius: var(--radius-sm);
+  --dv-sash-border-radius: var(--radius-sm);
+  --dv-dropdown-border-radius: var(--radius-md);
+  --dv-tab-close-icon-size: inherit;
+  --dv-floating-group-border: 1px solid var(--border);
+  --dv-drag-over-border: 1px solid var(--primary);
+  --dv-floating-group-dragging-opacity: 0.75;
+  --dv-tab-group-color-grey: var(--muted-foreground);
+  --dv-tab-group-color-blue: var(--primary);
+  --dv-tab-group-color-red: var(--destructive);
+  --dv-tab-group-color-yellow: var(--chart-4);
+  --dv-tab-group-color-green: var(--chart-2);
+  --dv-tab-group-color-pink: var(--chart-5);
+  --dv-tab-group-color-purple: var(--chart-1);
+  --dv-tab-group-color-cyan: var(--chart-2);
+  --dv-tab-group-color-orange: var(--chart-1);
+  --dv-tab-group-chip-padding: 0.25rem 0.5rem;
+  --dv-tab-group-chip-border-radius: var(--radius-sm);
+  --dv-tab-group-chip-font-size: 0.6875rem;
+  --dv-tab-group-line-height: 2px;
+  --dv-tab-group-line-opacity: 0.7;
+}
+
+.dark .agent-shadcn-root,
+.dark .dockview-theme-ui,
+.agent-shadcn-root.dark,
+.dockview-theme-ui.dark,
+.dv-dockview.dockview-theme-ui.dark {
+  color-scheme: dark;
+}
+
+.dockview-theme-ui .dv-groupview > .dv-tabs-and-actions-container {
+  @apply py-1 px-2;
+}
+
+.dockview-maximized .dv-groupview > .dv-tabs-and-actions-container {
+  display: none;
+}
+
+.dockview-theme-ui .dv-tabs-container {
+  @apply items-center gap-1;
+}
+
+.dockview-theme-ui .dv-tab {
+  @apply rounded-sm bg-background h-7 border-0 text-muted-foreground font-medium;
+}
+
+.dockview-theme-ui .dv-tab:focus-within:after,
+.dockview-theme-ui .dv-tab:focus:after {
+  display: none;
+}
+
+.dockview-theme-ui .dv-groupview.dv-active-group .dv-tab.dv-active-tab {
+  @apply bg-secondary text-foreground;
+}
+
+.dockview-theme-ui .dv-groupview.dv-inactive-group .dv-tab.dv-active-tab {
+  @apply bg-muted text-foreground;
+}
+
+/* .dockview-theme-ui .dv-react-part {
+  padding: 1px;
+} */
+
+/*
+ * Preview uses renderer:"always" (.dv-render-overlay). On tab switch the
+ * overlay can paint for a frame before dockview sets visibility:hidden.
+ * When the active tab mounts in .dv-content-container, stack it above overlays.
+ */
+.dockview-theme-ui .dv-active-group > .dv-content-container {
+  @apply relative isolate;
+}
+
+.dockview-theme-ui
+  .dv-active-group
+  > .dv-content-container:has(.dv-react-part) {
+  z-index: 2;
+}
+
+.dockview-theme-ui .dv-render-overlay[style*="visibility: hidden"],
+.dockview-theme-ui .dv-render-overlay[style*="visibility:hidden"] {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.dockview-theme-ui .dv-render-overlay-float {
+  z-index: var(--dv-overlay-z-index, 999);
+}
+
+.dockview-theme-ui .dv-watermark {
+  @apply bg-background;
+}
+
+.dockview-theme-ui .dv-watermark-container {
+  @apply pointer-events-auto;
+}
+
+/* xyflow theme — mapped to shadcn tokens so it follows the app theme
+ * (light/dark handled by the shadcn `--*` variables already defined above). */
+
+.react-flow {
+  --xy-background-color: var(--secondary);
+  --xy-background-pattern-color: color-mix(
+    in oklch,
+    var(--muted-foreground) 45%,
+    transparent
+  );
+
+  --canvas-spotlight-base: color-mix(
+    in oklch,
+    var(--muted-foreground) 18%,
+    transparent
+  );
+  --canvas-spotlight-highlight: color-mix(
+    in oklch,
+    var(--muted-foreground) 45%,
+    transparent
+  );
+
+  /* Custom semantic variables consumed by node/edge styles */
+  --xy-theme-selected: var(--primary);
+  --xy-theme-hover: var(--accent);
+  --xy-theme-edge-hover: var(--foreground);
+  --xy-theme-color-focus: var(--ring);
+
+  /* Built-in xyflow variables — see https://reactflow.dev/learn/customization/theming */
+  --xy-node-color-default: var(--card-foreground);
+  --xy-node-background-color-default: var(--card);
+  --xy-node-border-default: 1px solid var(--border);
+  --xy-node-border-radius-default: var(--radius-md);
+  --xy-node-boxshadow-default: var(--shadow-button);
+
+  --xy-handle-background-color-default: var(--background);
+  --xy-handle-border-color-default: var(--border);
+
+  --xy-edge-stroke-default: var(--muted-foreground);
+  --xy-edge-stroke-selected-default: var(--primary);
+  --xy-edge-label-color-default: var(--foreground);
+  --xy-edge-label-background-color-default: var(--background);
+
+  --xy-controls-button-background-color-default: var(--card);
+  --xy-controls-button-background-color-hover-default: var(--accent);
+  --xy-controls-button-color-default: var(--foreground);
+  --xy-controls-button-color-hover-default: var(--accent-foreground);
+  --xy-controls-button-border-color-default: var(--border);
+
+  --xy-minimap-background-color-default: var(--card);
+  --xy-minimap-mask-background-color-default: color-mix(
+    in oklch,
+    var(--background) 70%,
+    transparent
+  );
+  --xy-minimap-mask-stroke-color-default: var(--border);
+
+  --xy-attribution-background-color-default: color-mix(
+    in oklch,
+    var(--background) 80%,
+    transparent
+  );
+
+  --xy-selection-background-color-default: color-mix(
+    in oklch,
+    var(--primary) 12%,
+    transparent
+  );
+  --xy-selection-border-default: 1px dashed var(--primary);
+}
+
+/* Customizing Default Theming */
+
+.react-flow__node {
+  /* border-radius: var(--radius-md); */
+  /* border: 1px solid var(--border); */
+  /* background-color: var(--background); */
+  /* overflow: hidden; */
+  /* box-shadow: none; */
+  /* cursor: default; */
+  /* transition:
+    box-shadow 75ms ease-in-out,
+    border-color 75ms ease-in-out; */
+}
+/* 
+.react-flow__node.selectable:hover,
+.react-flow__node.draggable:hover {
+  box-shadow: 0 0 0 3px var(--primary);
+} */
+
+.react-flow__node.selectable:focus {
+  /* box-shadow: 0 0 0 3px var(--xy-theme-color-focus); */
+}
+
+.react-flow__node.selectable:focus:active,
+.react-flow__node.selectable.selected {
+  /* box-shadow: 0 0 0 3px var(--primary); */
+}
+
+.react-flow__edge.selectable:hover .react-flow__edge-path,
+.react-flow__edge.selectable.selected .react-flow__edge-path {
+  stroke: var(--xy-theme-edge-hover);
+}
+
+.react-flow__handle {
+  background-color: var(--xy-handle-background-color-default);
+}
+
+.react-flow__node-resizer {
+  border-radius: 0;
+  border: none;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* Honor OS "reduce motion" for CSS transitions/animations (WCAG 2.3.3). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

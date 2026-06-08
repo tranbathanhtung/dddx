@@ -1,0 +1,1471 @@
+{
+  "version": 3,
+  "name": "dddx Official",
+  "description": "Official dddx themes, templates, and skills",
+  "plugins": [
+    {
+      "name": "Awesome DESIGN.md",
+      "source": "./design-md",
+      "plugin": {
+        "name": "Awesome DESIGN.md",
+        "description": "A collection of DESIGN.md files analysis by popular brand design systems. Drop one into your project and let coding agents generate a matching UI.",
+        "author": {
+          "name": "VoltAgent",
+          "url": "https://github.com/VoltAgent/awesome-design-md/"
+        },
+        "homepage": "https://github.com/VoltAgent/awesome-design-md/",
+        "license": "MIT",
+        "items": [
+          {
+            "source": "./themes/airbnb",
+            "name": "airbnb",
+            "title": "Airbnb",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/airbnb/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/airtable",
+            "name": "airtable",
+            "title": "Airtable",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/airtable/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/apple",
+            "name": "apple",
+            "title": "Apple",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/apple/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/binance",
+            "name": "binance",
+            "title": "Binance",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/binance/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/bmw",
+            "name": "bmw",
+            "title": "BMW",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/bmw/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/bmw-m",
+            "name": "bmw-m",
+            "title": "BMW M",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/bmw-m/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/bugatti",
+            "name": "bugatti",
+            "title": "Bugatti",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/bugatti/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/cal",
+            "name": "cal",
+            "title": "Cal.com",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/cal/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/claude",
+            "name": "claude",
+            "title": "Claude",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/claude/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/clay",
+            "name": "clay",
+            "title": "Clay",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/clay/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/clickhouse",
+            "name": "clickhouse",
+            "title": "ClickHouse",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/clickhouse/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/cohere",
+            "name": "cohere",
+            "title": "Cohere",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/cohere/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/coinbase",
+            "name": "coinbase",
+            "title": "Coinbase",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/coinbase/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/composio",
+            "name": "composio",
+            "title": "Composio",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/composio/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/cursor",
+            "name": "cursor",
+            "title": "Cursor",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/cursor/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/elevenlabs",
+            "name": "elevenlabs",
+            "title": "ElevenLabs",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/elevenlabs/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/expo",
+            "name": "expo",
+            "title": "Expo",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/expo/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/ferrari",
+            "name": "ferrari",
+            "title": "Ferrari",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/ferrari/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/figma",
+            "name": "figma",
+            "title": "Figma",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/figma/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/framer",
+            "name": "framer",
+            "title": "Framer",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/framer/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/hashicorp",
+            "name": "hashicorp",
+            "title": "HashiCorp",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/hashicorp/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/ibm",
+            "name": "ibm",
+            "title": "IBM",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/ibm/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/intercom",
+            "name": "intercom",
+            "title": "Intercom",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/intercom/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/kraken",
+            "name": "kraken",
+            "title": "Kraken",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/kraken/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/lamborghini",
+            "name": "lamborghini",
+            "title": "Lamborghini",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/lamborghini/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/linear.app",
+            "name": "linear.app",
+            "title": "Linear",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/linear.app/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/lovable",
+            "name": "lovable",
+            "title": "Lovable",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/lovable/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/mastercard",
+            "name": "mastercard",
+            "title": "Mastercard",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/mastercard/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/meta",
+            "name": "meta",
+            "title": "Meta",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/meta/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/minimax",
+            "name": "minimax",
+            "title": "MiniMax",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/minimax/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/mintlify",
+            "name": "mintlify",
+            "title": "Mintlify",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/mintlify/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/miro",
+            "name": "miro",
+            "title": "Miro",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/miro/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/mistral.ai",
+            "name": "mistral.ai",
+            "title": "Mistral AI",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/mistral.ai/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/mongodb",
+            "name": "mongodb",
+            "title": "MongoDB",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/mongodb/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/nike",
+            "name": "nike",
+            "title": "Nike",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/nike/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/notion",
+            "name": "notion",
+            "title": "Notion",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/notion/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/nvidia",
+            "name": "nvidia",
+            "title": "NVIDIA",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/nvidia/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/ollama",
+            "name": "ollama",
+            "title": "Ollama",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/ollama/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/opencode.ai",
+            "name": "opencode.ai",
+            "title": "OpenCode",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/opencode.ai/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/pinterest",
+            "name": "pinterest",
+            "title": "Pinterest",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/pinterest/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/playstation",
+            "name": "playstation",
+            "title": "PlayStation",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/playstation/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/posthog",
+            "name": "posthog",
+            "title": "PostHog",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/posthog/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/raycast",
+            "name": "raycast",
+            "title": "Raycast",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/raycast/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/renault",
+            "name": "renault",
+            "title": "Renault",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/renault/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/replicate",
+            "name": "replicate",
+            "title": "Replicate",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/replicate/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/resend",
+            "name": "resend",
+            "title": "Resend",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/resend/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/revolut",
+            "name": "revolut",
+            "title": "Revolut",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/revolut/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/runwayml",
+            "name": "runwayml",
+            "title": "Runway",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/runwayml/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/sanity",
+            "name": "sanity",
+            "title": "Sanity",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/sanity/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/sentry",
+            "name": "sentry",
+            "title": "Sentry",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/sentry/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/shopify",
+            "name": "shopify",
+            "title": "Shopify",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/shopify/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/slack",
+            "name": "slack",
+            "title": "Slack",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/slack/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/spacex",
+            "name": "spacex",
+            "title": "Spacex",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/spacex/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/spotify",
+            "name": "spotify",
+            "title": "Spotify",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/spotify/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/starbucks",
+            "name": "starbucks",
+            "title": "Starbucks",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/starbucks/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/stripe",
+            "name": "stripe",
+            "title": "Stripe",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/stripe/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/supabase",
+            "name": "supabase",
+            "title": "Supabase",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/supabase/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/superhuman",
+            "name": "superhuman",
+            "title": "Superhuman",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/superhuman/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/tesla",
+            "name": "tesla",
+            "title": "Tesla",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/tesla/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/theverge",
+            "name": "theverge",
+            "title": "The Verge",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/theverge/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/together.ai",
+            "name": "together.ai",
+            "title": "Together AI",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/together.ai/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/uber",
+            "name": "uber",
+            "title": "Uber",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/uber/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/vercel",
+            "name": "vercel",
+            "title": "Vercel",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/vercel/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/vodafone",
+            "name": "vodafone",
+            "title": "Vodafone",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/vodafone/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/voltagent",
+            "name": "voltagent",
+            "title": "VoltAgent",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/voltagent/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/warp",
+            "name": "warp",
+            "title": "Warp",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/warp/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/webflow",
+            "name": "webflow",
+            "title": "Webflow",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/webflow/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/wired",
+            "name": "wired",
+            "title": "WIRED",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/wired/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/wise",
+            "name": "wise",
+            "title": "Wise",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/wise/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/x.ai",
+            "name": "x.ai",
+            "title": "xAI",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/x.ai/preview.html"
+            ]
+          },
+          {
+            "source": "./themes/zapier",
+            "name": "zapier",
+            "title": "Zapier",
+            "category": "themes",
+            "previews": [
+              "./preview.png",
+              "https://getdesign.md/design-md/zapier/preview.html"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "beautiful-html-templates",
+      "source": "./beautiful-html-templates",
+      "plugin": {
+        "name": "beautiful-html-templates",
+        "description": "Run /make-a-deck to get started with a library of HTML slide templates designed so any coding agent can pick the right one and produce a beautiful deck on the user's behalf, automatically.",
+        "author": {
+          "name": "zarazhangrui",
+          "url": "https://github.com/zarazhangrui/beautiful-html-templates"
+        },
+        "homepage": "https://github.com/zarazhangrui/beautiful-html-templates",
+        "license": "MIT",
+        "items": [
+          {
+            "source": "./templates/8-bit-orbit",
+            "name": "8-bit-orbit",
+            "title": "8-Bit Orbit",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/biennale-yellow",
+            "name": "biennale-yellow",
+            "title": "Biennale Yellow",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/block-frame",
+            "name": "block-frame",
+            "title": "BlockFrame",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/blue-professional",
+            "name": "blue-professional",
+            "title": "Blue Professional",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/bold-poster",
+            "name": "bold-poster",
+            "title": "Bold Poster",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/broadside",
+            "name": "broadside",
+            "title": "Broadside",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/capsule",
+            "name": "capsule",
+            "title": "Capsule",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/cartesian",
+            "name": "cartesian",
+            "title": "Cartesian",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/cobalt-grid",
+            "name": "cobalt-grid",
+            "title": "Cobalt Grid",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/coral",
+            "name": "coral",
+            "title": "Coral",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/creative-mode",
+            "name": "creative-mode",
+            "title": "Creative Mode",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/daisy-days",
+            "name": "daisy-days",
+            "title": "Daisy Days",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/editorial-forest",
+            "name": "editorial-forest",
+            "title": "Editorial Forest",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/editorial-tri-tone",
+            "name": "editorial-tri-tone",
+            "title": "Editorial Tri-Tone",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/emerald-editorial",
+            "name": "emerald-editorial",
+            "title": "Emerald Editorial",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/grove",
+            "name": "grove",
+            "title": "Grove",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/long-table",
+            "name": "long-table",
+            "title": "Long Table",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./skills/make-a-deck",
+            "name": "make-a-deck",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./templates/mat",
+            "name": "mat",
+            "title": "Mat",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/monochrome",
+            "name": "monochrome",
+            "title": "Monochrome",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/neo-grid-bold",
+            "name": "neo-grid-bold",
+            "title": "Neo-Grid Bold",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/peoples-platform",
+            "name": "peoples-platform",
+            "title": "People's Platform (Block & Bold)",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/pin-and-paper",
+            "name": "pin-and-paper",
+            "title": "Pin & Paper",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/pink-script",
+            "name": "pink-script",
+            "title": "Pink Script — After Hours",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/playful",
+            "name": "playful",
+            "title": "Playful",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/raw-grid",
+            "name": "raw-grid",
+            "title": "Raw Grid",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/retro-windows",
+            "name": "retro-windows",
+            "title": "Retro Windows",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/retro-zine",
+            "name": "retro-zine",
+            "title": "Retro Zine",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/sakura-chroma",
+            "name": "sakura-chroma",
+            "title": "Sakura Chroma",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/scatterbrain",
+            "name": "scatterbrain",
+            "title": "Scatterbrain",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/signal",
+            "name": "signal",
+            "title": "Signal",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/soft-editorial",
+            "name": "soft-editorial",
+            "title": "Soft Editorial",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/stencil-tablet",
+            "name": "stencil-tablet",
+            "title": "Stencil & Tablet",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/studio",
+            "name": "studio",
+            "title": "Studio",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          },
+          {
+            "source": "./templates/vellum",
+            "name": "vellum",
+            "title": "Vellum",
+            "category": "slides",
+            "previews": [
+              "./preview.png",
+              "./template.html"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Hallmark",
+      "source": "./hallmark",
+      "plugin": {
+        "name": "Hallmark",
+        "description": "Run /hallmark to get started with Anti-AI-slop design skill for greenfield pages, audits, redesigns, and design extraction from URLs or screenshots.",
+        "author": {
+          "name": "Nutlope",
+          "url": "https://github.com/Nutlope"
+        },
+        "homepage": "https://github.com/Nutlope/hallmark",
+        "license": "MIT",
+        "items": [
+          {
+            "source": "./templates/bananastudio",
+            "name": "bananastudio",
+            "title": "BananaStudio",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/carnival-01",
+            "name": "carnival-01",
+            "title": "Cold Snap",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/cobalt-01",
+            "name": "cobalt-01",
+            "title": "Distil",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/custom-01",
+            "name": "custom-01",
+            "title": "Setting the Night Edition",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/custom-02",
+            "name": "custom-02",
+            "title": "The Cascadia Nightjar",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/custom-03",
+            "name": "custom-03",
+            "title": "Ferns & Fathom",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/custom-04",
+            "name": "custom-04",
+            "title": "The Mend Assembly",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/custom-05",
+            "name": "custom-05",
+            "title": "Hollow Coast",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/garden-01",
+            "name": "garden-01",
+            "title": "Hollowback Apiary",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./skills/hallmark",
+            "name": "hallmark",
+            "title": "Hallmark",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./templates/hum-07",
+            "name": "hum-07",
+            "title": "Bubble",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/hyperlane",
+            "name": "hyperlane",
+            "title": "Hyperlane",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/lumen-01",
+            "name": "lumen-01",
+            "title": "Cinder",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/najm",
+            "name": "najm",
+            "title": "NAJM",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/press-01",
+            "name": "press-01",
+            "title": "Bríd Halloran",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/riso-01",
+            "name": "riso-01",
+            "title": "Off-Register",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/tally",
+            "name": "tally",
+            "title": "Tally",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          },
+          {
+            "source": "./templates/wayfare",
+            "name": "wayfare",
+            "title": "Wayfare",
+            "category": "pages",
+            "previews": [
+              "./preview.png",
+              "./index.html"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "HyperFrames",
+      "source": "./hyperframes",
+      "plugin": {
+        "name": "HyperFrames",
+        "description": "Enter /hyperframes to get started generating HTML-based video compositions, animations, captions, and transitions for AI coding agents.",
+        "author": {
+          "name": "HeyGen",
+          "url": "https://github.com/heygen-com"
+        },
+        "homepage": "https://github.com/heygen-com/hyperframes",
+        "license": "Apache-2.0",
+        "items": [
+          {
+            "source": "./skills/animejs",
+            "name": "animejs",
+            "title": "Anime.js",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./skills/contribute-catalog",
+            "name": "contribute-catalog",
+            "title": "Contribute Catalog",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./skills/css-animations",
+            "name": "css-animations",
+            "title": "CSS Animations",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./skills/gsap",
+            "name": "gsap",
+            "title": "GSAP",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./skills/hyperframes",
+            "name": "hyperframes",
+            "title": "HyperFrames",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./skills/hyperframes-cli",
+            "name": "hyperframes-cli",
+            "title": "HyperFrames CLI",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./skills/hyperframes-media",
+            "name": "hyperframes-media",
+            "title": "HyperFrames Media",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./skills/hyperframes-registry",
+            "name": "hyperframes-registry",
+            "title": "HyperFrames Registry",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./skills/lottie",
+            "name": "lottie",
+            "title": "Lottie",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./skills/remotion-to-hyperframes",
+            "name": "remotion-to-hyperframes",
+            "title": "Remotion to HyperFrames",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./templates/saas-product-promo",
+            "name": "saas-product-promo",
+            "title": "SaaS Product Promo",
+            "previews": [
+              "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/app-showcase.png",
+              "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/app-showcase.mp4"
+            ]
+          },
+          {
+            "source": "./skills/tailwind",
+            "name": "tailwind",
+            "title": "Tailwind",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./skills/three",
+            "name": "three",
+            "title": "Three.js",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./templates/tiktok-karaoke-talking-head",
+            "name": "tiktok-karaoke-talking-head",
+            "title": "TikTok Karaoke Talking Head",
+            "previews": [
+              "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/tiktok-follow.png",
+              "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/tiktok-follow.mp4"
+            ]
+          },
+          {
+            "source": "./skills/typegpu",
+            "name": "typegpu",
+            "title": "TypeGPU",
+            "previews": [
+              "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./skills/waapi",
+            "name": "waapi",
+            "title": "Web Animations API",
+            "previews": [
+              "./SKILL.md"
+            ],
+            "category": "video"
+          },
+          {
+            "source": "./skills/website-to-hyperframes",
+            "name": "website-to-hyperframes",
+            "title": "Website to HyperFrames",
+            "previews": [
+              "./SKILL.md"
+            ],
+            "category": "video"
+          },
+          {
+            "source": "./templates/website-to-video",
+            "name": "website-to-video",
+            "title": "Website to video",
+            "category": "video",
+            "previews": [
+              "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/ui-3d-reveal.png",
+              "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/ui-3d-reveal.mp4"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "System",
+      "source": "./.system",
+      "plugin": {
+        "name": "System",
+        "description": "Official dddx themes, templates, and skills",
+        "author": {
+          "name": "dddx",
+          "url": "https://github.com/dddx-ai/dddx"
+        },
+        "homepage": "https://github.com/dddx-ai/dddx",
+        "license": "MIT",
+        "items": []
+      }
+    }
+  ]
+}

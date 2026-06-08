@@ -1,0 +1,23 @@
+{
+  "name": "@dddx/r2",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1060.0"
+  },
+  "devDependencies": {
+    "@tsconfig/bun": "catalog:",
+    "typescript": "catalog:"
+  }
+}

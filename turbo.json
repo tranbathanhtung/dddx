@@ -1,0 +1,18 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "tasks": {
+    "typecheck": {},
+    "publish": {},
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+    },
+    "web#build": {
+      "dependsOn": ["@dddx/sdk#build"]
+    },
+    "dev": {
+      "cache": true,
+      "persistent": true
+    }
+  }
+}

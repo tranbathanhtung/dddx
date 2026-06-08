@@ -1,0 +1,11 @@
+{
+  "name": "@dddx/plugins-official",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "bun run ../cli/src/cli.ts plugin index --dir . --collection --capture-previews --name \"dddx Official\" --description \"Official dddx themes, templates, and skills\"",
+    "validate": "bun run ../cli/src/cli.ts plugin validate --dir .",
+    "publish": "bun run build && bun run scripts/publish.ts"
+  }
+}

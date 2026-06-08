@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero — Minimal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./hero-minimal.css">
+</head>
+<body>
+  <div class="hero">
+    <section class="hero__info">
+      <header class="header">
+        <a href="#" class="logo" aria-label="Home">
+          <span class="logo__mark" aria-hidden="true"></span>
+        </a>
+        <nav class="nav" aria-label="Main">
+          <a href="#" class="nav__link">Docs</a>
+          <a href="#" class="nav__link">GitHub</a>
+          <a href="#" class="nav__link">Agents</a>
+        </nav>
+      </header>
+
+      <div class="hero__content">
+        <h1 class="hero__title">Local-first AI design</h1>
+        <p class="hero__subtitle">
+          Design in your repo and browser. Works with any coding agent — free, no login.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#" class="btn btn--primary">Install</a>
+          <a href="#" class="btn btn--secondary">Documentation</a>
+        </div>
+
+        <div class="install" data-install>
+          <div class="install__tabs" role="tablist" aria-label="Install methods">
+            <button type="button" class="install__tab is-active" role="tab" aria-selected="true" data-tab="curl">curl</button>
+            <button type="button" class="install__tab" role="tab" aria-selected="false" data-tab="npm">npm</button>
+            <button type="button" class="install__tab" role="tab" aria-selected="false" data-tab="bun">bun</button>
+            <button type="button" class="install__tab" role="tab" aria-selected="false" data-tab="brew">brew</button>
+            <button type="button" class="install__tab" role="tab" aria-selected="false" data-tab="paru">paru</button>
+          </div>
+          <div class="install__body">
+            <code class="install__command" data-command>curl -fsSL https://dddx.dev/install | bash</code>
+            <button type="button" class="install__copy" data-copy aria-label="Copy install command">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <rect x="5.5" y="5.5" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.25"/>
+                <path d="M3.5 10.5H3C2.17157 10.5 1.5 9.82843 1.5 9V3C1.5 2.17157 2.17157 1.5 3 1.5H9C9.82843 1.5 10.5 2.17157 10.5 3V3.5" stroke="currentColor" stroke-width="1.25"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <p class="hero__agents">
+          <span class="hero__agents-label">Works with</span>
+          Cursor · Claude Code · OpenCode · Codex
+        </p>
+      </div>
+    </section>
+
+    <section class="hero__preview" aria-label="App preview">
+      <div class="preview__stack">
+        <div class="preview__gradient" aria-hidden="true"></div>
+
+        <div class="terminal" data-terminal aria-live="polite">
+          <div class="terminal__row">
+            <span class="terminal__prompt" aria-hidden="true">$</span>
+            <span class="terminal__typed" data-typed></span>
+            <span class="terminal__cursor" data-cursor aria-hidden="true"></span>
+          </div>
+          <div class="terminal__row terminal__row--output" data-output hidden>
+            <span class="terminal__success" aria-hidden="true">✓</span>
+            <span data-output-text></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="./hero-minimal.js"></script>
+</body>
+</html>
