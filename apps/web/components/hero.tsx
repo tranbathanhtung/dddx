@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useState, useCallback, type ReactNode } from "react";
+import appScreenshot from "@/public/app.png";
+import heroBg from "@/public/hero-bg.png";
 
 const INSTALL_COMMANDS: Record<string, string> = {
   curl: "curl -fsSL https://dddx.dev/install | bash",
@@ -373,16 +375,26 @@ export function Hero() {
       </section>
 
       <section
-        className="flex min-w-0 w-full items-center justify-center bg-cover bg-center max-[900px]:items-start max-[900px]:border-t max-[900px]:border-[var(--border)]"
-        style={{ backgroundImage: "url(/hero-bg.png)" }}
+        className="relative flex min-w-0 w-full items-center justify-center overflow-hidden max-[900px]:items-start max-[900px]:border-t max-[900px]:border-[var(--border)]"
         aria-label="App preview"
       >
-        <div className="flex min-w-0 w-full max-w-[min(100%,1020px)] flex-col gap-2 mx-auto p-[clamp(12px,2vw,32px)]">
+        <Image
+          src={heroBg}
+          alt=""
+          fill
+          placeholder="blur"
+          className="object-cover"
+          sizes="100vw"
+          priority
+          aria-hidden
+        />
+        <div className="relative z-10 flex min-w-0 w-full max-w-[min(100%,1020px)] flex-col gap-2 mx-auto p-[clamp(12px,2vw,32px)]">
           <div className="relative w-full overflow-hidden rounded-lg shadow-lg shadow-black/20 ring-1 ring-black/10 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_24px_48px_rgba(0,0,0,0.06)] aspect-[3456/1926]">
             <Image
-              src="/app.png"
+              src={appScreenshot}
               alt="dddx Studio with landing page preview and design canvas"
               fill
+              placeholder="blur"
               className="object-contain"
               sizes="(max-width: 900px) 100vw, 58vw"
               priority
