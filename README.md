@@ -2,6 +2,8 @@
 
 **Design where you code.** dddx is an AI design agent that lives in your repo and browser. It runs alongside your app, connects to coding agents like Cursor, Claude Code, OpenCode, and Codex, and gives you a Studio for chat, live preview, and design prototypes.
 
+![dddx Studio — chat, live preview, and design canvas](apps/web/public/app.png)
+
 - **Site:** [dddx.dev](https://dddx.dev)
 - **Install:** `curl -fsSL https://dddx.dev/install | bash`
 
