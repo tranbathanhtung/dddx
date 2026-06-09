@@ -1,5 +1,5 @@
 {
-  "version": 36,
+  "version": 38,
   "name": "dddx Official",
   "description": "Official dddx themes, templates, and skills",
   "plugins": [
@@ -1308,6 +1308,86 @@
             ]
           },
           {
+            "source": "./themes/biennale-yellow-frame-pack",
+            "name": "biennale-yellow-frame-pack",
+            "title": "Biennale Yellow Frame Pack",
+            "category": "theme",
+            "previews": [
+              "./preview.png",
+              "./frame-showcase.html"
+            ]
+          },
+          {
+            "source": "./themes/blockframe-frame-pack",
+            "name": "blockframe-frame-pack",
+            "title": "Blockframe Frame Pack",
+            "category": "theme",
+            "previews": [
+              "./preview.png",
+              "./frame-showcase.html"
+            ]
+          },
+          {
+            "source": "./themes/blue-professional-frame-pack",
+            "name": "blue-professional-frame-pack",
+            "title": "Blue Professional Frame Pack",
+            "category": "theme",
+            "previews": [
+              "./preview.png",
+              "./frame-showcase.html"
+            ]
+          },
+          {
+            "source": "./themes/bold-poster-frame-pack",
+            "name": "bold-poster-frame-pack",
+            "title": "Bold Poster Frame Pack",
+            "category": "theme",
+            "previews": [
+              "./preview.png",
+              "./frame-showcase.html"
+            ]
+          },
+          {
+            "source": "./themes/broadside-frame-pack",
+            "name": "broadside-frame-pack",
+            "title": "Broadside Frame Pack",
+            "category": "theme",
+            "previews": [
+              "./preview.png",
+              "./frame-showcase.html"
+            ]
+          },
+          {
+            "source": "./themes/capsule-frame-pack",
+            "name": "capsule-frame-pack",
+            "title": "Capsule Frame Pack",
+            "category": "theme",
+            "previews": [
+              "./preview.png",
+              "./frame-showcase.html"
+            ]
+          },
+          {
+            "source": "./themes/cartesian-frame-pack",
+            "name": "cartesian-frame-pack",
+            "title": "Cartesian Frame Pack",
+            "category": "theme",
+            "previews": [
+              "./preview.png",
+              "./frame-showcase.html"
+            ]
+          },
+          {
+            "source": "./themes/cobalt-grid-frame-pack",
+            "name": "cobalt-grid-frame-pack",
+            "title": "Cobalt Grid Frame Pack",
+            "category": "theme",
+            "previews": [
+              "./preview.png",
+              "./frame-showcase.html"
+            ]
+          },
+          {
             "source": "./skills/contribute-catalog",
             "name": "contribute-catalog",
             "title": "Contribute Catalog",
@@ -1316,11 +1396,51 @@
             ]
           },
           {
+            "source": "./themes/coral-frame-pack",
+            "name": "coral-frame-pack",
+            "title": "Coral Frame Pack",
+            "category": "theme",
+            "previews": [
+              "./preview.png",
+              "./frame-showcase.html"
+            ]
+          },
+          {
+            "source": "./themes/creative-mode-frame-pack",
+            "name": "creative-mode-frame-pack",
+            "title": "Creative Mode Frame Pack",
+            "category": "theme",
+            "previews": [
+              "./preview.png",
+              "./frame-showcase.html"
+            ]
+          },
+          {
             "source": "./skills/css-animations",
             "name": "css-animations",
             "title": "CSS Animations",
             "previews": [
               "./SKILL.md"
+            ]
+          },
+          {
+            "source": "./themes/daisy-days-frame-pack",
+            "name": "daisy-days-frame-pack",
+            "title": "Daisy Days Frame Pack",
+            "category": "theme",
+            "previews": [
+              "./preview.png",
+              "./frame-showcase.html"
+            ]
+          },
+          {
+            "source": "./themes/editorial-forest-frame-pack",
+            "name": "editorial-forest-frame-pack",
+            "title": "Editorial Forest Frame Pack",
+            "category": "theme",
+            "previews": [
+              "./preview.png",
+              "./frame-showcase.html"
             ]
           },
           {
