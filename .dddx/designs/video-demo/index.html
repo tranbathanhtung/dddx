@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1920, height=1080" />
-    <title>DDDX - Daisy Days Frame Video</title>
+    <title>DDDX — Product Overview Video</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -269,36 +269,29 @@
         gap: 2.2cqw;
       }
 
-      #scene-2 .comparison-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2cqw;
-      }
-
-      #scene-2 .compare-card {
+      #scene-2 .studio-card {
         overflow: hidden;
+        max-width: 88cqw;
+        margin: 0 auto;
       }
 
-      #scene-2 .public-cap {
+      #scene-2 .studio-cap {
         background: var(--sky);
       }
 
-      #scene-2 .local-cap {
-        background: var(--mint);
+      #scene-2 .studio-shot {
+        height: 36cqw;
       }
 
-      #scene-2 .shot-window {
-        height: 28cqw;
-      }
-
-      #scene-2 .compare-foot {
+      #scene-2 .studio-foot {
         display: flex;
         align-items: center;
         gap: 0.75cqw;
         padding: 1cqw 1.25cqw 1.25cqw;
         color: var(--muted);
-        font-size: 1cqw;
+        font-size: 1.05cqw;
         font-weight: 700;
+        line-height: 1.4;
       }
 
       .dot {
@@ -380,20 +373,45 @@
         line-height: 1.35;
       }
 
+      #scene-3 .step-copy code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.92em;
+        font-weight: 600;
+      }
+
       #scene-4 .content {
         display: grid;
-        place-items: center;
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: center;
         height: 100%;
+        gap: 3cqw;
+      }
+
+      #scene-4 .plugins-card {
+        overflow: hidden;
+      }
+
+      #scene-4 .plugins-cap {
+        background: var(--mint);
+      }
+
+      #scene-4 .plugins-shot {
+        height: 34cqw;
+      }
+
+      #scene-4 .closing-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 1.45cqw;
       }
 
       #scene-4 .closing-card {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        width: 50cqw;
-        gap: 1.45cqw;
-        padding: 2.1cqw;
-        text-align: center;
+        align-items: flex-start;
+        gap: 1.2cqw;
+        padding: 1.8cqw;
+        text-align: left;
       }
 
       #scene-4 .closing-logo {
@@ -414,15 +432,61 @@
       #scene-4 .closing-title {
         color: var(--dark);
         font-family: "Fredoka One", sans-serif;
-        font-size: 5.15cqw;
+        font-size: 4.1cqw;
         line-height: 1.08;
       }
 
       #scene-4 .closing-sub {
-        max-width: 34cqw;
-        font-size: 1.35cqw;
+        font-size: 1.22cqw;
         font-weight: 700;
         line-height: 1.4;
+      }
+
+      #scene-4 .install-line {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6cqw;
+        padding: 0.7cqw 1.1cqw;
+        border: 3px solid var(--dark);
+        border-radius: 14px;
+        background: var(--cream);
+        box-shadow: 4px 4px 0 var(--dark);
+        color: var(--dark);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.95cqw;
+        font-weight: 600;
+      }
+
+      .caption-layer {
+        position: absolute;
+        inset: 0;
+        z-index: 20;
+        pointer-events: none;
+      }
+
+      .caption-group {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 4.2cqw;
+        display: flex;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .caption-pill {
+        max-width: 74cqw;
+        padding: 0.9cqw 1.5cqw;
+        border: 3px solid var(--dark);
+        border-radius: 999px;
+        background: var(--butter);
+        box-shadow: 4px 4px 0 var(--dark);
+        color: var(--dark);
+        font-family: "Fredoka One", sans-serif;
+        font-size: 1.32cqw;
+        line-height: 1.28;
+        text-align: center;
       }
     </style>
   </head>
@@ -431,10 +495,27 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="16"
+      data-duration="16.6"
       data-width="1920"
       data-height="1080"
     >
+      <audio
+        id="narration"
+        data-start="0"
+        data-duration="16.6"
+        data-track-index="0"
+        src="./assets/narration.wav"
+        data-volume="1"
+      ></audio>
+      <audio
+        id="bg-music"
+        data-start="0"
+        data-duration="16.6"
+        data-track-index="6"
+        src="./assets/background-music-trimmed.mp3"
+        data-volume="0.18"
+      ></audio>
+
       <div
         id="scene-1"
         class="scene surface-turquoise"
@@ -465,11 +546,11 @@
           </svg>
           <div class="content">
             <div class="cover-stack">
-              <div class="badge">video / frame layer</div>
+              <div class="badge">local-first AI design agent</div>
               <h1 class="headline-on-color">Design where you code</h1>
               <div class="sticker-card cover-card">
                 <img class="logo-stamp" src="./assets/logo.svg" alt="DDDX logo" crossorigin="anonymous" />
-                <p class="subcopy cover-note">Now framed as Daisy Days: pastel garden surfaces, charcoal sticker outlines, and real source captures from public plus local DDDX.</p>
+                <p class="subcopy cover-note">dddx lives in your repo and browser. Run one command to start your app, open Studio, and chat with coding agents like Cursor, Claude Code, OpenCode, and Codex.</p>
               </div>
             </div>
           </div>
@@ -502,29 +583,17 @@
             <circle cx="24" cy="60" r="18" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
           </svg>
           <div class="content">
-            <h2 class="headline-on-cream">Two sources, one repo-native story</h2>
-            <div class="comparison-grid">
-              <article class="sticker-card compare-card">
-                <div class="source-cap public-cap">
-                  <span>Public site</span>
-                  <small>https://www.dddx.dev</small>
-                </div>
-                <div class="shot-window" data-layout-allow-overflow>
-                  <img src="./assets/site-desktop.png" alt="Public DDDX website screenshot" crossorigin="anonymous" />
-                </div>
-                <div class="compare-foot"><span class="dot"></span> Original marketing surface, captured before the redesign.</div>
-              </article>
-              <article class="sticker-card compare-card">
-                <div class="source-cap local-cap">
-                  <span>Local project</span>
-                  <small>localhost:4723 / p / dddx-monorepo</small>
-                </div>
-                <div class="shot-window" data-layout-allow-overflow>
-                  <img src="./assets/local-desktop.png" alt="Local DDDX project screenshot" crossorigin="anonymous" />
-                </div>
-                <div class="compare-foot"><span class="dot"></span> Fresh local capture from the project URL you provided.</div>
-              </article>
-            </div>
+            <h2 class="headline-on-cream">Run dddx, get Studio</h2>
+            <article class="sticker-card studio-card">
+              <div class="source-cap studio-cap">
+                <span>Studio</span>
+                <small>chat + live preview</small>
+              </div>
+              <div class="shot-window studio-shot" data-layout-allow-overflow>
+                <img src="./assets/studio.png" alt="DDDX Studio with live app preview and agent chat" crossorigin="anonymous" />
+              </div>
+              <div class="studio-foot"><span class="dot"></span> Detects your dev script, proxies your running app, and opens Studio at localhost:4723 — chat beside the real UI.</div>
+            </article>
           </div>
           <div class="badge counter">02 / 04</div>
         </div>
@@ -554,26 +623,26 @@
           <div class="content">
             <article class="sticker-card feature-card">
               <div class="source-cap feature-cap">
-                <span>Local canvas proof</span>
-                <small>tablet capture</small>
+                <span>Design canvas</span>
+                <small>design mode</small>
               </div>
               <div class="shot-window feature-shot" data-layout-allow-overflow>
-                <img src="./assets/local-tablet.png" alt="Local DDDX canvas screenshot" crossorigin="anonymous" />
+                <img src="./assets/design.png" alt="DDDX design canvas with prototype frames" crossorigin="anonymous" />
               </div>
             </article>
             <div class="step-stack">
-              <h2 class="headline-on-color" style="font-size: 4.35cqw; text-align: left">From website to hyperframes</h2>
+              <h2 class="headline-on-color" style="font-size: 4.35cqw; text-align: left">Prototype before you ship</h2>
               <div class="step-row">
                 <div class="step-circle">1</div>
-                <div class="step-copy">Capture the public site for brand and message context.</div>
+                <div class="step-copy">Switch to design mode — the agent writes to isolated sandboxes under <code>.dddx/designs/</code>.</div>
               </div>
               <div class="step-row">
                 <div class="step-circle">2</div>
-                <div class="step-copy">Capture localhost so the video reflects the active project, not only production.</div>
+                <div class="step-copy">Each top-level HTML file becomes a canvas frame you can resize, annotate, and iterate on.</div>
               </div>
               <div class="step-row">
                 <div class="step-circle">3</div>
-                <div class="step-copy">Wrap both in Daisy Days frames: thick outlines, hard shadows, pastel ornaments.</div>
+                <div class="step-copy">Explore flows and visuals in Studio, then apply the winning ideas to your main app in agent mode.</div>
               </div>
             </div>
           </div>
@@ -586,7 +655,7 @@
         class="scene surface-lavender"
         data-composition-id="scene-4"
         data-start="13"
-        data-duration="3"
+        data-duration="3.6"
         data-track-index="4"
         data-width="1920"
         data-height="1080"
@@ -609,11 +678,24 @@
             <path d="M20 92C20 52 51 20 90 20S160 52 160 92" stroke="#2D2D2D" stroke-width="3" stroke-linecap="round" />
           </svg>
           <div class="content">
-            <div class="sticker-card closing-card">
-              <div class="closing-logo" aria-label="DDDX">D3</div>
-              <div class="badge">Daisy Days frame system</div>
-              <h2 class="closing-title">Public plus local, ready for video.</h2>
-              <p class="closing-sub">The prototype now uses the requested localhost capture and the new cheerful frame language.</p>
+            <article class="sticker-card plugins-card">
+              <div class="source-cap plugins-cap">
+                <span>Plugin marketplace</span>
+                <small>templates · themes · skills</small>
+              </div>
+              <div class="shot-window plugins-shot" data-layout-allow-overflow>
+                <img src="./assets/plugins.png" alt="DDDX plugin marketplace with themes and templates" crossorigin="anonymous" />
+              </div>
+            </article>
+            <div class="closing-stack">
+              <h2 class="headline-on-color" style="font-size: 4.35cqw; text-align: left">Extend your workflow</h2>
+              <div class="sticker-card closing-card">
+                <div class="closing-logo" aria-label="DDDX">D3</div>
+                <div class="badge">open plugin system</div>
+                <h3 class="closing-title">Themes, templates, and agent skills.</h3>
+                <p class="closing-sub">Browse frame packs, HTML templates, and skills from the marketplace — attach them per turn to steer the agent.</p>
+                <code class="install-line">curl -fsSL https://dddx.dev/install | bash</code>
+              </div>
             </div>
           </div>
           <div class="badge counter">04 / 04</div>
@@ -624,12 +706,27 @@
         id="s-end"
         class="scene surface-lavender"
         data-composition-id="s-end"
-        data-start="15.95"
+        data-start="16.55"
         data-duration="0.05"
         data-track-index="5"
         data-width="1920"
         data-height="1080"
       ></div>
+
+      <div class="caption-layer" aria-hidden="true">
+        <div id="cg-0" class="caption-group">
+          <p class="caption-pill">Design where you code. DDDX lives in your repo and browser.</p>
+        </div>
+        <div id="cg-1" class="caption-group">
+          <p class="caption-pill">Run DDDX. Your app starts, Studio opens, and chat meets live preview.</p>
+        </div>
+        <div id="cg-2" class="caption-group">
+          <p class="caption-pill">Switch to design mode. Prototype in sandboxes before you ship.</p>
+        </div>
+        <div id="cg-3" class="caption-group">
+          <p class="caption-pill">Extend with plugins — themes, templates, and skills. Get started at dddx.dev.</p>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -643,7 +740,7 @@
           { time: 4.0, shader: "flash-through-white", duration: 0.25, ease: "power2.inOut" },
           { time: 8.5, shader: "chromatic-split", duration: 0.35, ease: "power2.inOut" },
           { time: 13.0, shader: "flash-through-white", duration: 0.25, ease: "power2.inOut" },
-          { time: 15.95, duration: 0.05 },
+          { time: 16.55, duration: 0.05 },
         ],
       });
 
@@ -654,8 +751,8 @@
 
       tl.from("#scene-2 .ornament", { scale: 0.65, opacity: 0, duration: 0.55, stagger: 0.08, ease: "back.out(1.7)" }, 4.2);
       tl.from("#scene-2 h2", { y: 30, opacity: 0, duration: 0.55, ease: "power3.out" }, 4.35);
-      tl.from("#scene-2 .compare-card", { y: 60, rotation: -1.5, opacity: 0, duration: 0.75, stagger: 0.18, ease: "back.out(1.15)" }, 4.75);
-      tl.fromTo("#scene-2 .shot-window img", { y: 0 }, { y: -36, duration: 2.5, ease: "none" }, 5.55);
+      tl.from("#scene-2 .studio-card", { y: 60, rotation: -1.2, opacity: 0, duration: 0.8, ease: "back.out(1.15)" }, 4.75);
+      tl.fromTo("#scene-2 .studio-shot img", { y: 0 }, { y: -48, duration: 2.5, ease: "none" }, 5.55);
 
       tl.from("#scene-3 .ornament", { scale: 0.65, opacity: 0, duration: 0.55, stagger: 0.08, ease: "back.out(1.7)" }, 8.72);
       tl.from("#scene-3 .feature-card", { x: -70, opacity: 0, duration: 0.75, ease: "back.out(1.1)" }, 8.85);
@@ -664,10 +761,35 @@
       tl.fromTo("#scene-3 .feature-shot img", { y: 0 }, { y: -44, duration: 2.2, ease: "none" }, 9.8);
 
       tl.from("#scene-4 .ornament", { scale: 0.6, rotation: 10, opacity: 0, duration: 0.65, stagger: 0.1, ease: "back.out(1.7)" }, 13.15);
-      tl.from("#scene-4 .closing-card", { scale: 0.86, rotation: -1.2, opacity: 0, duration: 0.8, ease: "back.out(1.2)" }, 13.25);
-      tl.from("#scene-4 .closing-logo", { scale: 0.55, rotation: -14, duration: 0.5, ease: "back.out(2)" }, 13.55);
-      tl.from("#scene-4 .closing-title", { y: 30, opacity: 0, duration: 0.55, ease: "power3.out" }, 13.75);
-      tl.to("#scene-4 .content", { opacity: 0, duration: 0.35, ease: "power2.in" }, 15.55);
+      tl.from("#scene-4 .plugins-card", { x: -70, opacity: 0, duration: 0.75, ease: "back.out(1.1)" }, 13.2);
+      tl.from("#scene-4 h2", { y: 28, opacity: 0, duration: 0.55, ease: "power3.out" }, 13.35);
+      tl.from("#scene-4 .closing-card", { x: 54, opacity: 0, duration: 0.7, ease: "back.out(1.2)" }, 13.55);
+      tl.from("#scene-4 .install-line", { y: 20, opacity: 0, duration: 0.5, ease: "power3.out" }, 14.05);
+      tl.fromTo("#scene-4 .plugins-shot img", { y: 0 }, { y: -40, duration: 2.0, ease: "none" }, 13.8);
+      tl.to("#scene-4 .content", { opacity: 0, duration: 0.35, ease: "power2.in" }, 16.15);
+
+      var CAPTION_GROUPS = [
+        { id: "cg-0", start: 0.05, end: 3.64 },
+        { id: "cg-1", start: 3.69, end: 7.64 },
+        { id: "cg-2", start: 7.69, end: 11.16 },
+        { id: "cg-3", start: 11.21, end: 15.9 },
+      ];
+
+      CAPTION_GROUPS.forEach(function (group) {
+        var el = document.getElementById(group.id);
+        if (!el) return;
+        var span = group.end - group.start;
+        var enterDur = Math.min(0.35, span * 0.28);
+        var exitAt = group.end - 0.14;
+        tl.fromTo(
+          el,
+          { y: 28, opacity: 0, scale: 0.94 },
+          { y: 0, opacity: 1, scale: 1, duration: enterDur, ease: "back.out(1.35)" },
+          group.start,
+        );
+        tl.to(el, { y: -10, opacity: 0, duration: 0.12, ease: "power2.in" }, exitAt);
+        tl.set(el, { opacity: 0, visibility: "hidden" }, group.end);
+      });
 
       window.__timelines["main"] = tl;
     </script>

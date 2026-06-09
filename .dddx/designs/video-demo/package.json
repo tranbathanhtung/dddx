@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "npx --yes hyperframes@0.6.84 preview",
     "check": "npx --yes hyperframes@0.6.84 lint && npx --yes hyperframes@0.6.84 validate && npx --yes hyperframes@0.6.84 inspect",
-    "render": "npx --yes hyperframes@0.6.84 render",
-    "publish": "npx --yes hyperframes@0.6.84 publish"
+    "render": "npx --yes hyperframes@0.6.84 render --quality high --output renders/final.mp4",
+    "publish": "npx --yes hyperframes@0.6.84 publish",
+    "tts": "PATH=\"$(pwd)/.venv/bin:$PATH\" npx --yes hyperframes@0.6.84 tts narration.txt --voice af_nova --output assets/narration.wav",
+    "transcribe": "PATH=\"$(pwd)/.venv/bin:$PATH\" npx --yes hyperframes@0.6.84 transcribe assets/narration.wav --model small.en"
   }
 }

@@ -53,6 +53,10 @@ export const PreviewPanel = memo(
     const [device, setDevice] = useState<"desktop" | "mobile">("desktop");
     const [annotate, setAnnotate] = useState(false);
     const [capturing, setCapturing] = useState(false);
+    const historyRef = useRef<string[]>([]);
+    const historyIndexRef = useRef(-1);
+    const [canBack, setCanBack] = useState(false);
+    const [canForward, setCanForward] = useState(false);
     const latestUrl = useLatest(pageUrl);
     const latestAddr = useLatest(addr);
     const latestDevice = useLatest(device);
@@ -119,21 +123,78 @@ export const PreviewPanel = memo(
       }, 10);
     }, [latestUrl, reset]);
 
+    const syncNavState = useCallback(() => {
+      setCanBack(historyIndexRef.current > 0);
+      setCanForward(
+        historyIndexRef.current < historyRef.current.length - 1,
+      );
+    }, []);
+
+    // Track navigation history in the parent. The iframe's own
+    // `window.history` reflects the whole tab's joint session history, so
+    // calling `history.back()`/`forward()` inside the iframe cannot reliably
+    // navigate just the preview. We record every visited URL here and drive
+    // the iframe explicitly instead.
+    const recordVisit = useCallback(
+      (url: string) => {
+        const next = normUrl(url) ?? url;
+        const current = historyRef.current[historyIndexRef.current];
+        if (current && sameUrl(current, next)) return;
+        historyRef.current = historyRef.current.slice(
+          0,
+          historyIndexRef.current + 1,
+        );
+        historyRef.current.push(next);
+        historyIndexRef.current = historyRef.current.length - 1;
+        syncNavState();
+      },
+      [syncNavState],
+    );
+
+    const loadUrl = useCallback(
+      (url: string) => {
+        setStatus("loading");
+        setAddr(url);
+        setPageUrl(url);
+        setShowPicker(false);
+        reset();
+        setAnnotate(false);
+        if (iframeRef.current) {
+          iframeRef.current.src = url;
+        }
+      },
+      [reset],
+    );
+
     const go = useCallback(
       (url: string) => {
         const next = normUrl(url);
         if (!next || sameUrl(next, addr)) return;
-        setStatus("loading");
-        setAddr(next);
-        setPageUrl(next);
-        setShowPicker(false);
-        reset();
-        if (iframeRef.current) {
-          iframeRef.current.src = next;
-        }
+        loadUrl(next);
       },
-      [addr, reset],
+      [addr, loadUrl],
     );
+
+    const back = useCallback(() => {
+      if (historyIndexRef.current <= 0) return;
+      historyIndexRef.current -= 1;
+      syncNavState();
+      loadUrl(historyRef.current[historyIndexRef.current]!);
+    }, [loadUrl, syncNavState]);
+
+    const forward = useCallback(() => {
+      if (historyIndexRef.current >= historyRef.current.length - 1) return;
+      historyIndexRef.current += 1;
+      syncNavState();
+      loadUrl(historyRef.current[historyIndexRef.current]!);
+    }, [loadUrl, syncNavState]);
+
+    // Record every URL the preview lands on. `recordVisit` dedupes against the
+    // current entry, so back/forward navigations (which set `pageUrl` to an
+    // existing entry) are no-ops here and never corrupt the stack.
+    useEffect(() => {
+      if (pageUrl) recordVisit(pageUrl);
+    }, [pageUrl, recordVisit]);
 
     const selectTarget = useCallback(
       (target: { id: string; url: string; label: string }) => {
@@ -195,20 +256,10 @@ export const PreviewPanel = memo(
           annotate={annotate}
           devReady={ready}
           capturing={capturing}
-          onBack={() => {
-            if (childRef.current) {
-              void childRef.current.goBack();
-              return;
-            }
-            iframeRef.current?.contentWindow?.history.back();
-          }}
-          onFwd={() => {
-            if (childRef.current) {
-              void childRef.current.goForward();
-              return;
-            }
-            iframeRef.current?.contentWindow?.history.forward();
-          }}
+          canBack={canBack}
+          canForward={canForward}
+          onBack={back}
+          onFwd={forward}
           onRefresh={refresh}
           onGo={go}
           onOpen={() => {

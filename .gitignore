@@ -36,6 +36,7 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 .turbo
 
 .next
+.venv
 
 # SDK bundles (served from packages/sdk/dist locally; R2 in production)
 packages/cli/bin

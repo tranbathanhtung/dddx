@@ -18,6 +18,8 @@ export function Toolbar({
   annotate,
   devReady,
   capturing,
+  canBack,
+  canForward,
   onBack,
   onFwd,
   onRefresh,
@@ -34,6 +36,8 @@ export function Toolbar({
   annotate: boolean;
   devReady: boolean;
   capturing: boolean;
+  canBack: boolean;
+  canForward: boolean;
   onBack: () => void;
   onFwd: () => void;
   onRefresh: () => void;
@@ -51,6 +55,7 @@ export function Toolbar({
           aria-label="Go back"
           size="icon-sm"
           variant="ghost"
+          disabled={!canBack}
           onClick={onBack}
         >
           <IconArrowLeft />
@@ -59,6 +64,7 @@ export function Toolbar({
           aria-label="Go forward"
           size="icon-sm"
           variant="ghost"
+          disabled={!canForward}
           onClick={onFwd}
         >
           <IconArrowRight />

@@ -3,11 +3,13 @@
 ## Product
 DDDX is a local-first AI design agent that lives in your repo and browser. Tagline: **Design where you code**.
 
+Run `dddx` to start your dev server, open Studio (chat + live preview), prototype in design mode under `.dddx/designs/`, and extend workflows with plugins (themes, templates, skills).
+
 ## Frame System
 - Unit: 1920x1080 frame.
 - Ground: cream or one Daisy Days pastel per frame.
-- Composition: one dominant content container per frame, except the comparison grid.
-- Evidence sources: public `https://www.dddx.dev` captures and local `http://localhost:4723/p/dddx-monorepo-80017f` captures.
+- Composition: one dominant content container per frame.
+- Product screenshots: `studio.png`, `design.png`, and `plugins.png` from the live Studio UI.
 
 ## Palette
 | Role | Hex |
@@ -45,7 +47,7 @@ DDDX is a local-first AI design agent that lives in your repo and browser. Tagli
 - Put white Fredoka headlines with charcoal text-shadow on saturated pastel surfaces.
 - Use flat charcoal headlines on cream.
 - Keep all shadows hard, bottom-right, and blur-free.
-- Use both public and localhost screenshots where the story needs product proof.
+- Use real Studio screenshots (`studio.png`, `design.png`, `plugins.png`) for product proof.
 
 ## Don't
 - Do not use the old dark mint SaaS system.

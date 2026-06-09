@@ -1,0 +1,7 @@
+Design where you code. dddx lives in your repo and browser.
+
+Run dddx. Your app starts, Studio opens, and chat meets live preview.
+
+Switch to design mode. Prototype in sandboxes before you ship.
+
+Extend with plugins — themes, templates, and skills. Get started at dddx dot dev.
