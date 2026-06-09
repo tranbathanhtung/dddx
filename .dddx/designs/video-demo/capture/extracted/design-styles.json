@@ -1,0 +1,114 @@
+{
+  "typography": [
+    {
+      "role": "display",
+      "fontFamily": "Geist",
+      "fontSize": "48px",
+      "fontWeight": "500",
+      "lineHeight": "52.8px",
+      "letterSpacing": "-1.44px",
+      "color": "#09090B",
+      "sampleText": "Design where you code"
+    },
+    {
+      "role": "body",
+      "fontFamily": "Geist",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "color": "#71717A",
+      "sampleText": "An AI design agent that lives in your repo and browser. Work"
+    },
+    {
+      "role": "link",
+      "fontFamily": "Geist",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "lineHeight": "20px",
+      "letterSpacing": "normal",
+      "color": "#71717A",
+      "sampleText": "Docs"
+    },
+    {
+      "role": "code",
+      "fontFamily": "Geist Mono",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "lineHeight": "16px",
+      "letterSpacing": "normal",
+      "color": "#09090B",
+      "sampleText": "curl"
+    }
+  ],
+  "spacing": {
+    "observed": [
+      4,
+      6,
+      8,
+      10,
+      12,
+      16,
+      24,
+      28,
+      32
+    ],
+    "baseUnit": 4
+  },
+  "radius": [
+    "4px",
+    "3.35544e+07px"
+  ],
+  "shadows": [],
+  "buttons": [
+    {
+      "label": "Get Started",
+      "background": "#000000",
+      "color": "#FFFFFF",
+      "padding": "0px 16px",
+      "borderRadius": "3.35544e+07px",
+      "border": "1px solid rgba(0, 0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "height": "40px"
+    },
+    {
+      "label": "curl",
+      "background": "#000000",
+      "color": "#09090B",
+      "padding": "8px 12px 10px",
+      "borderRadius": "0px",
+      "border": "",
+      "boxShadow": "none",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "height": "36px"
+    },
+    {
+      "label": "button",
+      "background": "#000000",
+      "color": "#71717A",
+      "padding": "0px",
+      "borderRadius": "8px",
+      "border": "0px none rgb(113, 113, 122)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "32px"
+    }
+  ],
+  "cards": [],
+  "nav": {
+    "label": "navigation",
+    "background": "#000000",
+    "color": "#09090B",
+    "padding": "0px",
+    "borderRadius": "0px",
+    "border": "0px solid rgb(9, 9, 11)",
+    "boxShadow": "none",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "height": "36px"
+  }
+}

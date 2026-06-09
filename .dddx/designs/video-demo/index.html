@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>DDDX - Daisy Days Frame Video</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="./hyper-shader-local.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f5f0e6;
+      }
+
+      body {
+        color: #2d2d2d;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 600;
+      }
+
+      :root {
+        --cream: #f5f0e6;
+        --turquoise: #7ecdc0;
+        --pink: #f7c8d4;
+        --butter: #fde68a;
+        --mint: #a8e6cf;
+        --lavender: #d4a5e8;
+        --peach: #ffcba4;
+        --sky: #a8d8f0;
+        --coral: #f8635f;
+        --dark: #2d2d2d;
+        --muted: #6b6b6b;
+        --white: #ffffff;
+      }
+
+      .scene {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        container-type: size;
+      }
+
+      .surface-turquoise {
+        background: var(--turquoise);
+      }
+
+      .surface-cream {
+        background: var(--cream);
+      }
+
+      .surface-peach {
+        background: var(--peach);
+      }
+
+      .surface-lavender {
+        background: var(--lavender);
+      }
+
+      .frame-pad {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 3cqw;
+      }
+
+      .content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .fredoka {
+        font-family: "Fredoka One", sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      .headline-on-color {
+        color: var(--white);
+        font-family: "Fredoka One", sans-serif;
+        font-size: 6.1cqw;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        line-height: 1.05;
+        text-align: center;
+        text-shadow: 3px 3px 0 var(--dark);
+      }
+
+      .headline-on-cream {
+        color: var(--dark);
+        font-family: "Fredoka One", sans-serif;
+        font-size: 4.35cqw;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        line-height: 1.08;
+        text-align: center;
+      }
+
+      .subcopy {
+        color: var(--dark);
+        font-size: 1.5cqw;
+        font-weight: 600;
+        line-height: 1.45;
+        text-align: center;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.1cqw;
+        padding: 0.45cqw 1.4cqw;
+        border: 3px solid var(--dark);
+        border-radius: 50px;
+        background: var(--butter);
+        box-shadow: 4px 4px 0 var(--dark);
+        color: var(--dark);
+        font-family: "Fredoka One", sans-serif;
+        font-size: 0.95cqw;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+      }
+
+      .counter {
+        position: absolute;
+        right: 3cqw;
+        bottom: 3cqw;
+        z-index: 3;
+      }
+
+      .sticker-card {
+        border: 3px solid var(--dark);
+        border-radius: 28px;
+        background: var(--white);
+        box-shadow: 6px 6px 0 var(--dark);
+      }
+
+      .source-cap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1cqw;
+        min-height: 4.2cqw;
+        padding: 0.9cqw 1.2cqw;
+        border-bottom: 3px solid var(--dark);
+        border-radius: 25px 25px 0 0;
+        color: var(--dark);
+        font-family: "Fredoka One", sans-serif;
+        font-size: 1.25cqw;
+        letter-spacing: 0.02em;
+      }
+
+      .source-cap small {
+        color: var(--dark);
+        font-family: "Quicksand", sans-serif;
+        font-size: 0.84cqw;
+        font-weight: 700;
+      }
+
+      .shot-window {
+        overflow: hidden;
+        background: var(--white);
+      }
+
+      .shot-window img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+      }
+
+      .ornament {
+        position: absolute;
+        z-index: 1;
+        color: var(--dark);
+        pointer-events: none;
+      }
+
+      .daisy {
+        width: 7.2cqw;
+        height: 7.2cqw;
+      }
+
+      .star {
+        width: 4.4cqw;
+        height: 4.4cqw;
+      }
+
+      .sun {
+        width: 6.2cqw;
+        height: 6.2cqw;
+      }
+
+      .cloud {
+        width: 8cqw;
+        height: 4.6cqw;
+      }
+
+      .rainbow {
+        width: 9cqw;
+        height: 5.6cqw;
+      }
+
+      .ornament path,
+      .ornament circle,
+      .ornament line {
+        vector-effect: non-scaling-stroke;
+      }
+
+      #scene-1 .content {
+        display: grid;
+        place-items: center;
+        height: 100%;
+      }
+
+      #scene-1 .cover-stack {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 78cqw;
+        gap: 1.8cqw;
+      }
+
+      #scene-1 .cover-card {
+        display: flex;
+        align-items: center;
+        gap: 1.2cqw;
+        padding: 1.2cqw 1.4cqw;
+      }
+
+      #scene-1 .logo-stamp {
+        width: 4.1cqw;
+        height: 4.1cqw;
+        border: 3px solid var(--dark);
+        border-radius: 50%;
+        background: var(--white);
+        box-shadow: 4px 4px 0 var(--dark);
+        object-fit: contain;
+        padding: 0.45cqw;
+      }
+
+      #scene-1 .cover-note {
+        max-width: 45cqw;
+      }
+
+      #scene-2 .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        gap: 2.2cqw;
+      }
+
+      #scene-2 .comparison-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2cqw;
+      }
+
+      #scene-2 .compare-card {
+        overflow: hidden;
+      }
+
+      #scene-2 .public-cap {
+        background: var(--sky);
+      }
+
+      #scene-2 .local-cap {
+        background: var(--mint);
+      }
+
+      #scene-2 .shot-window {
+        height: 28cqw;
+      }
+
+      #scene-2 .compare-foot {
+        display: flex;
+        align-items: center;
+        gap: 0.75cqw;
+        padding: 1cqw 1.25cqw 1.25cqw;
+        color: var(--muted);
+        font-size: 1cqw;
+        font-weight: 700;
+      }
+
+      .dot {
+        width: 1.05cqw;
+        height: 1.05cqw;
+        flex: 0 0 auto;
+        border: 2px solid var(--dark);
+        border-radius: 50%;
+        background: var(--butter);
+      }
+
+      #scene-3 .content {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: center;
+        height: 100%;
+        gap: 3cqw;
+      }
+
+      #scene-3 .feature-card {
+        overflow: hidden;
+      }
+
+      #scene-3 .feature-cap {
+        background: var(--butter);
+      }
+
+      #scene-3 .feature-shot {
+        height: 34cqw;
+      }
+
+      #scene-3 .step-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 1.35cqw;
+      }
+
+      #scene-3 .step-row {
+        display: grid;
+        grid-template-columns: 4.7cqw 1fr;
+        align-items: center;
+        gap: 1cqw;
+      }
+
+      #scene-3 .step-circle {
+        display: grid;
+        place-items: center;
+        width: 4.7cqw;
+        height: 4.7cqw;
+        border: 3px solid var(--dark);
+        border-radius: 50%;
+        box-shadow: 4px 4px 0 var(--dark);
+        color: var(--white);
+        font-family: "Fredoka One", sans-serif;
+        font-size: 1.7cqw;
+        text-shadow: 2px 2px 0 var(--dark);
+      }
+
+      #scene-3 .step-row:nth-child(1) .step-circle {
+        background: var(--coral);
+      }
+
+      #scene-3 .step-row:nth-child(2) .step-circle {
+        background: var(--mint);
+      }
+
+      #scene-3 .step-row:nth-child(3) .step-circle {
+        background: var(--sky);
+      }
+
+      #scene-3 .step-copy {
+        padding: 1cqw 1.2cqw;
+        border: 3px solid var(--dark);
+        border-radius: 20px;
+        background: var(--white);
+        box-shadow: 4px 4px 0 var(--dark);
+        font-size: 1.18cqw;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      #scene-4 .content {
+        display: grid;
+        place-items: center;
+        height: 100%;
+      }
+
+      #scene-4 .closing-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50cqw;
+        gap: 1.45cqw;
+        padding: 2.1cqw;
+        text-align: center;
+      }
+
+      #scene-4 .closing-logo {
+        display: grid;
+        place-items: center;
+        width: 5.2cqw;
+        height: 5.2cqw;
+        border: 3px solid var(--dark);
+        border-radius: 50%;
+        background: var(--white);
+        box-shadow: 4px 4px 0 var(--dark);
+        color: var(--dark);
+        font-family: "Fredoka One", sans-serif;
+        font-size: 1.75cqw;
+        line-height: 1;
+      }
+
+      #scene-4 .closing-title {
+        color: var(--dark);
+        font-family: "Fredoka One", sans-serif;
+        font-size: 5.15cqw;
+        line-height: 1.08;
+      }
+
+      #scene-4 .closing-sub {
+        max-width: 34cqw;
+        font-size: 1.35cqw;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="16"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div
+        id="scene-1"
+        class="scene surface-turquoise"
+        data-composition-id="scene-1"
+        data-start="0"
+        data-duration="4"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+      >
+        <div class="frame-pad">
+          <svg class="ornament daisy" style="left: -2cqw; top: 3cqw" viewBox="0 0 120 120" fill="none">
+            <circle cx="60" cy="60" r="16" fill="#FDE68A" stroke="#2D2D2D" stroke-width="3" />
+            <circle cx="60" cy="24" r="18" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
+            <circle cx="96" cy="60" r="18" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
+            <circle cx="60" cy="96" r="18" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
+            <circle cx="24" cy="60" r="18" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
+          </svg>
+          <svg class="ornament star" style="right: 8cqw; top: 7cqw; transform: rotate(12deg)" viewBox="0 0 80 80" fill="none">
+            <path d="M40 6 49 30 74 31 54 47 61 72 40 58 19 72 26 47 6 31 31 30Z" fill="#FDE68A" stroke="#2D2D2D" stroke-width="3" />
+          </svg>
+          <svg class="ornament cloud" style="right: -2cqw; bottom: 13cqw" viewBox="0 0 150 82" fill="none">
+            <path d="M38 67H118C135 67 144 56 141 43 139 30 126 24 113 28 107 13 93 7 77 12 64 16 56 27 54 39 39 34 25 42 23 56 22 62 28 67 38 67Z" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
+          </svg>
+          <svg class="ornament sun" style="left: 9cqw; bottom: 7cqw" viewBox="0 0 110 110" fill="none">
+            <circle cx="55" cy="55" r="27" fill="#FFCBA4" stroke="#2D2D2D" stroke-width="3" />
+            <path d="M55 5V22M55 88V105M5 55H22M88 55H105M19 19 31 31M79 79 91 91M91 19 79 31M31 79 19 91" stroke="#2D2D2D" stroke-width="3" stroke-linecap="round" />
+          </svg>
+          <div class="content">
+            <div class="cover-stack">
+              <div class="badge">video / frame layer</div>
+              <h1 class="headline-on-color">Design where you code</h1>
+              <div class="sticker-card cover-card">
+                <img class="logo-stamp" src="./assets/logo.svg" alt="DDDX logo" crossorigin="anonymous" />
+                <p class="subcopy cover-note">Now framed as Daisy Days: pastel garden surfaces, charcoal sticker outlines, and real source captures from public plus local DDDX.</p>
+              </div>
+            </div>
+          </div>
+          <div class="badge counter">01 / 04</div>
+        </div>
+      </div>
+
+      <div
+        id="scene-2"
+        class="scene surface-cream"
+        data-composition-id="scene-2"
+        data-start="4"
+        data-duration="4.5"
+        data-track-index="2"
+        data-width="1920"
+        data-height="1080"
+      >
+        <div class="frame-pad">
+          <svg class="ornament rainbow" style="left: -1cqw; top: 4cqw" viewBox="0 0 180 105" fill="none">
+            <path d="M20 92C20 52 51 20 90 20S160 52 160 92" stroke="#F8635F" stroke-width="14" stroke-linecap="round" />
+            <path d="M43 92C43 65 64 43 90 43S137 65 137 92" stroke="#FDE68A" stroke-width="14" stroke-linecap="round" />
+            <path d="M66 92C66 78 77 66 90 66S114 78 114 92" stroke="#7ECDC0" stroke-width="14" stroke-linecap="round" />
+            <path d="M20 92C20 52 51 20 90 20S160 52 160 92" stroke="#2D2D2D" stroke-width="3" stroke-linecap="round" />
+          </svg>
+          <svg class="ornament daisy" style="right: -2cqw; bottom: 4cqw" viewBox="0 0 120 120" fill="none">
+            <circle cx="60" cy="60" r="16" fill="#FDE68A" stroke="#2D2D2D" stroke-width="3" />
+            <circle cx="60" cy="24" r="18" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
+            <circle cx="96" cy="60" r="18" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
+            <circle cx="60" cy="96" r="18" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
+            <circle cx="24" cy="60" r="18" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
+          </svg>
+          <div class="content">
+            <h2 class="headline-on-cream">Two sources, one repo-native story</h2>
+            <div class="comparison-grid">
+              <article class="sticker-card compare-card">
+                <div class="source-cap public-cap">
+                  <span>Public site</span>
+                  <small>https://www.dddx.dev</small>
+                </div>
+                <div class="shot-window" data-layout-allow-overflow>
+                  <img src="./assets/site-desktop.png" alt="Public DDDX website screenshot" crossorigin="anonymous" />
+                </div>
+                <div class="compare-foot"><span class="dot"></span> Original marketing surface, captured before the redesign.</div>
+              </article>
+              <article class="sticker-card compare-card">
+                <div class="source-cap local-cap">
+                  <span>Local project</span>
+                  <small>localhost:4723 / p / dddx-monorepo</small>
+                </div>
+                <div class="shot-window" data-layout-allow-overflow>
+                  <img src="./assets/local-desktop.png" alt="Local DDDX project screenshot" crossorigin="anonymous" />
+                </div>
+                <div class="compare-foot"><span class="dot"></span> Fresh local capture from the project URL you provided.</div>
+              </article>
+            </div>
+          </div>
+          <div class="badge counter">02 / 04</div>
+        </div>
+      </div>
+
+      <div
+        id="scene-3"
+        class="scene surface-peach"
+        data-composition-id="scene-3"
+        data-start="8.5"
+        data-duration="4.5"
+        data-track-index="3"
+        data-width="1920"
+        data-height="1080"
+      >
+        <div class="frame-pad">
+          <svg class="ornament cloud" style="left: 5cqw; top: 6cqw" viewBox="0 0 150 82" fill="none">
+            <path d="M38 67H118C135 67 144 56 141 43 139 30 126 24 113 28 107 13 93 7 77 12 64 16 56 27 54 39 39 34 25 42 23 56 22 62 28 67 38 67Z" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
+          </svg>
+          <svg class="ornament star" style="right: 7cqw; top: 7cqw" viewBox="0 0 80 80" fill="none">
+            <path d="M40 6 49 30 74 31 54 47 61 72 40 58 19 72 26 47 6 31 31 30Z" fill="#FDE68A" stroke="#2D2D2D" stroke-width="3" />
+          </svg>
+          <svg class="ornament sun" style="right: -1cqw; bottom: 5cqw" viewBox="0 0 110 110" fill="none">
+            <circle cx="55" cy="55" r="27" fill="#A8D8F0" stroke="#2D2D2D" stroke-width="3" />
+            <path d="M55 5V22M55 88V105M5 55H22M88 55H105M19 19 31 31M79 79 91 91M91 19 79 31M31 79 19 91" stroke="#2D2D2D" stroke-width="3" stroke-linecap="round" />
+          </svg>
+          <div class="content">
+            <article class="sticker-card feature-card">
+              <div class="source-cap feature-cap">
+                <span>Local canvas proof</span>
+                <small>tablet capture</small>
+              </div>
+              <div class="shot-window feature-shot" data-layout-allow-overflow>
+                <img src="./assets/local-tablet.png" alt="Local DDDX canvas screenshot" crossorigin="anonymous" />
+              </div>
+            </article>
+            <div class="step-stack">
+              <h2 class="headline-on-color" style="font-size: 4.35cqw; text-align: left">From website to hyperframes</h2>
+              <div class="step-row">
+                <div class="step-circle">1</div>
+                <div class="step-copy">Capture the public site for brand and message context.</div>
+              </div>
+              <div class="step-row">
+                <div class="step-circle">2</div>
+                <div class="step-copy">Capture localhost so the video reflects the active project, not only production.</div>
+              </div>
+              <div class="step-row">
+                <div class="step-circle">3</div>
+                <div class="step-copy">Wrap both in Daisy Days frames: thick outlines, hard shadows, pastel ornaments.</div>
+              </div>
+            </div>
+          </div>
+          <div class="badge counter">03 / 04</div>
+        </div>
+      </div>
+
+      <div
+        id="scene-4"
+        class="scene surface-lavender"
+        data-composition-id="scene-4"
+        data-start="13"
+        data-duration="3"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      >
+        <div class="frame-pad">
+          <svg class="ornament daisy" style="left: -2cqw; top: 4cqw" viewBox="0 0 120 120" fill="none">
+            <circle cx="60" cy="60" r="16" fill="#FDE68A" stroke="#2D2D2D" stroke-width="3" />
+            <circle cx="60" cy="24" r="18" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
+            <circle cx="96" cy="60" r="18" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
+            <circle cx="60" cy="96" r="18" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
+            <circle cx="24" cy="60" r="18" fill="#FFFFFF" stroke="#2D2D2D" stroke-width="3" />
+          </svg>
+          <svg class="ornament star" style="right: 9cqw; top: 8cqw" viewBox="0 0 80 80" fill="none">
+            <path d="M40 6 49 30 74 31 54 47 61 72 40 58 19 72 26 47 6 31 31 30Z" fill="#FFCBA4" stroke="#2D2D2D" stroke-width="3" />
+          </svg>
+          <svg class="ornament rainbow" style="right: -1cqw; bottom: 7cqw" viewBox="0 0 180 105" fill="none">
+            <path d="M20 92C20 52 51 20 90 20S160 52 160 92" stroke="#F8635F" stroke-width="14" stroke-linecap="round" />
+            <path d="M43 92C43 65 64 43 90 43S137 65 137 92" stroke="#FDE68A" stroke-width="14" stroke-linecap="round" />
+            <path d="M66 92C66 78 77 66 90 66S114 78 114 92" stroke="#7ECDC0" stroke-width="14" stroke-linecap="round" />
+            <path d="M20 92C20 52 51 20 90 20S160 52 160 92" stroke="#2D2D2D" stroke-width="3" stroke-linecap="round" />
+          </svg>
+          <div class="content">
+            <div class="sticker-card closing-card">
+              <div class="closing-logo" aria-label="DDDX">D3</div>
+              <div class="badge">Daisy Days frame system</div>
+              <h2 class="closing-title">Public plus local, ready for video.</h2>
+              <p class="closing-sub">The prototype now uses the requested localhost capture and the new cheerful frame language.</p>
+            </div>
+          </div>
+          <div class="badge counter">04 / 04</div>
+        </div>
+      </div>
+
+      <div
+        id="s-end"
+        class="scene surface-lavender"
+        data-composition-id="s-end"
+        data-start="15.95"
+        data-duration="0.05"
+        data-track-index="5"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+
+      var tl = HyperShader.init({
+        bgColor: "#F5F0E6",
+        accentColor: "#F8635F",
+        scenes: ["scene-1", "scene-2", "scene-3", "scene-4", "s-end"],
+        transitions: [
+          { time: 4.0, shader: "flash-through-white", duration: 0.25, ease: "power2.inOut" },
+          { time: 8.5, shader: "chromatic-split", duration: 0.35, ease: "power2.inOut" },
+          { time: 13.0, shader: "flash-through-white", duration: 0.25, ease: "power2.inOut" },
+          { time: 15.95, duration: 0.05 },
+        ],
+      });
+
+      tl.from("#scene-1 .ornament", { scale: 0.65, rotation: -10, opacity: 0, duration: 0.7, stagger: 0.08, ease: "back.out(1.8)" }, 0.15);
+      tl.from("#scene-1 .badge", { y: -24, opacity: 0, duration: 0.55, ease: "back.out(1.5)" }, 0.25);
+      tl.from("#scene-1 h1", { scale: 0.88, opacity: 0, duration: 0.75, ease: "back.out(1.4)" }, 0.55);
+      tl.from("#scene-1 .cover-card", { y: 38, opacity: 0, duration: 0.7, ease: "power3.out" }, 1.1);
+
+      tl.from("#scene-2 .ornament", { scale: 0.65, opacity: 0, duration: 0.55, stagger: 0.08, ease: "back.out(1.7)" }, 4.2);
+      tl.from("#scene-2 h2", { y: 30, opacity: 0, duration: 0.55, ease: "power3.out" }, 4.35);
+      tl.from("#scene-2 .compare-card", { y: 60, rotation: -1.5, opacity: 0, duration: 0.75, stagger: 0.18, ease: "back.out(1.15)" }, 4.75);
+      tl.fromTo("#scene-2 .shot-window img", { y: 0 }, { y: -36, duration: 2.5, ease: "none" }, 5.55);
+
+      tl.from("#scene-3 .ornament", { scale: 0.65, opacity: 0, duration: 0.55, stagger: 0.08, ease: "back.out(1.7)" }, 8.72);
+      tl.from("#scene-3 .feature-card", { x: -70, opacity: 0, duration: 0.75, ease: "back.out(1.1)" }, 8.85);
+      tl.from("#scene-3 h2", { y: 28, opacity: 0, duration: 0.55, ease: "power3.out" }, 9.05);
+      tl.from("#scene-3 .step-row", { x: 54, opacity: 0, duration: 0.55, stagger: 0.16, ease: "back.out(1.25)" }, 9.45);
+      tl.fromTo("#scene-3 .feature-shot img", { y: 0 }, { y: -44, duration: 2.2, ease: "none" }, 9.8);
+
+      tl.from("#scene-4 .ornament", { scale: 0.6, rotation: 10, opacity: 0, duration: 0.65, stagger: 0.1, ease: "back.out(1.7)" }, 13.15);
+      tl.from("#scene-4 .closing-card", { scale: 0.86, rotation: -1.2, opacity: 0, duration: 0.8, ease: "back.out(1.2)" }, 13.25);
+      tl.from("#scene-4 .closing-logo", { scale: 0.55, rotation: -14, duration: 0.5, ease: "back.out(2)" }, 13.55);
+      tl.from("#scene-4 .closing-title", { y: 30, opacity: 0, duration: 0.55, ease: "power3.out" }, 13.75);
+      tl.to("#scene-4 .content", { opacity: 0, duration: 0.35, ease: "power2.in" }, 15.55);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

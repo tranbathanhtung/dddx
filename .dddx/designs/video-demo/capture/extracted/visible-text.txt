@@ -1,0 +1,25 @@
+[h1] Design where you
+[em] code
+[p] An AI design agent that lives in your repo and browser. Works with your favorite coding agent — Open-source Claude Design/Google Stitch.
+[button] Get Started
+[a] Documentation
+[button] curl
+[button] npm
+[button] bun
+[button] pnpm
+[code] curl -fsSL https://dddx.dev/install | bash
+[span] Works with
+[span] Cursor
+[span] Claude Code
+[span] OpenCode
+[span] Codex
+[span] v24.0.0
+[span] ~/Projects/my-app
+[span] main
+[span] npm run dev
+[span] dddx
+[span] Studio ready at
+[span] localhost:4723
+[p] Run
+[code] dddx
+[p] in your project to turn it into a design studio.

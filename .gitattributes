@@ -1,0 +1,9 @@
+# GitHub Linguist overrides
+# Docs: https://github.com/github-linguist/linguist/blob/master/docs/overrides.md
+
+# Template assets in plugins — these are data files, not source code
+packages/plugins-official/**/templates/**  linguist-vendored
+packages/plugins-official/**/test-corpus/** linguist-vendored
+
+# Design mockups / prototypes — not part of the application source
+.dddx/**  linguist-documentation

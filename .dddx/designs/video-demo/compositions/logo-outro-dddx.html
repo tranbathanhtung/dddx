@@ -1,0 +1,112 @@
+<template id="logo-outro-dddx-template">
+  <div data-composition-id="logo-outro-dddx" data-width="640" data-height="360">
+    <div class="outro-card">
+      <div class="logo-mark">
+        <svg viewBox="0 0 466.73 532.09" width="48" height="55" aria-hidden="true">
+          <path
+            fill="#6cf3c0"
+            d="M457.43,125.94L244.42,2.96c-6.84-3.95-15.28-3.95-22.12,0L9.3,125.94c-5.75,3.32-9.3,9.46-9.3,16.11v247.99c0,6.65,3.55,12.79,9.3,16.11l213.01,122.98c6.84,3.95,15.28,3.95,22.12,0l213.01-122.98c5.75-3.32,9.3-9.46,9.3-16.11v-247.99c0-6.65-3.55-12.79-9.3-16.11h-.01ZM444.05,151.99l-205.63,356.16c-1.39,2.4-5.06,1.42-5.06-1.36v-233.21c0-4.66-2.49-8.97-6.53-11.31L24.87,145.67c-2.4-1.39-1.42-5.06,1.36-5.06h411.26c5.84,0,9.49,6.33,6.57,11.39h-.01Z"
+          />
+        </svg>
+      </div>
+      <div class="copy">
+        <p class="brand">dddx</p>
+        <p class="tagline">Design where you code</p>
+      </div>
+      <div class="url-pill">dddx.dev</div>
+    </div>
+
+    <style>
+      [data-composition-id="logo-outro-dddx"] {
+        width: 640px;
+        height: 360px;
+        position: relative;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+      }
+
+      [data-composition-id="logo-outro-dddx"] .outro-card {
+        width: 100%;
+        height: 100%;
+        padding: 28px 32px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 14px;
+        background-color: rgba(10, 12, 18, 0.88);
+        border: 1px solid rgba(108, 243, 192, 0.28);
+        border-radius: 20px 0 0 0;
+      }
+
+      [data-composition-id="logo-outro-dddx"] .logo-mark {
+        opacity: 0;
+      }
+
+      [data-composition-id="logo-outro-dddx"] .brand {
+        font-family: "Inter", sans-serif;
+        font-size: 42px;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        color: #f5f7fa;
+        margin: 0;
+        opacity: 0;
+      }
+
+      [data-composition-id="logo-outro-dddx"] .tagline {
+        font-size: 20px;
+        color: #8b93a7;
+        margin: 0;
+        opacity: 0;
+      }
+
+      [data-composition-id="logo-outro-dddx"] .url-pill {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 16px;
+        color: #6cf3c0;
+        background: rgba(22, 25, 34, 0.95);
+        border: 1px solid rgba(108, 243, 192, 0.35);
+        border-radius: 999px;
+        padding: 8px 16px;
+        opacity: 0;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(
+        ".logo-mark",
+        { scale: 0.7, opacity: 0, rotate: -12 },
+        { scale: 1, opacity: 1, rotate: 0, duration: 0.55, ease: "back.out(2)" },
+        0.05,
+      );
+
+      tl.fromTo(
+        ".brand",
+        { x: 20, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
+        0.15,
+      );
+
+      tl.fromTo(
+        ".tagline",
+        { y: 12, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" },
+        0.28,
+      );
+
+      tl.fromTo(
+        ".url-pill",
+        { y: 10, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.38, ease: "expo.out" },
+        0.42,
+      );
+
+      window.__timelines["logo-outro-dddx"] = tl;
+    </script>
+  </div>
+</template>

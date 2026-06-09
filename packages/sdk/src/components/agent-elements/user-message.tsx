@@ -1,6 +1,6 @@
 import { memo, useState } from "react";
 import type { UIMessage } from "ai";
-import { motion, useReducedMotion } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { cn } from "./utils/cn";
 import { FileAttachment } from "./input/file-attachment";
 import { ImageLightbox } from "./image-lightbox";
@@ -8,6 +8,8 @@ import {
   isSystemReminderOnlyPart,
   stripStudioInjectionsFromText,
 } from "@/lib/message-context";
+
+const COLLAPSE_THRESHOLD = 300;
 
 export type UserMessageProps = {
   message: UIMessage;
@@ -92,12 +94,78 @@ function getFileFromPart(part: unknown) {
   };
 }
 
+type CollapsibleTextProps = {
+  text: string;
+  isExpanded: boolean;
+  onToggle: () => void;
+  prefersReducedMotion: boolean;
+};
+
+function CollapsibleText({
+  text,
+  isExpanded,
+  onToggle,
+  prefersReducedMotion,
+}: CollapsibleTextProps) {
+  const isLong = text.length > COLLAPSE_THRESHOLD;
+  const displayText =
+    isLong && !isExpanded ? text.slice(0, COLLAPSE_THRESHOLD) : text;
+
+  const bubbleClass =
+    "px-3.5 py-1.5 text-sm transition-colors rounded-an-message bg-an-user-message-bg text-an-user-message-text";
+
+  const content = (
+    <>
+      <p className="leading-5 whitespace-pre-wrap wrap-break-word">
+        {displayText}
+        {isLong && !isExpanded && (
+          <span className="opacity-50">…</span>
+        )}
+      </p>
+      {isLong && (
+        <button
+          type="button"
+          onClick={onToggle}
+          className="mt-1.5 text-xs font-medium opacity-60 hover:opacity-100 transition-opacity cursor-pointer bg-transparent border-0 p-0 text-inherit"
+        >
+          {isExpanded ? "Show less" : `Show more · ${text.length.toLocaleString()} chars`}
+        </button>
+      )}
+    </>
+  );
+
+  if (prefersReducedMotion) {
+    return <div className={bubbleClass}>{content}</div>;
+  }
+
+  return (
+    <motion.div
+      className={bubbleClass}
+      style={{ WebkitTapHighlightColor: "transparent" }}
+      whileTap={{ scale: 0.97 }}
+    >
+      <AnimatePresence initial={false} mode="wait">
+        <motion.div
+          key={isExpanded ? "expanded" : "collapsed"}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15 }}
+        >
+          {content}
+        </motion.div>
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
 export const UserMessage = memo(function UserMessage({
   message,
   className,
   enableImagePreview = true,
 }: UserMessageProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
   const images: string[] = [];
@@ -194,23 +262,12 @@ export const UserMessage = memo(function UserMessage({
       )}
       {text && (
         <div className="max-w-[calc(95%-40px)] ms-[70px]">
-          {prefersReducedMotion ? (
-            <div className="px-3.5 py-1.5 text-sm transition-colors rounded-an-message bg-an-user-message-bg text-an-user-message-text">
-              <p className="leading-5 whitespace-pre-wrap wrap-break-word">
-                {text}
-              </p>
-            </div>
-          ) : (
-            <motion.div
-              className="px-3.5 py-1.5 text-sm transition-colors rounded-an-message bg-an-user-message-bg text-an-user-message-text"
-              style={{ WebkitTapHighlightColor: "transparent" }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <p className="leading-5 whitespace-pre-wrap wrap-break-word">
-                {text}
-              </p>
-            </motion.div>
-          )}
+          <CollapsibleText
+            text={text}
+            isExpanded={isExpanded}
+            onToggle={() => setIsExpanded((prev) => !prev)}
+            prefersReducedMotion={!!prefersReducedMotion}
+          />
         </div>
       )}
     </div>

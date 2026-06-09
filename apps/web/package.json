@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "publish": "vercel deploy --prod"
+    "lint": "eslint"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

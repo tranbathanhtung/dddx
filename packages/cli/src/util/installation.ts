@@ -137,6 +137,75 @@ export namespace Installation {
     return `${origin.replace(/\/$/, "")}/install`;
   }
 
+  export async function uninstall(method: Method) {
+    if (method === "curl") {
+      await uninstallCurl();
+    } else {
+      const command = (() => {
+        switch (method) {
+          case "npm":
+            return "npm uninstall -g @dddx/cli";
+          case "pnpm":
+            return "pnpm remove -g @dddx/cli";
+          case "bun":
+            return "bun remove -g @dddx/cli";
+          case "yarn":
+            return "yarn global remove @dddx/cli";
+          case "brew":
+            return "brew uninstall @dddx/cli";
+          default:
+            throw new Error(`Unknown installation method: ${method}`);
+        }
+      })();
+
+      const result = await runCommand(command);
+      if (result.exitCode !== 0) {
+        throw new Error(result.stderr || `Command failed: ${command}`);
+      }
+    }
+
+    await removeGlobalFolder();
+  }
+
+  async function uninstallCurl() {
+    const { rm } = await import("node:fs/promises");
+    const os = await import("node:os");
+    const home = os.homedir();
+
+    const candidates = [
+      path.join(home, ".dddx", "bin", "dddx"),
+      path.join(home, ".local", "bin", "dddx"),
+    ];
+
+    let removed = false;
+    for (const candidate of candidates) {
+      try {
+        await rm(candidate, { force: true });
+        removed = true;
+      } catch {
+        // file may not exist at this path
+      }
+    }
+
+    if (!removed) {
+      throw new Error(
+        "Could not find the dddx binary to remove. You may need to delete it manually.",
+      );
+    }
+  }
+
+  export async function removeGlobalFolder(): Promise<boolean> {
+    const { rm } = await import("node:fs/promises");
+    const os = await import("node:os");
+    const globalDir = path.join(os.homedir(), ".dddx");
+    try {
+      await rm(globalDir, { recursive: true, force: true });
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
   export async function upgrade(method: Method, target: string) {
     if (method === "curl") {
       await upgradeCurl(target);
