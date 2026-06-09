@@ -55,8 +55,6 @@ type SpawnLock = {
 export type StudioHandle = {
   port: number;
   url: string;
-  /** True when this project had no live CLI attachment in studio.json yet. */
-  firstProjectAttach: boolean;
   close: () => Promise<void>;
 };
 
@@ -589,8 +587,7 @@ export async function attachStudioServer(
   const cliPid = process.pid;
 
   const { registry: initial, spawned } = await ensureWorker(port);
-  const firstProjectAttach =
-    countProjectAttachments(initial.attachments, resolved) === 0;
+
   let registry = addAttachment(initial, resolved, cliPid);
   await writeRegistry(registry);
 
@@ -600,7 +597,6 @@ export async function attachStudioServer(
     port,
     projectDir: resolved,
     cliPid,
-    firstProjectAttach,
   });
 
   const releaseSession = holdStudioSession(
@@ -618,7 +614,7 @@ export async function attachStudioServer(
     return closing;
   };
 
-  return { port, url, firstProjectAttach, close };
+  return { port, url, close };
 }
 
 /** Keep an open attach lease so the worker knows this CLI is alive. */

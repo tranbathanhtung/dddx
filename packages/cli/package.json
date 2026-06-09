@@ -1,6 +1,6 @@
 {
   "name": "@dddx/cli",
-  "version": "0.1.24",
+  "version": "0.1.25",
   "module": "index.ts",
   "type": "module",
   "private": false,

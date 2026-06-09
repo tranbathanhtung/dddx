@@ -234,11 +234,7 @@ export async function runDev(options: DevOptions): Promise<DevHandle> {
   const studioPort = resolveStudioPort();
   const runtimes = await startAppRuntimes(discovery.apps);
   const syncPreviewTargets = () =>
-    registerPreviewTargets(
-      studioPort,
-      projectDir,
-      toPreviewTargets(runtimes),
-    );
+    registerPreviewTargets(studioPort, projectDir, toPreviewTargets(runtimes));
   const studio = await startStudioServer({
     port: studioPort,
     onBeforeAttach: syncPreviewTargets,
@@ -344,7 +340,7 @@ export async function runDev(options: DevOptions): Promise<DevHandle> {
     console.log("");
   }
 
-  if (shouldAutoOpenBrowser(options) && studio.firstProjectAttach) {
+  if (shouldAutoOpenBrowser(options)) {
     openInBrowser(studio.url);
     console.log(chalk.dim("  Opened Studio in your browser\n"));
   }
