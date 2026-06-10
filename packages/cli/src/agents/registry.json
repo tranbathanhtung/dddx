@@ -46,6 +46,11 @@
           "description": null
         },
         {
+          "modelId": "claude-fable-5[thinking=true,context=300k,effort=high]",
+          "name": "claude-fable-5",
+          "description": null
+        },
+        {
           "modelId": "claude-opus-4-8[thinking=true,context=300k,effort=high,fast=false]",
           "name": "claude-opus-4-8",
           "description": null
@@ -562,6 +567,11 @@
           "description": null
         },
         {
+          "modelId": "anthropic/claude-fable-5",
+          "name": "Anthropic/Claude Fable 5",
+          "description": null
+        },
+        {
           "modelId": "deepseek/deepseek-v4-pro",
           "name": "DeepSeek/DeepSeek V4 Pro",
           "description": null
@@ -597,11 +607,6 @@
           "description": null
         },
         {
-          "modelId": "github-copilot/gpt-5.5-fast",
-          "name": "GitHub Copilot/GPT-5.5 Fast",
-          "description": null
-        },
-        {
           "modelId": "github-copilot/gpt-5.5",
           "name": "GitHub Copilot/GPT-5.5",
           "description": null
@@ -612,18 +617,8 @@
           "description": null
         },
         {
-          "modelId": "github-copilot/gpt-5.4-mini-fast",
-          "name": "GitHub Copilot/GPT-5.4 mini Fast",
-          "description": null
-        },
-        {
           "modelId": "github-copilot/gpt-5.4-mini",
           "name": "GitHub Copilot/GPT-5.4 mini",
-          "description": null
-        },
-        {
-          "modelId": "github-copilot/gpt-5.4-fast",
-          "name": "GitHub Copilot/GPT-5.4 Fast",
           "description": null
         },
         {
@@ -719,6 +714,11 @@
         {
           "modelId": "github-copilot/claude-haiku-4.5",
           "name": "GitHub Copilot/Claude Haiku 4.5 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "google/gemini-3-pro-image-preview",
+          "name": "Google/Nano Banana Pro",
           "description": null
         },
         {
@@ -1287,13 +1287,13 @@
           "description": null
         },
         {
-          "modelId": "opencode/nemotron-3-ultra-free",
-          "name": "OpenCode Zen/Nemotron 3 Ultra Free",
+          "modelId": "opencode/north-mini-code-free",
+          "name": "OpenCode Zen/North Mini Code Free",
           "description": null
         },
         {
-          "modelId": "opencode/minimax-m3-free",
-          "name": "OpenCode Zen/MiniMax M3 Free",
+          "modelId": "opencode/nemotron-3-ultra-free",
+          "name": "OpenCode Zen/Nemotron 3 Ultra Free",
           "description": null
         },
         {
@@ -1392,8 +1392,13 @@
           "description": null
         },
         {
+          "modelId": "opencode/claude-fable-5",
+          "name": "OpenCode Zen/Claude Fable 5",
+          "description": null
+        },
+        {
           "modelId": "openrouter/google/gemini-3-pro-image-preview",
-          "name": "OpenRouter/Nano Banana Pro (Gemini 3 Pro Image Preview)",
+          "name": "OpenRouter/Nano Banana Pro",
           "description": null
         },
         {
@@ -1577,13 +1582,13 @@
           "description": null
         },
         {
-          "modelId": "openrouter/openai/gpt-chat-latest",
-          "name": "OpenRouter/GPT Chat Latest",
+          "modelId": "openrouter/~anthropic/claude-fable-latest",
+          "name": "OpenRouter/Claude Fable Latest",
           "description": null
         },
         {
-          "modelId": "openrouter/z-ai/glm-5v-turbo",
-          "name": "OpenRouter/GLM-5V-Turbo",
+          "modelId": "openrouter/openai/gpt-chat-latest",
+          "name": "OpenRouter/GPT Chat Latest",
           "description": null
         },
         {
@@ -1627,11 +1632,6 @@
           "description": null
         },
         {
-          "modelId": "openrouter/z-ai/glm-4.5-air:free",
-          "name": "OpenRouter/GLM 4.5 Air (free)",
-          "description": null
-        },
-        {
           "modelId": "openrouter/z-ai/glm-4.5-air",
           "name": "OpenRouter/GLM-4.5-Air",
           "description": null
@@ -1639,11 +1639,6 @@
         {
           "modelId": "openrouter/z-ai/glm-4.5",
           "name": "OpenRouter/GLM-4.5",
-          "description": null
-        },
-        {
-          "modelId": "openrouter/z-ai/glm-4-32b",
-          "name": "OpenRouter/GLM 4 32B ",
           "description": null
         },
         {
@@ -1762,11 +1757,6 @@
           "description": null
         },
         {
-          "modelId": "openrouter/sao10k/l3-euryale-70b",
-          "name": "OpenRouter/Llama 3 Euryale 70B v2.1",
-          "description": null
-        },
-        {
           "modelId": "openrouter/relace/relace-search",
           "name": "OpenRouter/Relace Search",
           "description": null
@@ -1813,7 +1803,7 @@
         },
         {
           "modelId": "openrouter/qwen/qwen3.6-35b-a3b",
-          "name": "OpenRouter/Qwen3.6 35B A3B",
+          "name": "OpenRouter/Qwen3.6 35B-A3B",
           "description": null
         },
         {
@@ -1843,22 +1833,22 @@
         },
         {
           "modelId": "openrouter/qwen/qwen3.5-397b-a17b",
-          "name": "OpenRouter/Qwen3.5 397B A17B",
+          "name": "OpenRouter/Qwen3.5 397B-A17B",
           "description": null
         },
         {
           "modelId": "openrouter/qwen/qwen3.5-35b-a3b",
-          "name": "OpenRouter/Qwen3.5-35B-A3B",
+          "name": "OpenRouter/Qwen3.5 35B-A3B",
           "description": null
         },
         {
           "modelId": "openrouter/qwen/qwen3.5-27b",
-          "name": "OpenRouter/Qwen3.5-27B",
+          "name": "OpenRouter/Qwen3.5 27B",
           "description": null
         },
         {
           "modelId": "openrouter/qwen/qwen3.5-122b-a10b",
-          "name": "OpenRouter/Qwen3.5-122B-A10B",
+          "name": "OpenRouter/Qwen3.5 122B-A10B",
           "description": null
         },
         {
@@ -1898,7 +1888,7 @@
         },
         {
           "modelId": "openrouter/qwen/qwen3-next-80b-a3b-thinking",
-          "name": "OpenRouter/Qwen3 Next 80B A3B Thinking",
+          "name": "OpenRouter/Qwen3-Next 80B-A3B (Thinking)",
           "description": null
         },
         {
@@ -1908,7 +1898,7 @@
         },
         {
           "modelId": "openrouter/qwen/qwen3-next-80b-a3b-instruct",
-          "name": "OpenRouter/Qwen3 Next 80B A3B Instruct",
+          "name": "OpenRouter/Qwen3-Next 80B-A3B Instruct",
           "description": null
         },
         {
@@ -1943,7 +1933,7 @@
         },
         {
           "modelId": "openrouter/qwen/qwen3-coder-30b-a3b-instruct",
-          "name": "OpenRouter/Qwen3 Coder 30B A3B Instruct",
+          "name": "OpenRouter/Qwen3-Coder 30B-A3B Instruct",
           "description": null
         },
         {
@@ -1988,7 +1978,7 @@
         },
         {
           "modelId": "openrouter/qwen/qwen3-235b-a22b",
-          "name": "OpenRouter/Qwen3 235B A22B",
+          "name": "OpenRouter/Qwen3 235B-A22B",
           "description": null
         },
         {
@@ -2013,7 +2003,7 @@
         },
         {
           "modelId": "openrouter/qwen/qwen-plus",
-          "name": "OpenRouter/Qwen-Plus",
+          "name": "OpenRouter/Qwen Plus",
           "description": null
         },
         {
@@ -2252,11 +2242,6 @@
           "description": null
         },
         {
-          "modelId": "openrouter/openai/gpt-4-1106-preview",
-          "name": "OpenRouter/GPT-4 Turbo (older v1106)",
-          "description": null
-        },
-        {
           "modelId": "openrouter/openai/gpt-4",
           "name": "OpenRouter/GPT-4",
           "description": null
@@ -2288,12 +2273,27 @@
         },
         {
           "modelId": "openrouter/nvidia/nemotron-nano-9b-v2",
-          "name": "OpenRouter/Nemotron Nano 9B V2",
+          "name": "OpenRouter/Nemotron Nano 9B v2",
           "description": null
         },
         {
           "modelId": "openrouter/nvidia/nemotron-nano-12b-v2-vl:free",
           "name": "OpenRouter/Nemotron Nano 12B 2 VL (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nvidia/nemotron-3.5-content-safety:free",
+          "name": "OpenRouter/Nemotron 3.5 Content Safety (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
+          "name": "OpenRouter/Nemotron 3 Ultra (free)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/nvidia/nemotron-3-ultra-550b-a55b",
+          "name": "OpenRouter/Nemotron 3 Ultra 550B A55B",
           "description": null
         },
         {
@@ -2303,7 +2303,7 @@
         },
         {
           "modelId": "openrouter/nvidia/nemotron-3-super-120b-a12b",
-          "name": "OpenRouter/Nemotron 3 Super",
+          "name": "OpenRouter/Nemotron 3 Super 120B A12B",
           "description": null
         },
         {
@@ -2323,7 +2323,7 @@
         },
         {
           "modelId": "openrouter/nvidia/llama-3.3-nemotron-super-49b-v1.5",
-          "name": "OpenRouter/Llama 3.3 Nemotron Super 49B V1.5",
+          "name": "OpenRouter/Llama 3.3 Nemotron Super 49B v1.5",
           "description": null
         },
         {
@@ -2352,13 +2352,8 @@
           "description": null
         },
         {
-          "modelId": "openrouter/nousresearch/hermes-2-pro-llama-3-8b",
-          "name": "OpenRouter/Hermes 2 Pro - Llama-3 8B",
-          "description": null
-        },
-        {
-          "modelId": "openrouter/nex-agi/deepseek-v3.1-nex-n1",
-          "name": "OpenRouter/DeepSeek V3.1 Nex N1",
+          "modelId": "openrouter/nex-agi/nex-n2-pro:free",
+          "name": "OpenRouter/Nex-N2-Pro (free)",
           "description": null
         },
         {
@@ -2858,7 +2853,7 @@
         },
         {
           "modelId": "openrouter/deepseek/deepseek-r1",
-          "name": "OpenRouter/R1",
+          "name": "OpenRouter/DeepSeek-R1",
           "description": null
         },
         {
@@ -2937,11 +2932,6 @@
           "description": null
         },
         {
-          "modelId": "openrouter/baidu/ernie-4.5-vl-28b-a3b",
-          "name": "OpenRouter/ERNIE 4.5 VL 28B A3B",
-          "description": null
-        },
-        {
           "modelId": "openrouter/arcee-ai/virtuoso-large",
           "name": "OpenRouter/Virtuoso Large",
           "description": null
@@ -2954,16 +2944,6 @@
         {
           "modelId": "openrouter/arcee-ai/trinity-large-thinking",
           "name": "OpenRouter/Trinity Large Thinking",
-          "description": null
-        },
-        {
-          "modelId": "openrouter/arcee-ai/spotlight",
-          "name": "OpenRouter/Spotlight",
-          "description": null
-        },
-        {
-          "modelId": "openrouter/arcee-ai/maestro-reasoning",
-          "name": "OpenRouter/Maestro Reasoning",
           "description": null
         },
         {
@@ -3019,6 +2999,11 @@
         {
           "modelId": "openrouter/anthropic/claude-haiku-4.5",
           "name": "OpenRouter/Claude Haiku 4.5 (latest)",
+          "description": null
+        },
+        {
+          "modelId": "openrouter/anthropic/claude-fable-5",
+          "name": "OpenRouter/Claude Fable 5",
           "description": null
         },
         {
@@ -3102,6 +3087,11 @@
           "description": null
         },
         {
+          "modelId": "togetherai/nvidia/nemotron-3-ultra-550b-a55b",
+          "name": "Together AI/Nemotron 3 Ultra 550B A55B",
+          "description": null
+        },
+        {
           "modelId": "togetherai/moonshotai/Kimi-K2.6",
           "name": "Together AI/Kimi K2.6",
           "description": null
@@ -3138,12 +3128,12 @@
         },
         {
           "modelId": "togetherai/deepseek-ai/DeepSeek-V3",
-          "name": "Together AI/DeepSeek V3",
+          "name": "Together AI/DeepSeek-V3",
           "description": null
         },
         {
           "modelId": "togetherai/deepseek-ai/DeepSeek-R1",
-          "name": "Together AI/DeepSeek R1",
+          "name": "Together AI/DeepSeek-R1",
           "description": null
         },
         {
