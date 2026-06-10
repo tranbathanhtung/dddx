@@ -79,4 +79,13 @@ describe("resolveBusyFramePaths", () => {
   test("case-insensitive html match", () => {
     expect(resolveBusyFramePaths("deck.css", frames)).toEqual(["Deck.html"]);
   });
+
+  test("new html frame before designs query lists it", () => {
+    expect(resolveBusyFramePaths("waitlist.html", [])).toEqual([
+      "waitlist.html",
+    ]);
+    expect(resolveBusyFramePaths("waitlist.html", frames)).toEqual([
+      "waitlist.html",
+    ]);
+  });
 });

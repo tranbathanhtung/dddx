@@ -133,10 +133,14 @@ export function resolveBusyFramePaths(
   changedPath: string,
   framePaths: string[],
 ): string[] {
-  if (!framePaths.length) return [];
-
   const direct = framePathMatch(framePaths, changedPath);
   if (direct) return [direct];
+
+  // Watcher fires before the designs query refetches, so a brand-new HTML
+  // frame is not in `framePaths` yet — still show creating on that path.
+  if (HTML_FRAME.test(changedPath)) return [changedPath];
+
+  if (!framePaths.length) return [];
 
   const paired = pairedHtmlPathForAsset(changedPath);
   if (paired) {

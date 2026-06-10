@@ -20,6 +20,8 @@ export interface UseDesignFileEventsOptions {
   }) => void;
   /** Fired when the agent finishes a write burst (`file.watcher.ended`). */
   onWatcherEnded?: () => void;
+  /** Fired when the studio tears down this project scope (`studio.server.disposed`). */
+  onServerDisposed?: () => void;
   debounceMs?: number;
   /**
    * After `enabled` turns off, keep the SSE connection open this long so
@@ -41,6 +43,7 @@ export function useDesignFileEvents({
   onFilesChanged,
   onFileEvent,
   onWatcherEnded,
+  onServerDisposed,
   debounceMs = 300,
   drainMs = 8_000,
 }: UseDesignFileEventsOptions): boolean {
@@ -53,6 +56,7 @@ export function useDesignFileEvents({
   const onChangeRef = useLatest(onFilesChanged);
   const onFileEventRef = useLatest(onFileEvent);
   const onWatcherEndedRef = useLatest(onWatcherEnded);
+  const onServerDisposedRef = useLatest(onServerDisposed);
 
   useEffect(() => {
     const clearDebounce = () => {
@@ -91,11 +95,22 @@ export function useDesignFileEvents({
       esRef.current = es;
       setConnected(true);
 
+      es.onerror = () => {
+        if (esRef.current !== es) return;
+        setConnected(false);
+      };
+
       es.onmessage = (message) => {
         let data: { type?: string };
         try {
           data = JSON.parse(message.data) as typeof data;
         } catch {
+          return;
+        }
+
+        if (data.type === "studio.server.disposed") {
+          onServerDisposedRef.current?.();
+          finishBurst();
           return;
         }
 

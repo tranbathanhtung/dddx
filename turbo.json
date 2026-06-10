@@ -8,7 +8,8 @@
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
     },
     "web#build": {
-      "dependsOn": ["@dddx/sdk#build"]
+      "dependsOn": ["@dddx/sdk#build"],
+      "outputs": [".next/**", "!.next/cache/**"]
     },
     "dev": {
       "cache": true,
